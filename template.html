@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WoW Forever Macros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E1428; --panel:#161E38; --edge:#3A4468; --gold:#FFD100;
+  --text:#E6E2D6; --muted:#9AA0B8; --accent:#FFD100;
+  --serif:"Marcellus","Palatino Linotype",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",Consolas,"Courier New",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 var(--sans)}
+body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6px;letter-spacing:.01em}
+.lede{color:var(--muted);margin:0 0 22px;max-width:62ch}
+.search{width:100%;padding:12px 14px;background:var(--panel);border:1px solid var(--edge);border-radius:6px;color:var(--text);font:16px var(--sans)}
+.search:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.roster{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 10px}
+.roster button{font:400 17px var(--serif);background:transparent;border:1px solid var(--edge);color:var(--c);padding:8px 14px;border-radius:4px;cursor:pointer}
+.roster button[aria-pressed="true"]{background:var(--c);color:#0E1428;border-color:var(--c)}
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:26px}
+.specs button{font:500 14px var(--sans);background:var(--panel);border:1px solid var(--edge);color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer}
+.specs button[aria-pressed="true"]{color:var(--text);border-color:var(--accent)}
+h2{font:400 26px/1.2 var(--serif);color:var(--accent);margin:34px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--edge)}
+h3{font:600 15px var(--sans);color:var(--gold);margin:22px 0 10px}
+.macro{background:var(--panel);border:1px solid var(--edge);border-left:3px solid var(--accent);border-radius:5px;padding:10px 12px;margin-bottom:8px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.name{font-weight:600}
+.note{color:var(--muted);font-size:14px;margin-top:2px}
+pre{margin:8px 0 0;padding:8px 10px;background:#0A0F1F;border-radius:4px;overflow-x:auto;font:14px/1.5 var(--mono);color:#CFE3FF;white-space:pre}
+.copy{flex:none;font:500 13px var(--sans);background:transparent;border:1px solid var(--edge);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer}
+.copy:hover{border-color:var(--accent)}
+.copy.done{color:#0E1428;background:var(--gold);border-color:var(--gold)}
+.tag{font-size:13px;color:var(--muted);font-weight:400}
+.empty{color:var(--muted);padding:20px 0}
+.patterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px;margin-bottom:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>WoW Forever macros</h1>
+  <p class="lede">Short, TT-aware DPS and mouseover-first support macros. Pick a class, filter by spec, and copy straight into the macro window.</p>
+  <input class="search" id="q" type="search" placeholder="Search every class: spell, macro type or keyword" aria-label="Search macros">
+  <nav class="roster" id="roster" aria-label="Class"></nav>
+  <nav class="specs" id="specs" aria-label="Spec"></nav>
+  <main id="out"></main>
+</div>
+<script>
+const D = __DATA__;
+const ALL = [D.universal, ...D.classes];
+let cls = D.classes[0].name, spec = "All";
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+const byOrder = gs => [...gs].sort((a,b)=>D.order.indexOf(a.type)-D.order.indexOf(b.type));
+
+function macroHTML(m){
+  if(!m.code) return `<div class="macro"><div class="note">${esc(m.note)}</div></div>`;
+  return `<div class="macro"><div class="top"><div><div class="name">${esc(m.name)}</div>${m.note?`<div class="note">${esc(m.note)}</div>`:""}</div>
+  <button class="copy" data-code="${esc(m.code)}">Copy</button></div><pre>${esc(m.code)}</pre></div>`;
+}
+
+function renderRoster(){
+  roster.innerHTML = ALL.map(c=>`<button style="--c:${c.color}" aria-pressed="${c.name===cls}" data-c="${c.name}">${c.name}</button>`).join("");
+}
+function renderSpecs(c){
+  if(c.name==="Universal"){specs.innerHTML="";return;}
+  const opts=["All",...c.sections.map(s=>s.spec)];
+  specs.innerHTML = opts.map(s=>`<button aria-pressed="${s===spec}" data-s="${s}">${s==="Shared"?"Shared (all specs)":s==="All"?"Everything":s}</button>`).join("");
+}
+function render(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  let html = "";
+  if(q){
+    document.documentElement.style.setProperty("--accent","#FFD100");
+    roster.style.opacity=.5; specs.innerHTML="";
+    for(const c of ALL) for(const s of c.sections) for(const g of s.groups){
+      const hits = g.macros.filter(m=>(m.name+" "+m.code+" "+g.type+" "+c.name+" "+s.spec).toLowerCase().includes(q) && m.code);
+      if(hits.length) html += `<h3>${esc(c.name)} · ${esc(s.spec)} <span class="tag">${esc(g.type)}</span></h3>` + hits.map(macroHTML).join("");
+    }
+    out.innerHTML = html || `<p class="empty">No macro matches “${esc(q)}”. Try a spell name like Flash Heal or a type like focus.</p>`;
+    return;
+  }
+  roster.style.opacity=1;
+  const c = ALL.find(x=>x.name===cls);
+  document.documentElement.style.setProperty("--accent", c.color);
+  renderRoster(); renderSpecs(c);
+  if(c.name==="Universal"){
+    html += `<h2>Style patterns</h2><div class="patterns">`+D.patterns.map(p=>macroHTML({name:p.name,code:p.code,note:""})).join("")+`</div>`;
+  }
+  for(const s of c.sections){
+    if(spec!=="All" && s.spec!==spec) continue;
+    html += `<h2>${esc(c.name==="Universal"?"All classes":s.spec==="Shared"?c.name+" — shared by every spec":c.name+" — "+s.spec)}</h2>`;
+    for(const g of byOrder(s.groups)) html += `<h3>${esc(g.type)}</h3>` + g.macros.map(macroHTML).join("");
+  }
+  out.innerHTML = html;
+}
+roster.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cls=b.dataset.c;spec="All";document.getElementById("q").value="";render();});
+specs.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;spec=b.dataset.s;render();});
+document.getElementById("q").addEventListener("input",render);
+out.addEventListener("click",async e=>{
+  const b=e.target.closest(".copy"); if(!b) return;
+  try{await navigator.clipboard.writeText(b.dataset.code);}
+  catch{const t=document.createElement("textarea");t.value=b.dataset.code;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();}
+  b.textContent="Copied";b.classList.add("done");setTimeout(()=>{b.textContent="Copy";b.classList.remove("done")},1200);
+});
+renderRoster(); render();
+</script>
+</body>
+</html>
