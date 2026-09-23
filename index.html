@@ -21,6 +21,7 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
 .wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
 h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6px;letter-spacing:.01em}
 .lede{color:var(--muted);margin:0 0 22px;max-width:62ch}
+.search-bar{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0;margin:0 0 4px}
 .search{width:100%;padding:12px 14px;background:var(--panel);border:1px solid var(--edge);border-radius:6px;color:var(--text);font:16px var(--sans)}
 .search:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .roster{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 10px}
@@ -49,7 +50,9 @@ pre{margin:8px 0 0;padding:8px 10px;background:#0A0F1F;border-radius:4px;overflo
 <div class="wrap">
   <h1>WoW Forever macros</h1>
   <p class="lede">Short, TT-aware DPS and mouseover-first support macros. Pick a class, filter by spec, and copy straight into the macro window.</p>
-  <input class="search" id="q" type="search" placeholder="Search every class: spell, macro type or keyword" aria-label="Search macros">
+  <div class="search-bar">
+    <input class="search" id="q" type="search" placeholder="Search every class: spell, macro type or keyword" aria-label="Search macros">
+  </div>
   <nav class="roster" id="roster" aria-label="Class"></nav>
   <nav class="specs" id="specs" aria-label="Spec"></nav>
   <main id="out"></main>
