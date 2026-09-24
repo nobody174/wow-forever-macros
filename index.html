@@ -40,6 +40,25 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   border-color:#FFE566;box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 0 10px rgba(255,209,0,.5);
 }
 @media (prefers-reduced-motion:reduce){.topbar nav a{transition:none}}
+.mute-btn{
+  flex:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font:600 13px/1 var(--sans);
+  color:var(--gold);
+  background:linear-gradient(180deg,#2A335A 0%,#161E38 55%,#10152C 100%);
+  border:1px solid var(--edge);
+  border-top-color:#4A5688;
+  border-radius:6px;
+  padding:10px 14px;
+  cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 2px 4px rgba(0,0,0,.35);
+  transition:transform .08s ease, box-shadow .08s ease, border-color .08s ease;
+}
+.mute-btn:hover{border-color:var(--gold);transform:translateY(-1px)}
+.mute-btn .icon{font-size:15px;line-height:1}
+
 
 .hero{
   position:relative;
@@ -170,7 +189,13 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
     <a href="addons.html">Addons</a>
     <a href="https://www.zockify.com/forever/talents/" target="_blank" rel="noopener">Talent Calc</a>
   </nav>
+  <button class="mute-btn" id="mute-btn" type="button" aria-pressed="false">
+    <span class="icon" id="mute-icon" aria-hidden="true">&#128264;</span>
+    <span id="mute-label">Unmute</span>
+  </button>
 </div>
+
+<div id="yt-player" style="position:fixed;bottom:0;right:0;width:2px;height:2px;overflow:hidden;opacity:0;pointer-events:none;"></div>
 
 <div class="hero">
   <div class="side-links">
@@ -241,6 +266,45 @@ function tick(){
 renderLocalTime();
 tick();
 setInterval(tick, 1000);
+
+let ytPlayer = null;
+let ytMuted = true;
+const muteBtn = document.getElementById("mute-btn");
+const muteLabel = document.getElementById("mute-label");
+const muteIcon = document.getElementById("mute-icon");
+
+function updateMuteUI(){
+  muteBtn.setAttribute("aria-pressed", String(!ytMuted));
+  muteLabel.textContent = ytMuted ? "Unmute" : "Mute";
+  muteIcon.textContent = ytMuted ? "\u{1F507}" : "\u{1F50A}";
+}
+
+function onYouTubeIframeAPIReady(){
+  ytPlayer = new YT.Player("yt-player", {
+    videoId: "6yP1tcy9a10",
+    playerVars: { autoplay: 1, mute: 1, loop: 1, playlist: "6yP1tcy9a10", controls: 0 },
+    events: {
+      onReady: e => { e.target.playVideo(); updateMuteUI(); }
+    }
+  });
+}
+
+muteBtn.addEventListener("click", () => {
+  if(!ytPlayer || typeof ytPlayer.isMuted !== "function") return;
+  ytMuted = !ytMuted;
+  if(ytMuted){
+    ytPlayer.mute();
+  }else{
+    ytPlayer.unMute();
+    ytPlayer.setVolume(100);
+    ytPlayer.playVideo();
+  }
+  updateMuteUI();
+});
+
+const ytScript = document.createElement("script");
+ytScript.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(ytScript);
 </script>
 </body>
 </html>
