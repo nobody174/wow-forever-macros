@@ -1,7 +1,7 @@
 import json
 from data import *
 
-ORDER = [DPS, HEAL, CLEAN, AUTO, BUFF, PANIC, TARGET, QOL, FOCUS]
+ORDER = [DPS, HEAL, CLEAN, AUTO, BUFF, PANIC, TARGET, QOL, FOCUS, MISC]
 def sort_groups(gs): return sorted(gs, key=lambda g: ORDER.index(g["type"]))
 
 INTRO_RULES = [

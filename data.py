@@ -1,30 +1,30 @@
 # Macro data source for nobody174's WoW Forever cheatsheet.
 # All patterns follow the user's style rules exactly.
 
-def dps(s):   return f"/cast [@targettarget, harm, exists][harm] {s}"
-def heal(s):  return f"/cast [@mouseover, help, exists][help] {s}"
-def util(s):  return f"/cast [@mouseover, exists][exists] {s}"
-def buff(s):  return f"/cast [@mouseover, help, exists][help][@player] {s}"
-def chan(s):  return f"/cast [@targettarget, harm, exists, nochanneling][harm, nochanneling] {s}"
-def foc(s):   return f"/cast [@focus, harm, exists][harm] {s}"
-def plain(s): return f"/cast {s}"
-def me(s):    return f"/cast [@player] {s}"
+def dps(s):   return f"#showtooltip {s}\n/cast [@targettarget, harm, exists][harm] {s}"
+def heal(s):  return f"#showtooltip {s}\n/cast [@mouseover, help, exists][help] {s}"
+def util(s):  return f"#showtooltip {s}\n/cast [@mouseover, exists][exists] {s}"
+def buff(s):  return f"#showtooltip {s}\n/cast [@mouseover, help, exists][help][@player] {s}"
+def chan(s):  return f"#showtooltip {s}\n/cast [@targettarget, harm, exists, nochanneling][harm, nochanneling] {s}"
+def foc(s):   return f"#showtooltip {s}\n/cast [@focus, harm, exists][harm] {s}"
+def plain(s): return f"#showtooltip {s}\n/cast {s}"
+def me(s):    return f"#showtooltip {s}\n/cast [@player] {s}"
 def stance(n, stance_name, spell, tt=True):
     target = "[@targettarget, harm, exists][harm] " if tt else ""
-    return f"/cast [nostance:{n}] {stance_name}; {target}{spell}"
+    return f"#showtooltip {spell}\n/cast [nostance:{n}] {stance_name}; {target}{spell}"
 
-WAND  = "/cast [@targettarget, harm, exists, nochanneling:Shoot] Shoot\n/cast [harm, nochanneling:Shoot] Shoot"
+WAND  = "#showtooltip Shoot\n/cast [@targettarget, harm, exists, nochanneling:Shoot] Shoot\n/cast [harm, nochanneling:Shoot] Shoot"
 MELEE = "/startattack [@targettarget, harm, exists][harm]"
 PETATK = "/petattack [@targettarget, harm, exists][harm]"
 
 def M(name, code, note=""): return {"name": name, "code": code, "note": note}
 def G(kind, macros): return {"type": kind, "macros": macros}
 
-# Macro type labels (the 8 requested categories)
-DPS, HEAL, CLEAN, AUTO, BUFF, PANIC, TARGET, QOL, FOCUS = (
+# Macro type labels (the 8 requested categories, plus Misc / UI)
+DPS, HEAL, CLEAN, AUTO, BUFF, PANIC, TARGET, QOL, FOCUS, MISC = (
     "TT-aware DPS", "Mouseover healing / utility", "Cleanse / dispel",
     "Wand / auto-attack", "Buffs", "Panic / defensive", "Targeting helpers",
-    "Class QoL", "Focus")
+    "Class QoL", "Focus", "Misc / UI")
 
 UNIVERSAL = [
     G(TARGET, [
@@ -43,6 +43,13 @@ UNIVERSAL = [
     G(PANIC, [
         M("Healing potion", "/use Major Healing Potion", "Swap the item name to the potion rank you carry."),
         M("Mana potion", "/use Major Mana Potion", "Swap the item name to the potion rank you carry."),
+    ]),
+    G(MISC, [
+        M("Zoom out more", "/console cameraDistanceMaxZoomFactor 4", "Raises the max camera zoom-out distance beyond the default cap."),
+        M("Hide guild names", "/console UnitNamePlayerGuild 0", "Removes guild tags from nameplates and unit frames."),
+        M("Hide PvP titles", "/console UnitNamePlayerPVPTitle 0", "Removes PvP rank titles from nameplates and unit frames."),
+        M("Mark mouseover/target with skull", "/tm [@mouseover,exists] 8; 8", "Marks your mouseover target with a skull, or your current target if no mouseover."),
+        M("Mark mouseover/target with cross", "/tm [@mouseover,exists] 7; 7", "Same as skull mark, using the cross icon instead."),
     ]),
 ]
 
@@ -69,16 +76,16 @@ CLASSES = [
     G(DPS, [M("Mind Flay (spam-safe)", chan("Mind Flay"), "Won't clip an active channel."),
             M("Vampiric Embrace", dps("Vampiric Embrace")), M("Silence", dps("Silence")),
             M("Devouring Plague", dps("Devouring Plague"), "Racial priest spell.")]),
-    G(BUFF, [M("Shadowform (no cancel)", "/cast [noform] Shadowform", "Won't drop you out of form if pressed again.")]),
+    G(BUFF, [M("Shadowform (no cancel)", "#showtooltip Shadowform\n/cast [noform] Shadowform", "Won't drop you out of form if pressed again.")]),
     G(FOCUS, [M("Silence focus", foc("Silence"))]),
   ]},
   {"spec": "Holy", "groups": [
-    G(HEAL, [M("Inner Focus + Greater Heal", "/cast Inner Focus\n" + heal("Greater Heal")),
+    G(HEAL, [M("Inner Focus + Greater Heal", "#showtooltip Greater Heal\n/cast Inner Focus\n/cast [@mouseover, help, exists][help] Greater Heal"),
              M("Holy Nova", plain("Holy Nova")), M("Lightwell", plain("Lightwell"))]),
   ]},
   {"spec": "Discipline", "groups": [
     G(HEAL, [M("Power Infusion", heal("Power Infusion")),
-             M("Inner Focus + Greater Heal", "/cast Inner Focus\n" + heal("Greater Heal"))]),
+             M("Inner Focus + Greater Heal", "#showtooltip Greater Heal\n/cast Inner Focus\n/cast [@mouseover, help, exists][help] Greater Heal")]),
     G(BUFF, [M("Divine Spirit", buff("Divine Spirit"))]),
   ]},
  ]},
@@ -96,9 +103,9 @@ CLASSES = [
              M("Flametongue Weapon", plain("Flametongue Weapon")), M("Frostbrand Weapon", plain("Frostbrand Weapon")),
              M("Water Walking", buff("Water Walking")), M("Water Breathing", buff("Water Breathing"))]),
     G(PANIC, [M("Self Lesser Healing Wave", me("Lesser Healing Wave")), M("Stoneclaw Totem", plain("Stoneclaw Totem")),
-              M("Grounding Totem", plain("Grounding Totem")), M("Ghost Wolf (no cancel)", "/cast [noform] Ghost Wolf")]),
-    G(QOL, [M("Totems: melee group (press 4x)", "/castsequence reset=combat Strength of Earth Totem, Windfury Totem, Searing Totem, Mana Spring Totem"),
-            M("Totems: caster group (press 4x)", "/castsequence reset=combat Stoneskin Totem, Grace of Air Totem, Searing Totem, Mana Spring Totem", "Swap Grace of Air for Tranquil Air if you prefer."),
+              M("Grounding Totem", plain("Grounding Totem")), M("Ghost Wolf (no cancel)", "#showtooltip Ghost Wolf\n/cast [noform] Ghost Wolf")]),
+    G(QOL, [M("Totems: melee group (press 4x)", "#showtooltip Strength of Earth Totem\n/castsequence reset=combat Strength of Earth Totem, Windfury Totem, Searing Totem, Mana Spring Totem"),
+            M("Totems: caster group (press 4x)", "#showtooltip Stoneskin Totem\n/castsequence reset=combat Stoneskin Totem, Grace of Air Totem, Searing Totem, Mana Spring Totem", "Swap Grace of Air for Tranquil Air if you prefer."),
             M("Tremor Totem", plain("Tremor Totem")), M("Poison Cleansing Totem", plain("Poison Cleansing Totem")),
             M("Disease Cleansing Totem", plain("Disease Cleansing Totem")), M("Earthbind Totem", plain("Earthbind Totem")),
             M("Magma Totem", plain("Magma Totem")), M("Fire Nova Totem", plain("Fire Nova Totem")),
@@ -106,8 +113,8 @@ CLASSES = [
     G(FOCUS, [M("Earth Shock interrupt on focus", foc("Earth Shock")), M("Purge focus", foc("Purge"))]),
   ]},
   {"spec": "Elemental", "groups": [
-    G(DPS, [M("Elemental Mastery + Chain Lightning", "/cast Elemental Mastery\n" + dps("Chain Lightning")),
-            M("Elemental Mastery + Lightning Bolt", "/cast Elemental Mastery\n" + dps("Lightning Bolt"))]),
+    G(DPS, [M("Elemental Mastery + Chain Lightning", "#showtooltip Chain Lightning\n/cast Elemental Mastery\n/cast [@targettarget, harm, exists][harm] Chain Lightning"),
+            M("Elemental Mastery + Lightning Bolt", "#showtooltip Lightning Bolt\n/cast Elemental Mastery\n/cast [@targettarget, harm, exists][harm] Lightning Bolt")]),
   ]},
   {"spec": "Enhancement", "groups": [
     G(DPS, [M("Stormstrike", dps("Stormstrike"), "Also starts auto-attack.")]),
@@ -136,23 +143,23 @@ CLASSES = [
     G(QOL, [M("Seal of Righteousness", plain("Seal of Righteousness")), M("Seal of the Crusader", plain("Seal of the Crusader")),
             M("Seal of Wisdom", plain("Seal of Wisdom")), M("Seal of Light", plain("Seal of Light")),
             M("Seal of Justice", plain("Seal of Justice")),
-            M("Judge + reseal Righteousness loop", "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Righteousness, Judgement", "Press: seal, judge, seal, judge..."),
-            M("Crusader opener, then Righteousness", "/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Righteousness"),
+            M("Judge + reseal Righteousness loop", "#showtooltip Seal of Righteousness\n/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Righteousness, Judgement", "Press: seal, judge, seal, judge..."),
+            M("Crusader opener, then Righteousness", "#showtooltip Seal of the Crusader\n/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Righteousness"),
             M("Divine Intervention", heal("Divine Intervention"))]),
     G(FOCUS, [M("Hammer of Justice focus", foc("Hammer of Justice")), M("Turn Undead focus", foc("Turn Undead"))]),
   ]},
   {"spec": "Retribution", "groups": [
     G(DPS, [M("Repentance", dps("Repentance"))]),
     G(BUFF, [M("Sanctity Aura", plain("Sanctity Aura")), M("Seal of Command", plain("Seal of Command"))]),
-    G(QOL, [M("Crusader opener, then Command", "/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Command"),
-            M("Judge + reseal Command loop", "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Command, Judgement")]),
+    G(QOL, [M("Crusader opener, then Command", "#showtooltip Seal of the Crusader\n/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Command"),
+            M("Judge + reseal Command loop", "#showtooltip Seal of Command\n/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Command, Judgement")]),
     G(FOCUS, [M("Repentance focus", foc("Repentance"))]),
   ]},
   {"spec": "Protection", "groups": [
     G(DPS, [M("Holy Shield", plain("Holy Shield"))]),
     G(BUFF, [M("Righteous Fury", plain("Righteous Fury")), M("Blessing of Kings", buff("Blessing of Kings")),
              M("Blessing of Sanctuary", buff("Blessing of Sanctuary"))]),
-    G(QOL, [M("Judge + reseal Wisdom loop", "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Wisdom, Judgement", "Mana-sustain tanking.")]),
+    G(QOL, [M("Judge + reseal Wisdom loop", "#showtooltip Seal of Wisdom\n/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Wisdom, Judgement", "Mana-sustain tanking.")]),
   ]},
  ]},
 
@@ -186,18 +193,18 @@ CLASSES = [
   ]},
   {"spec": "Affliction", "groups": [
     G(DPS, [M("Siphon Life", dps("Siphon Life")), M("Curse of Exhaustion", dps("Curse of Exhaustion")),
-            M("Amplify Curse + Agony", "/cast Amplify Curse\n" + dps("Curse of Agony")),
-            M("DoT sequence (press to roll dots)", "/castsequence [@targettarget, harm, exists][harm] reset=target Corruption, Curse of Agony, Siphon Life, Immolate")]),
+            M("Amplify Curse + Agony", "#showtooltip Curse of Agony\n/cast Amplify Curse\n/cast [@targettarget, harm, exists][harm] Curse of Agony"),
+            M("DoT sequence (press to roll dots)", "#showtooltip Corruption\n/castsequence [@targettarget, harm, exists][harm] reset=target Corruption, Curse of Agony, Siphon Life, Immolate")]),
     G(PANIC, [M("Dark Pact", plain("Dark Pact"))]),
   ]},
   {"spec": "Demonology", "groups": [
-    G(QOL, [M("Fel Domination + Felhunter", "/cast Fel Domination\n/cast Summon Felhunter"),
-            M("Fel Domination + Voidwalker", "/cast Fel Domination\n/cast Summon Voidwalker"),
+    G(QOL, [M("Fel Domination + Felhunter", "#showtooltip Summon Felhunter\n/cast Fel Domination\n/cast Summon Felhunter"),
+            M("Fel Domination + Voidwalker", "#showtooltip Summon Voidwalker\n/cast Fel Domination\n/cast Summon Voidwalker"),
             M("Soul Link", plain("Soul Link")), M("Demonic Sacrifice", plain("Demonic Sacrifice"))]),
   ]},
   {"spec": "Destruction", "groups": [
     G(DPS, [M("Conflagrate", dps("Conflagrate")), M("Shadowburn", dps("Shadowburn")),
-            M("Immolate > Conflagrate", "/castsequence [@targettarget, harm, exists][harm] reset=target/10 Immolate, Conflagrate")]),
+            M("Immolate > Conflagrate", "#showtooltip Immolate\n/castsequence [@targettarget, harm, exists][harm] reset=target/10 Immolate, Conflagrate")]),
   ]},
  ]},
 
@@ -210,25 +217,25 @@ CLASSES = [
             M("Mongoose Bite", dps("Mongoose Bite")), M("Wing Clip", dps("Wing Clip")),
             M("Distracting Shot", dps("Distracting Shot")),
             M("Tranquilizing Shot (enrage dispel)", dps("Tranquilizing Shot"), "Hunter's only dispel: removes Frenzy from enemies.")]),
-    G(AUTO, [M("Auto Shot (spam-safe)", "/cast [@targettarget, harm, exists][harm] !Auto Shot",
+    G(AUTO, [M("Auto Shot (spam-safe)", "#showtooltip Auto Shot\n/cast [@targettarget, harm, exists][harm] !Auto Shot",
                "Hunter exception: ! stops Auto Shot toggling off. Unlike wand Shoot, it works here."),
              M("Melee auto-attack", MELEE)]),
-    G(BUFF, [M("Aspect: Hawk in combat, Cheetah out", "/cast [combat] Aspect of the Hawk; Aspect of the Cheetah"),
+    G(BUFF, [M("Aspect: Hawk in combat, Cheetah out", "#showtooltip Aspect of the Hawk\n/cast [combat] Aspect of the Hawk; Aspect of the Cheetah"),
              M("Aspect of the Hawk", plain("Aspect of the Hawk")), M("Aspect of the Monkey", plain("Aspect of the Monkey")),
              M("Aspect of the Pack", plain("Aspect of the Pack")), M("Aspect of the Wild", plain("Aspect of the Wild"))]),
     G(PANIC, [M("Feign Death", plain("Feign Death")), M("Disengage", dps("Disengage")),
               M("Freezing Trap", plain("Freezing Trap")), M("Frost Trap", plain("Frost Trap")),
               M("Rapid Fire", plain("Rapid Fire"))]),
     G(QOL, [M("Pet attack TT / target", PETATK), M("Pet follow", "/petfollow"), M("Pet passive", "/petpassive"),
-            M("Call / Revive / Mend (one button)", "/cast [nopet] Call Pet; [@pet, dead] Revive Pet; Mend Pet"),
-            M("Feed Pet", "/cast Feed Pet\n/use Tough Jerky", "Swap food item for your pet's diet."),
+            M("Call / Revive / Mend (one button)", "#showtooltip Mend Pet\n/cast [nopet] Call Pet; [@pet, dead] Revive Pet; Mend Pet"),
+            M("Feed Pet", "#showtooltip Feed Pet\n/cast Feed Pet\n/use Tough Jerky", "Swap food item for your pet's diet."),
             M("Flare", plain("Flare")), M("Explosive Trap", plain("Explosive Trap")),
             M("Immolation Trap", plain("Immolation Trap"))]),
     G(CLEAN, [M("No friendly dispel", "", "Hunters have no friendly cleanse. Use Tranquilizing Shot (TT-aware DPS) instead.")]),
     G(FOCUS, [M("Hunter's Mark focus", foc("Hunter's Mark")), M("Concussive Shot focus", foc("Concussive Shot"))]),
   ]},
   {"spec": "Beast Mastery", "groups": [
-    G(DPS, [M("Bestial Wrath + Rapid Fire burst", "/cast Bestial Wrath\n/cast Rapid Fire"),
+    G(DPS, [M("Bestial Wrath + Rapid Fire burst", "#showtooltip Bestial Wrath\n/cast Bestial Wrath\n/cast Rapid Fire"),
             M("Intimidation", plain("Intimidation"), "Pet's next hit stuns its target.")]),
   ]},
   {"spec": "Marksmanship", "groups": [
@@ -259,13 +266,13 @@ CLASSES = [
               M("Disarm (to Defensive)", stance(2, "Defensive Stance", "Disarm"))]),
     G(QOL, [M("Battle Stance", plain("Battle Stance")), M("Defensive Stance", plain("Defensive Stance")),
             M("Berserker Stance", plain("Berserker Stance")),
-            M("Charge / Intercept (one button)", "/cast [nocombat, nostance:1] Battle Stance; [nocombat, @targettarget, harm, exists][nocombat, harm] Charge; [nostance:3] Berserker Stance; [@targettarget, harm, exists][harm] Intercept",
+            M("Charge / Intercept (one button)", "#showtooltip Charge\n/cast [nocombat, nostance:1] Battle Stance; [nocombat, @targettarget, harm, exists][nocombat, harm] Charge; [nostance:3] Berserker Stance; [@targettarget, harm, exists][harm] Intercept",
               "Out of combat: Charge. In combat: Intercept. Stance swaps cost rage above your Tactical Mastery cap."),
             M("Taunt (to Defensive)", stance(2, "Defensive Stance", "Taunt"), "Target the friend being hit: TT is the mob."),
             M("Mocking Blow (to Battle)", stance(1, "Battle Stance", "Mocking Blow")),
             M("Challenging Shout", plain("Challenging Shout"))]),
     G(CLEAN, [M("No dispel", "", "Warriors have no dispel. Interrupt instead with Pummel or Shield Bash.")]),
-    G(FOCUS, [M("Pummel focus", "/cast [nostance:3] Berserker Stance; [@focus, harm, exists][harm] Pummel"),
+    G(FOCUS, [M("Pummel focus", "#showtooltip Pummel\n/cast [nostance:3] Berserker Stance; [@focus, harm, exists][harm] Pummel"),
               M("Shield Bash focus", foc("Shield Bash")), M("Taunt focus", foc("Taunt"))]),
   ]},
   {"spec": "Fury", "groups": [
