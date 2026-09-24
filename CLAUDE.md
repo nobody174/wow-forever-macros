@@ -20,11 +20,14 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
 - `index.html` — hand-written landing page. Hero background (`assets/hero.webp`),
   title, countdown to the WoW Forever launch, and the visitor's local launch time via
   `Intl.DateTimeFormat`. Countdown target: `2026-11-04T23:00:00Z`. Left-side overlay
-  (`.side-links`) has two link "plaques": Zockify, and a Cozy Sleeping Bag plaque
-  (icon + description + a sub-link to the quest-chain guide). Hand-edit directly.
+  (`.side-links`) has three link "plaques": Zockify, a Cozy Sleeping Bag plaque
+  (icon + description + a sub-link to the quest-chain guide), and Dungeon Loot Tables.
+  Hand-edit directly.
 - `builds.html` — hand-written "coming soon" placeholder page. Hand-edit directly.
-- `addons.html` — hand-written "coming soon" placeholder page for a future addon
-  recommendation list. Hand-edit directly.
+- `addons.html` — hand-written page listing the addons Venom & Trollmann actually run
+  (ForeverPlus, Platynator, Leatrix Maps, Forever Bag Mover — all CurseForge links,
+  verified working) plus a link to wow4ever.quest's addon compatibility tracker.
+  Hand-edit directly.
 - `assets/hero.webp` — landing page hero background (dwarf/gnome group in front of
   Frostforge Pass gate, nameplates "Venom" and "Trollmann" over the two dwarves).
   Generated via local ComfyUI (SDXL base + inpainting), finalized with Pillow

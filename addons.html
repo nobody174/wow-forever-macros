@@ -39,9 +39,21 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   border-color:#FFE566;box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 0 10px rgba(255,209,0,.5);
 }
 @media (prefers-reduced-motion:reduce){.topbar nav a{transition:none}}
-.wrap{max-width:980px;margin:0 auto;padding:80px 20px;text-align:center}
-h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 12px;letter-spacing:.01em}
-p{color:var(--muted);max-width:52ch;margin:0 auto}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 80px}
+h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6px;letter-spacing:.01em}
+.lede{color:var(--muted);margin:0 0 30px;max-width:62ch}
+h2{font:400 22px/1.2 var(--serif);color:var(--accent);margin:34px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--edge)}
+h2:first-of-type{margin-top:0}
+.section-note{color:var(--muted);font-size:14px;margin:4px 0 16px}
+.card{background:var(--panel);border:1px solid var(--edge);border-left:3px solid var(--accent);border-radius:5px;padding:14px 16px;margin-bottom:10px}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.card .name{font-weight:600;font-size:16px}
+.card .name a{color:var(--text);text-decoration:none}
+.card .name a:hover{color:var(--gold);text-decoration:underline}
+.card .note{color:var(--muted);font-size:14px;margin-top:4px}
+.card .visit{flex:none;font:500 13px var(--sans);background:transparent;border:1px solid var(--edge);color:var(--gold);padding:4px 12px;border-radius:4px;text-decoration:none;white-space:nowrap}
+.card .visit:hover{border-color:var(--accent);background:rgba(255,209,0,.08)}
+.card .unlinked{color:var(--muted);font-size:13px;font-style:italic}
 </style>
 </head>
 <body>
@@ -55,8 +67,48 @@ p{color:var(--muted);max-width:52ch;margin:0 auto}
   </nav>
 </div>
 <div class="wrap">
-  <h1>Addons — coming soon</h1>
-  <p>A short list of addons Venom &amp; Trollmann actually use for WoW Forever is on the way. Check back closer to launch.</p>
+  <h1>Addons</h1>
+  <p class="lede">The addons Venom &amp; Trollmann are actually running for WoW Forever right now.</p>
+
+  <h2>What we use</h2>
+  <div class="card">
+    <div class="top">
+      <div class="name"><a href="https://www.curseforge.com/wow/addons/foreverplus" target="_blank" rel="noopener">ForeverPlus</a></div>
+      <a class="visit" href="https://www.curseforge.com/wow/addons/foreverplus" target="_blank" rel="noopener">CurseForge</a>
+    </div>
+    <div class="note">Modular quality-of-life addon — quest automation, auto-sell/repair at merchants, buff tracking, an info bar, and a customizable tooltip system. Everything toggles individually and profiles can be shared between characters.</div>
+  </div>
+  <div class="card">
+    <div class="top">
+      <div class="name"><a href="https://www.curseforge.com/wow/addons/platynator" target="_blank" rel="noopener">Platynator</a></div>
+      <a class="visit" href="https://www.curseforge.com/wow/addons/platynator" target="_blank" rel="noopener">CurseForge</a>
+    </div>
+    <div class="note">Nameplate addon with a visual designer — threat coloring, elite/interruptible-cast indicators, built-in textures, and importable community themes.</div>
+  </div>
+  <div class="card">
+    <div class="top">
+      <div class="name"><a href="https://www.curseforge.com/wow/addons/leatrix-maps/files/8959146" target="_blank" rel="noopener">Leatrix Maps</a></div>
+      <a class="visit" href="https://www.curseforge.com/wow/addons/leatrix-maps/files/8959146" target="_blank" rel="noopener">CurseForge</a>
+    </div>
+    <div class="note">World map quality-of-life — reveals the map, shows dungeon icons and coordinates, lets you scale/reposition the map, removes the border, and stops zoom from resetting. Configurable via <code>/ltm</code>.</div>
+  </div>
+  <div class="card">
+    <div class="top">
+      <div class="name"><a href="https://www.curseforge.com/wow/addons/forever-bag-mover" target="_blank" rel="noopener">Forever Bag Mover</a></div>
+      <a class="visit" href="https://www.curseforge.com/wow/addons/forever-bag-mover" target="_blank" rel="noopener">CurseForge</a>
+    </div>
+    <div class="note">Unlock your backpack, drag it wherever you want, lock it back in place. Remembers the position per character and locks movement during combat. Works on the standard backpack and the combined-bag window.</div>
+  </div>
+
+  <h2>Checking what's supported</h2>
+  <p class="section-note">Forever's addon API is still filling in during beta — worth checking before assuming something Classic-familiar will just work.</p>
+  <div class="card">
+    <div class="top">
+      <div class="name"><a href="https://wow4ever.quest/en/addons" target="_blank" rel="noopener">wow4ever.quest — Addon Compatibility</a></div>
+      <a class="visit" href="https://wow4ever.quest/en/addons" target="_blank" rel="noopener">Visit</a>
+    </div>
+    <div class="note">Tracks which addons have been ported to Forever, what's built into the game now (no addon needed), and which popular Classic addons aren't available yet and why — including the Midnight-era rule that addons can no longer make combat decisions for you.</div>
+  </div>
 </div>
 </body>
 </html>
