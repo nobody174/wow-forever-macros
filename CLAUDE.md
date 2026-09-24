@@ -35,6 +35,11 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
 - `assets/sleepingbag.webp` — small icon (256×256) for the Cozy Sleeping Bag overlay
   plaque on `index.html`. Generated via local ComfyUI (SDXL base txt2img), finalized
   with Pillow (resize, exported as WebP).
+- `assets/universal-icon.webp` — roster icon for the "Universal" tab on `macros.html`
+  (dwarf+bear emblem, self-hosted from wow4ever.quest's own logo, converted to WebP).
+  Class roster icons (Priest/Shaman/Paladin/Warlock/Hunter/Warrior) are NOT local
+  assets — they're hotlinked from Wowhead's icon CDN (`wow.zamimg.com`) directly in
+  `template.html`'s `CLASS_ICONS` map.
 - `assets/drafts/` — gitignored scratch folder for image-generation drafts/
   intermediates (hero and icon art both land here). Not part of the deployed site.
 

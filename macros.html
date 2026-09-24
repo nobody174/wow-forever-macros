@@ -78,7 +78,8 @@ pre{margin:8px 0 0;padding:8px 10px;background:#0A0F1F;border-radius:4px;overflo
 .copy:hover{border-color:var(--accent)}
 .copy.done{color:#0E1428;background:var(--gold);border-color:var(--gold)}
 .empty{color:var(--muted);padding:20px 0}
-.patterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px;margin-bottom:10px}
+.patterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:10px;margin-bottom:10px}
+.patterns pre{white-space:pre-wrap;word-break:break-word;overflow-x:visible}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -121,13 +122,18 @@ function groupHTML(g){
 }
 
 const CLASS_ICONS = {
-  Priest: "classicon_priest", Shaman: "classicon_shaman", Paladin: "classicon_paladin",
-  Warlock: "classicon_warlock", Hunter: "classicon_hunter", Warrior: "classicon_warrior",
+  Priest: "https://wow.zamimg.com/images/wow/icons/large/classicon_priest.jpg",
+  Shaman: "https://wow.zamimg.com/images/wow/icons/large/classicon_shaman.jpg",
+  Paladin: "https://wow.zamimg.com/images/wow/icons/large/classicon_paladin.jpg",
+  Warlock: "https://wow.zamimg.com/images/wow/icons/large/classicon_warlock.jpg",
+  Hunter: "https://wow.zamimg.com/images/wow/icons/large/classicon_hunter.jpg",
+  Warrior: "https://wow.zamimg.com/images/wow/icons/large/classicon_warrior.jpg",
+  Universal: "assets/universal-icon.webp",
 };
 function renderRoster(){
   roster.innerHTML = ALL.map(c=>{
     const icon = CLASS_ICONS[c.name];
-    const img = icon ? `<img class="class-icon" src="https://wow.zamimg.com/images/wow/icons/large/${icon}.jpg" alt="" loading="lazy">` : "";
+    const img = icon ? `<img class="class-icon" src="${icon}" alt="" loading="lazy">` : "";
     return `<button style="--c:${c.color}" aria-pressed="${c.name===cls}" data-c="${c.name}">${img}${esc(c.name)}</button>`;
   }).join("");
 }
