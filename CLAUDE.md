@@ -50,6 +50,9 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
 3. Check every macro is <= 255 characters.
 4. Test locally with `python -m http.server` before pushing.
 5. Commit with a clear message and push to `main` (Pages redeploys in ~1 minute).
+6. The moment something ships, move it out of `BACKLOG.md`/`ROADMAP.md` and into
+   `CHANGELOG.md` — see [ROADMAP.md](ROADMAP.md) and [BACKLOG.md](BACKLOG.md)
+   (Shape B: BACKLOG is the active todo list, ROADMAP is the someday bucket).
 
 ## Macro style rules (strict)
 - Short, one-liners whenever possible. No bloated conditions.
