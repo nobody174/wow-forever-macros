@@ -84,10 +84,80 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
 .local-time{color:var(--muted);font-size:14px;margin:0}
 .live-msg{font:400 clamp(26px,5vw,42px)/1.2 var(--serif);color:var(--gold);text-shadow:0 2px 18px rgba(0,0,0,.65)}
 
+.side-links{
+  position:absolute;
+  z-index:1;
+  left:20px;
+  top:12vh;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  width:min(240px, 26vw);
+}
+.side-links .plaque{
+  display:block;
+  text-decoration:none;
+  background:linear-gradient(180deg, rgba(22,30,56,.82) 0%, rgba(14,20,40,.82) 100%);
+  border:1px solid var(--edge);
+  border-top-color:#4A5688;
+  border-radius:8px;
+  padding:14px 16px;
+  backdrop-filter:blur(3px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 4px 14px rgba(0,0,0,.45);
+  transition:transform .1s ease, box-shadow .1s ease, border-color .1s ease;
+}
+.side-links .plaque:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1), 0 0 16px rgba(255,209,0,.3), 0 4px 14px rgba(0,0,0,.45);
+}
+.side-links .plaque-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font:400 19px/1.2 var(--serif);
+  color:var(--gold);
+  margin:0 0 6px;
+  letter-spacing:.01em;
+}
+.side-links .plaque-title .icon{
+  flex:none;
+  width:26px;
+  height:26px;
+  border-radius:5px;
+  overflow:hidden;
+  background:#0A0F1F;
+  border:1px solid var(--edge);
+}
+.side-links .plaque-title .icon img{width:100%;height:100%;object-fit:cover;display:block}
+.side-links .plaque-desc{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.45;
+  margin:0;
+  text-decoration:none;
+}
+.side-links .plaque.plaque-group:hover{transform:none;border-color:var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 4px 14px rgba(0,0,0,.45)}
+.side-links .plaque-group .plaque-title:hover,
+.side-links .plaque-group .plaque-desc:hover{color:var(--text)}
+.side-links .plaque .sub-link{
+  display:block;
+  margin-top:8px;
+  font:500 12.5px var(--sans);
+  color:var(--gold);
+  text-decoration:underline;
+}
+.side-links .plaque .sub-link:hover{color:#FFE566}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:480px){
   .countdown{gap:8px}
   .countdown .tile{padding:10px 12px;min-width:64px}
+}
+@media (max-width:760px){
+  .side-links{position:static;width:100%;max-width:420px;margin:0 auto 28px;padding:0 4px}
+  .hero{padding-top:20px}
 }
 </style>
 </head>
@@ -97,11 +167,26 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   <nav aria-label="Site">
     <a href="macros.html">Macros</a>
     <a href="builds.html">Builds</a>
+    <a href="addons.html">Addons</a>
     <a href="https://www.zockify.com/forever/talents/" target="_blank" rel="noopener">Talent Calc</a>
   </nav>
 </div>
 
 <div class="hero">
+  <div class="side-links">
+    <a class="plaque" href="https://www.zockify.com/forever/" target="_blank" rel="noopener">
+      <div class="plaque-title">Zockify</div>
+      <p class="plaque-desc">The WoW Forever resource hub — talent calculators, gear planners, class guides, and everything on the Legacy System, camping, professions, and launch-day FAQs.</p>
+    </a>
+    <div class="plaque plaque-group">
+      <a class="plaque-title" href="https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards" target="_blank" rel="noopener">
+        <span class="icon"><img src="assets/sleepingbag.webp" alt="" loading="lazy"></span>
+        Cozy Sleeping Bag
+      </a>
+      <a class="plaque-desc" href="https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards" target="_blank" rel="noopener">A stackable rested-XP buff you earn from a short quest chain — lay in it outside an inn for up to +3% XP for 2 hours. Guide covers where to get it and what it does.</a>
+      <a class="sub-link" href="https://www.wowhead.com/classic/quest=79192/stepping-stones#comments" target="_blank" rel="noopener">Quest chain route &rarr;</a>
+    </div>
+  </div>
   <div class="hero-content">
     <h1>Venom &amp; Trollmann's Road to Forever</h1>
     <div id="countdown" class="countdown" aria-live="polite"></div>

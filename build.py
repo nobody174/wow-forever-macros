@@ -100,6 +100,7 @@ html = (
     .replace("__DATA__", json.dumps(payload))
     .replace("__PAGE_MACROS__", 'aria-current="page"')
     .replace("__PAGE_BUILDS__", "")
+    .replace("__PAGE_ADDONS__", "")
 )
 
 with open("macros.html", "w", encoding="utf-8") as f:
