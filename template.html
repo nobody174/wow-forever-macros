@@ -49,8 +49,9 @@ h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6
 .search{width:100%;padding:12px 14px;background:var(--panel);border:1px solid var(--edge);border-radius:6px;color:var(--text);font:16px var(--sans)}
 .search:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .roster{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 10px}
-.roster button{font:400 17px var(--serif);background:transparent;border:1px solid var(--edge);color:var(--c);padding:8px 14px;border-radius:4px;cursor:pointer}
+.roster button{display:flex;align-items:center;gap:8px;font:400 17px var(--serif);background:transparent;border:1px solid var(--edge);color:var(--c);padding:6px 14px 6px 8px;border-radius:4px;cursor:pointer}
 .roster button[aria-pressed="true"]{background:var(--c);color:#0E1428;border-color:var(--c)}
+.roster button .class-icon{flex:none;width:24px;height:24px;border-radius:4px;border:1px solid rgba(0,0,0,.3);object-fit:cover}
 .specs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:26px}
 .specs button{font:500 14px var(--sans);background:var(--panel);border:1px solid var(--edge);color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer}
 .specs button[aria-pressed="true"]{color:var(--text);border-color:var(--accent)}
@@ -119,8 +120,16 @@ function groupHTML(g){
   return `<details class="section" open><summary><span class="toggle" aria-hidden="true"></span>${esc(g.type)}</summary><div class="section-body">${g.macros.map(macroHTML).join("")}</div></details>`;
 }
 
+const CLASS_ICONS = {
+  Priest: "classicon_priest", Shaman: "classicon_shaman", Paladin: "classicon_paladin",
+  Warlock: "classicon_warlock", Hunter: "classicon_hunter", Warrior: "classicon_warrior",
+};
 function renderRoster(){
-  roster.innerHTML = ALL.map(c=>`<button style="--c:${c.color}" aria-pressed="${c.name===cls}" data-c="${c.name}">${c.name}</button>`).join("");
+  roster.innerHTML = ALL.map(c=>{
+    const icon = CLASS_ICONS[c.name];
+    const img = icon ? `<img class="class-icon" src="https://wow.zamimg.com/images/wow/icons/large/${icon}.jpg" alt="" loading="lazy">` : "";
+    return `<button style="--c:${c.color}" aria-pressed="${c.name===cls}" data-c="${c.name}">${img}${esc(c.name)}</button>`;
+  }).join("");
 }
 function renderSpecs(c){
   if(c.name==="Universal"){specs.innerHTML="";return;}
