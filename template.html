@@ -18,10 +18,16 @@
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 var(--sans)}
 body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:var(--panel);border-bottom:1px solid var(--edge);flex-wrap:wrap}
+.topbar .site-title{font:400 20px/1.1 var(--serif);color:var(--gold);text-decoration:none;letter-spacing:.01em}
+.topbar nav{display:flex;gap:4px;flex-wrap:wrap}
+.topbar nav a{font:500 14px var(--sans);color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:4px;border:1px solid transparent}
+.topbar nav a:hover{color:var(--text);border-color:var(--edge)}
+.topbar nav a[aria-current="page"]{color:var(--bg);background:var(--gold);border-color:var(--gold)}
 .wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
 h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6px;letter-spacing:.01em}
 .lede{color:var(--muted);margin:0 0 22px;max-width:62ch}
-.search-bar{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0;margin:0 0 4px}
+.search-bar{position:sticky;top:57px;z-index:10;background:var(--bg);padding:10px 0;margin:0 0 4px}
 .search{width:100%;padding:12px 14px;background:var(--panel);border:1px solid var(--edge);border-radius:6px;color:var(--text);font:16px var(--sans)}
 .search:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .roster{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 10px}
@@ -47,6 +53,14 @@ pre{margin:8px 0 0;padding:8px 10px;background:#0A0F1F;border-radius:4px;overflo
 </style>
 </head>
 <body>
+<div class="topbar">
+  <a class="site-title" href="index.html">Venom &amp; Trollmann's Road to Forever</a>
+  <nav aria-label="Site">
+    <a href="macros.html" __PAGE_MACROS__>Macros</a>
+    <a href="builds.html" __PAGE_BUILDS__>Builds</a>
+    <a href="https://www.zockify.com/forever/talents/" target="_blank" rel="noopener">Talent Calc</a>
+  </nav>
+</div>
 <div class="wrap">
   <h1>WoW Forever macros</h1>
   <p class="lede">Short, TT-aware DPS and mouseover-first support macros. Pick a class, filter by spec, and copy straight into the macro window.</p>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Builds — WoW Forever</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E1428; --panel:#161E38; --edge:#3A4468; --gold:#FFD100;
+  --text:#E6E2D6; --muted:#9AA0B8; --accent:#FFD100;
+  --serif:"Marcellus","Palatino Linotype",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 var(--sans)}
+body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:var(--panel);border-bottom:1px solid var(--edge);flex-wrap:wrap}
+.topbar .site-title{font:400 20px/1.1 var(--serif);color:var(--gold);text-decoration:none;letter-spacing:.01em}
+.topbar nav{display:flex;gap:4px;flex-wrap:wrap}
+.topbar nav a{font:500 14px var(--sans);color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:4px;border:1px solid transparent}
+.topbar nav a:hover{color:var(--text);border-color:var(--edge)}
+.topbar nav a[aria-current="page"]{color:var(--bg);background:var(--gold);border-color:var(--gold)}
+.wrap{max-width:980px;margin:0 auto;padding:80px 20px;text-align:center}
+h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 12px;letter-spacing:.01em}
+p{color:var(--muted);max-width:52ch;margin:0 auto}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="site-title" href="index.html">Venom &amp; Trollmann's Road to Forever</a>
+  <nav aria-label="Site">
+    <a href="macros.html">Macros</a>
+    <a href="builds.html" aria-current="page">Builds</a>
+    <a href="https://www.zockify.com/forever/talents/" target="_blank" rel="noopener">Talent Calc</a>
+  </nav>
+</div>
+<div class="wrap">
+  <h1>Builds — coming soon</h1>
+  <p>Talent builds and gearing notes for WoW Forever are on the way. Check back closer to launch.</p>
+</div>
+</body>
+</html>

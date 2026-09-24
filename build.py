@@ -56,5 +56,8 @@ payload = {"universal": {"name": "Universal", "color": "#FFD100",
            "classes": CLASSES, "order": ORDER,
            "patterns": [{"name": n, "code": c} for n, c in INTRO_RULES]}
 tpl = open("template.html", encoding="utf-8").read()
-open("index.html", "w", encoding="utf-8").write(tpl.replace("__DATA__", json.dumps(payload)))
+tpl = (tpl.replace("__DATA__", json.dumps(payload))
+          .replace("__PAGE_MACROS__", 'aria-current="page"')
+          .replace("__PAGE_BUILDS__", ""))
+open("macros.html", "w", encoding="utf-8").write(tpl)
 print("built")
