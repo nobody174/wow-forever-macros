@@ -50,6 +50,7 @@ UNIVERSAL = [
         M("Hide PvP titles", "/console UnitNamePlayerPVPTitle 0", "Removes PvP rank titles from nameplates and unit frames."),
         M("Mark mouseover/target with skull", "/tm [@mouseover,exists] 8; 8", "Marks your mouseover target with a skull, or your current target if no mouseover."),
         M("Mark mouseover/target with cross", "/tm [@mouseover,exists] 7; 7", "Same as skull mark, using the cross icon instead."),
+        M("Weapon swap: 1H+offhand ↔ 2H", "/equipslot 16 Durgen's Crescent Axe\n/equipslot 17 Veteran Shield\n/equipslot 16 Ironforge Greathammer", "Swap the item names for your own gear. Toggles between 1H+offhand and 2H each press — slot 16 = main hand, 17 = off hand/shield."),
     ]),
 ]
 

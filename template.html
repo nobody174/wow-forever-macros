@@ -20,10 +20,26 @@ html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 var(--sa
 body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:var(--panel);border-bottom:1px solid var(--edge);flex-wrap:wrap}
 .topbar .site-title{font:400 20px/1.1 var(--serif);color:var(--gold);text-decoration:none;letter-spacing:.01em}
-.topbar nav{display:flex;gap:4px;flex-wrap:wrap}
-.topbar nav a{font:500 14px var(--sans);color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:4px;border:1px solid transparent}
-.topbar nav a:hover{color:var(--text);border-color:var(--edge)}
-.topbar nav a[aria-current="page"]{color:var(--bg);background:var(--gold);border-color:var(--gold)}
+.topbar nav{display:flex;gap:8px;flex-wrap:wrap}
+.topbar nav a{
+  font:600 13px/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;
+  color:var(--gold);text-decoration:none;padding:10px 16px;border-radius:6px;
+  background:linear-gradient(180deg,#2A335A 0%,#161E38 55%,#10152C 100%);
+  border:1px solid var(--edge);border-top-color:#4A5688;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 2px 4px rgba(0,0,0,.35);
+  transition:transform .08s ease, box-shadow .08s ease, border-color .08s ease;
+}
+.topbar nav a:hover{
+  border-color:var(--gold);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12), 0 0 10px rgba(255,209,0,.35), 0 2px 4px rgba(0,0,0,.35);
+  transform:translateY(-1px);
+}
+.topbar nav a:active{transform:translateY(0);box-shadow:inset 0 1px 4px rgba(0,0,0,.5)}
+.topbar nav a[aria-current="page"]{
+  color:#0E1428;background:linear-gradient(180deg,#FFE566 0%,var(--gold) 55%,#C79C00 100%);
+  border-color:#FFE566;box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 0 10px rgba(255,209,0,.5);
+}
+@media (prefers-reduced-motion:reduce){.topbar nav a{transition:none}}
 .wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
 h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6px;letter-spacing:.01em}
 .lede{color:var(--muted);margin:0 0 22px;max-width:62ch}
@@ -37,7 +53,19 @@ h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 6
 .specs button{font:500 14px var(--sans);background:var(--panel);border:1px solid var(--edge);color:var(--muted);padding:5px 12px;border-radius:999px;cursor:pointer}
 .specs button[aria-pressed="true"]{color:var(--text);border-color:var(--accent)}
 h2{font:400 26px/1.2 var(--serif);color:var(--accent);margin:34px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--edge)}
-h3{font:600 15px var(--sans);color:var(--gold);margin:22px 0 10px}
+details.section{margin:22px 0 10px}
+details.section > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
+  font:600 15px var(--sans);color:var(--gold);padding:2px 0;user-select:none;
+}
+details.section > summary::-webkit-details-marker{display:none}
+details.section > summary .toggle{
+  flex:none;width:18px;height:18px;border:1px solid var(--gold);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;font:600 13px/1 var(--mono);color:var(--gold);
+}
+details.section > summary .toggle::before{content:"+"}
+details.section[open] > summary .toggle::before{content:"\2212"}
+details.section .section-body{padding-top:8px}
 .macro{background:var(--panel);border:1px solid var(--edge);border-left:3px solid var(--accent);border-radius:5px;padding:10px 12px;margin-bottom:8px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .name{font-weight:600}
@@ -85,6 +113,10 @@ function macroHTML(m){
   <button class="copy" data-code="${esc(m.code)}">Copy</button></div><pre>${esc(m.code)}</pre></div>`;
 }
 
+function groupHTML(g){
+  return `<details class="section" open><summary><span class="toggle" aria-hidden="true"></span>${esc(g.type)}</summary><div class="section-body">${g.macros.map(macroHTML).join("")}</div></details>`;
+}
+
 function renderRoster(){
   roster.innerHTML = ALL.map(c=>`<button style="--c:${c.color}" aria-pressed="${c.name===cls}" data-c="${c.name}">${c.name}</button>`).join("");
 }
@@ -101,7 +133,7 @@ function render(){
     roster.style.opacity=.5; specs.innerHTML="";
     for(const c of ALL) for(const s of c.sections) for(const g of s.groups){
       const hits = g.macros.filter(m=>(m.name+" "+m.code+" "+g.type+" "+c.name+" "+s.spec).toLowerCase().includes(q) && m.code);
-      if(hits.length) html += `<h3>${esc(c.name)} · ${esc(s.spec)} <span class="tag">${esc(g.type)}</span></h3>` + hits.map(macroHTML).join("");
+      if(hits.length) html += groupHTML({type: `${c.name} · ${s.spec} — ${g.type}`, macros: hits});
     }
     out.innerHTML = html || `<p class="empty">No macro matches “${esc(q)}”. Try a spell name like Flash Heal or a type like focus.</p>`;
     return;
@@ -116,7 +148,7 @@ function render(){
   for(const s of c.sections){
     if(spec!=="All" && s.spec!==spec) continue;
     html += `<h2>${esc(c.name==="Universal"?"All classes":s.spec==="Shared"?c.name+" — shared by every spec":c.name+" — "+s.spec)}</h2>`;
-    for(const g of byOrder(s.groups)) html += `<h3>${esc(g.type)}</h3>` + g.macros.map(macroHTML).join("");
+    for(const g of byOrder(s.groups)) html += groupHTML(g);
   }
   out.innerHTML = html;
 }

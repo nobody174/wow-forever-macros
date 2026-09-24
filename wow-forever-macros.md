@@ -155,6 +155,14 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /tm [@mouseover,exists] 7; 7
 ```
 
+**Weapon swap: 1H+offhand ↔ 2H** — Swap the item names for your own gear. Toggles between 1H+offhand and 2H each press — slot 16 = main hand, 17 = off hand/shield.
+
+```
+/equipslot 16 Durgen's Crescent Axe
+/equipslot 17 Veteran Shield
+/equipslot 16 Ironforge Greathammer
+```
+
 ## Priest
 
 ### Priest — Shared (all specs)
