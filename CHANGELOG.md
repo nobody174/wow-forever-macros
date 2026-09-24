@@ -6,6 +6,7 @@ user-facing release notes.
 
 ## 2026-09-24
 
+- Added Leatrix Plus to the Addons page (modular UI quality-of-life addon).
 - Added class icons (real in-game icons via Wowhead CDN) to the macros page roster,
   plus a self-hosted Universal-tab icon (wow4ever.quest's dwarf+bear emblem).
 - Fixed Style Patterns cards forcing a horizontal scrollbar on longer macros — widened
