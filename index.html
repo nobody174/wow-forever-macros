@@ -86,6 +86,29 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   background:linear-gradient(to bottom, rgba(6,9,20,.88) 0%, rgba(6,9,20,.55) 28%, rgba(6,9,20,.05) 55%, rgba(6,9,20,0) 70%);
   pointer-events:none;
 }
+.beta-ribbon{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  right:2%;
+  transform:translateY(-50%) rotate(-22deg);
+  transform-origin:center;
+  pointer-events:none;
+  line-height:0.85;
+}
+.beta-ribbon span{
+  display:block;
+  font:900 clamp(64px,13vw,180px)/0.85 var(--sans);
+  letter-spacing:.03em;
+  color:#E5382B;
+  -webkit-text-stroke:3px rgba(0,0,0,.55);
+  text-shadow:0 6px 22px rgba(0,0,0,.6);
+  opacity:.9;
+}
+@media (max-width:760px){
+  .beta-ribbon{right:-4%}
+  .beta-ribbon span{font-size:clamp(48px,20vw,110px)}
+}
 .hero-content{position:relative;z-index:1;text-align:center;max-width:900px}
 .hero h1{
   font:400 clamp(30px,6vw,58px)/1.15 var(--serif);
@@ -204,6 +227,9 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
 <div id="yt-player" style="position:fixed;bottom:0;right:0;width:2px;height:2px;overflow:hidden;opacity:0;pointer-events:none;"></div>
 
 <div class="hero">
+  <!-- BETA-RIBBON:START — remove this block once the countdown hits zero / WoW Forever launches -->
+  <div class="beta-ribbon"><span>BETA</span></div>
+  <!-- BETA-RIBBON:END -->
   <div class="side-links">
     <a class="plaque" href="https://www.zockify.com/forever/" target="_blank" rel="noopener">
       <div class="plaque-title">Zockify</div>
