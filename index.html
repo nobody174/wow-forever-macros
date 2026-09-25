@@ -137,14 +137,11 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   z-index:1;
   left:20px;
   top:12vh;
-  bottom:20px;
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  align-content:start;
   gap:14px;
-  width:min(240px, 26vw);
-  overflow-y:auto;
-  padding-right:6px;
-  scrollbar-width:thin;
+  width:min(480px, 46vw);
 }
 .side-links .plaque{
   display:block;
@@ -208,7 +205,7 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   .countdown .tile{padding:10px 12px;min-width:64px}
 }
 @media (max-width:760px){
-  .side-links{position:static;width:100%;max-width:420px;margin:0 auto 28px;padding:0 4px;bottom:auto;overflow-y:visible;max-height:none}
+  .side-links{position:static;width:100%;max-width:420px;margin:0 auto 28px;padding:0 4px;grid-template-columns:1fr}
   .hero{padding-top:20px}
 }
 </style>
