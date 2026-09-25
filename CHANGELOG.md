@@ -6,6 +6,9 @@ user-facing release notes.
 
 ## 2026-09-25
 
+- Added a ForeverChanges (foreverchanges.pro) link plaque to the landing page's
+  side-links overlay — reference site for talent/spell/item/dungeon changes vs.
+  Classic.
 - Added a full Mage class to the macro cheatsheet (Shared + Arcane/Fire/Frost), same
   class-icon treatment as the other classes, plus a Mage level-20 talent build card
   on the Builds page (Elemental Precision → Ice Shards → Frostbite → Ice Lance).
