@@ -118,7 +118,7 @@ function macroHTML(m){
 }
 
 function groupHTML(g){
-  return `<details class="section" open><summary><span class="toggle" aria-hidden="true"></span>${esc(g.type)}</summary><div class="section-body">${g.macros.map(macroHTML).join("")}</div></details>`;
+  return `<details class="section"><summary><span class="toggle" aria-hidden="true"></span>${esc(g.type)}</summary><div class="section-body">${g.macros.map(macroHTML).join("")}</div></details>`;
 }
 
 const CLASS_ICONS = {
