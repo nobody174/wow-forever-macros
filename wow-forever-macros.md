@@ -1605,6 +1605,14 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [harm] Mongoose Bite
 ```
 
+**Raptor Strike + Mongoose Bite + Wing Clip (test — GCD may skip some)** — Experimental 3-in-1. Only the first ability that both fires and consumes the GCD will actually go off per press — likely to just spam Raptor Strike. Testing to see how WoW Forever's client handles the fallthrough.
+```
+#showtooltip Raptor Strike
+/cast [harm] Raptor Strike
+/cast [harm] Mongoose Bite
+/cast [harm] Wing Clip
+```
+
 **Wing Clip**
 ```
 #showtooltip Wing Clip
