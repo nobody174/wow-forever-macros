@@ -39,9 +39,70 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   border-color:#FFE566;box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 0 10px rgba(255,209,0,.5);
 }
 @media (prefers-reduced-motion:reduce){.topbar nav a{transition:none}}
-.wrap{max-width:980px;margin:0 auto;padding:80px 20px;text-align:center}
+.wrap{max-width:1100px;margin:0 auto;padding:60px 20px 80px;text-align:center}
 h1{font:400 clamp(28px,5vw,44px)/1.1 var(--serif);color:var(--gold);margin:0 0 12px;letter-spacing:.01em}
-p{color:var(--muted);max-width:52ch;margin:0 auto}
+p.lede{color:var(--muted);max-width:52ch;margin:0 auto}
+.builds-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+  margin-top:48px;
+  text-align:left;
+}
+.build-section{
+  background:var(--panel);
+  border:1px solid var(--edge);
+  border-left:3px solid var(--accent);
+  border-radius:6px;
+  padding:20px 22px;
+  flex:none;
+}
+h2{font:400 21px/1.2 var(--serif);color:var(--accent);margin:0 0 4px;letter-spacing:.01em}
+.build-meta{color:var(--muted);font-size:14px;margin:0 0 18px}
+.talent-row{display:flex;align-items:center;gap:8px}
+.talent-row .arrow{color:var(--gold);font-size:22px;font-weight:700;flex:none}
+.talent{
+  position:relative;
+  flex:none;
+  width:52px;
+  height:52px;
+  border-radius:6px;
+  border:2px solid var(--edge);
+  cursor:default;
+}
+.talent img{width:100%;height:100%;object-fit:cover;display:block;border-radius:4px}
+.talent .rank{
+  position:absolute;
+  right:2px;
+  bottom:1px;
+  font:700 11px/1 var(--sans);
+  color:#fff;
+  text-shadow:0 1px 2px #000, 0 0 3px #000;
+}
+.talent .tooltip{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 10px);
+  transform:translateX(-50%);
+  width:220px;
+  background:#0A0F1F;
+  border:1px solid var(--gold);
+  border-radius:6px;
+  padding:10px 12px;
+  z-index:10;
+  transition:opacity .12s ease;
+  pointer-events:none;
+  text-align:left;
+}
+.talent:hover .tooltip, .talent:focus-visible .tooltip{visibility:visible;opacity:1}
+.talent .tooltip .t-name{color:var(--gold);font-weight:600;font-size:14px;margin:0 0 4px}
+.talent .tooltip .t-rank{color:var(--muted);font-size:12px;margin:0 0 6px}
+.talent .tooltip .t-desc{color:var(--text);font-size:13px;line-height:1.4;margin:0}
+@media (max-width:480px){
+  .talent{width:44px;height:44px}
+}
 </style>
 </head>
 <body>
@@ -55,8 +116,66 @@ p{color:var(--muted);max-width:52ch;margin:0 auto}
   </nav>
 </div>
 <div class="wrap">
-  <h1>Builds — coming soon</h1>
-  <p>Talent builds and gearing notes for WoW Forever are on the way. Check back closer to launch.</p>
+  <h1>Builds</h1>
+  <p class="lede">Talent builds and gearing notes for WoW Forever, added as Venom &amp; Trollmann level up. More classes coming soon.</p>
+
+  <div class="builds-grid">
+  <div class="build-section">
+    <h2>Hunter — Level 20 Beast Mastery</h2>
+    <p class="build-meta">Hover an icon for details.</p>
+    <div class="talent-row">
+      <div class="talent" tabindex="0">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/spell_nature_ravenform.jpg" alt="Deadly Aspects">
+        <span class="rank">5/5</span>
+        <div class="tooltip">
+          <p class="t-name">Deadly Aspects</p>
+          <p class="t-rank">Rank 5/5</p>
+          <p class="t-desc">Gives Aspect of the Hawk a chance to also grant a melee attack-speed proc from your auto-attacks, on top of its ranged attack-speed bonus.</p>
+        </div>
+      </div>
+      <span class="arrow">&rarr;</span>
+      <div class="talent" tabindex="0">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/inv_weapon_crossbow_10.jpg" alt="Focused Fire">
+        <span class="rank">2/2</span>
+        <div class="tooltip">
+          <p class="t-name">Focused Fire</p>
+          <p class="t-rank">Rank 2/2</p>
+          <p class="t-desc">Increases all damage you deal while your pet is active. The strongest raw DPS talent available at this point in the tree.</p>
+        </div>
+      </div>
+      <span class="arrow">&rarr;</span>
+      <div class="talent" tabindex="0">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_mount_jungletiger.jpg" alt="Pathfinding">
+        <span class="rank">2/2</span>
+        <div class="tooltip">
+          <p class="t-name">Pathfinding</p>
+          <p class="t-rank">Rank 2/2</p>
+          <p class="t-desc">Increases your movement speed while Aspect of the Cheetah or Aspect of the Pack is active.</p>
+        </div>
+      </div>
+      <span class="arrow">&rarr;</span>
+      <div class="talent" tabindex="0">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_hunter_beastsoothe.jpg" alt="Improved Revive Pet">
+        <span class="rank">1/2</span>
+        <div class="tooltip">
+          <p class="t-name">Improved Revive Pet</p>
+          <p class="t-rank">Rank 1/2</p>
+          <p class="t-desc">Reduces the cast time of Revive Pet, getting your companion back into the fight faster.</p>
+        </div>
+      </div>
+      <span class="arrow">&rarr;</span>
+      <div class="talent" tabindex="0">
+        <img src="https://wow.zamimg.com/images/wow/icons/medium/ability_druid_dash.jpg" alt="Bestial Swiftness">
+        <span class="rank">1/1</span>
+        <div class="tooltip">
+          <p class="t-name">Bestial Swiftness</p>
+          <p class="t-rank">Rank 1/1</p>
+          <p class="t-desc">Increases your pet's movement speed, letting it close the gap between targets far faster — great for leveling and PvP.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
 </body>
 </html>
