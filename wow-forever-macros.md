@@ -1592,10 +1592,11 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [harm] Scorpid Sting
 ```
 
-**Raptor Strike**
+**Raptor Strike + Wing Clip**
 ```
 #showtooltip Raptor Strike
 /cast [harm] Raptor Strike
+/cast [harm] Wing Clip
 ```
 
 **Mongoose Bite**
