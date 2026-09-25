@@ -16,18 +16,25 @@
 # --- 1. Macro-string helpers ------------------------------------------------
 # Each helper returns a ready-to-use macro string (with #showtooltip on line 1
 # for anything that actually /cast's a spell) following the user's style rules:
-#   dps    -> TT-aware DPS:        /cast [@targettarget, harm, exists][harm] SPELL
-#   heal   -> mouseover heal/util: /cast [@mouseover, help, exists][help] SPELL
-#   util   -> friend-or-foe:       /cast [@mouseover, exists][exists] SPELL
-#   buff   -> buff w/ self fallback: /cast [@mouseover, help, exists][help][@player] SPELL
-#   chan   -> spam-safe channel:   /cast [...,nochanneling][...,nochanneling] SPELL
-#   foc    -> cast on focus:       /cast [@focus, harm, exists][harm] SPELL
-#   plain  -> bare cast, no targeting logic
-#   me     -> cast on self:        /cast [@player] SPELL
-#   stance -> swap stance then cast (warrior)
+#   dps      -> TT-aware DPS (Priest only): /cast [@targettarget, harm, exists][harm] SPELL
+#   dpsHarm  -> plain harm-target DPS (every other class): /cast [harm] SPELL
+#   heal     -> mouseover heal/util: /cast [@mouseover, help, exists][help] SPELL
+#   util     -> friend-or-foe:       /cast [@mouseover, exists][exists] SPELL
+#   buff     -> buff w/ self fallback: /cast [@mouseover, help, exists][help][@player] SPELL
+#   chan     -> spam-safe channel:   /cast [...,nochanneling][...,nochanneling] SPELL
+#   foc      -> cast on focus:       /cast [@focus, harm, exists][harm] SPELL
+#   plain    -> bare cast, no targeting logic
+#   me       -> cast on self:        /cast [@player] SPELL
+#   stance   -> swap stance then cast (warrior)
+#
+# Only Priest actually needs target-of-target awareness (dps()) — every other
+# class's DPS macros just cast on whatever you have targeted (dpsHarm()).
 
 def dps(spell):
     return f"#showtooltip {spell}\n/cast [@targettarget, harm, exists][harm] {spell}"
+
+def dpsHarm(spell):
+    return f"#showtooltip {spell}\n/cast [harm] {spell}"
 
 def heal(spell):
     return f"#showtooltip {spell}\n/cast [@mouseover, help, exists][help] {spell}"
@@ -255,12 +262,12 @@ CLASSES = [
 
         {"spec": "Shared", "groups": [
             G(DPS, [
-                M("Lightning Bolt", dps("Lightning Bolt")),
-                M("Chain Lightning", dps("Chain Lightning")),
-                M("Earth Shock", dps("Earth Shock")),
-                M("Flame Shock", dps("Flame Shock")),
-                M("Frost Shock", dps("Frost Shock")),
-                M("Purge (offensive dispel)", dps("Purge")),
+                M("Lightning Bolt", dpsHarm("Lightning Bolt")),
+                M("Chain Lightning", dpsHarm("Chain Lightning")),
+                M("Earth Shock", dpsHarm("Earth Shock")),
+                M("Flame Shock", dpsHarm("Flame Shock")),
+                M("Frost Shock", dpsHarm("Frost Shock")),
+                M("Purge (offensive dispel)", dpsHarm("Purge")),
             ]),
             G(AUTO, [
                 M("Auto-attack (spam-safe)", MELEE),
@@ -314,15 +321,15 @@ CLASSES = [
         {"spec": "Elemental", "groups": [
             G(DPS, [
                 M("Elemental Mastery + Chain Lightning",
-                  "#showtooltip Chain Lightning\n/cast Elemental Mastery\n/cast [@targettarget, harm, exists][harm] Chain Lightning"),
+                  "#showtooltip Chain Lightning\n/cast Elemental Mastery\n/cast [harm] Chain Lightning"),
                 M("Elemental Mastery + Lightning Bolt",
-                  "#showtooltip Lightning Bolt\n/cast Elemental Mastery\n/cast [@targettarget, harm, exists][harm] Lightning Bolt"),
+                  "#showtooltip Lightning Bolt\n/cast Elemental Mastery\n/cast [harm] Lightning Bolt"),
             ]),
         ]},
 
         {"spec": "Enhancement", "groups": [
             G(DPS, [
-                M("Stormstrike", dps("Stormstrike"), "Also starts auto-attack."),
+                M("Stormstrike", dpsHarm("Stormstrike"), "Also starts auto-attack."),
             ]),
             G(BUFF, [
                 M("Windfury Weapon", plain("Windfury Weapon")),
@@ -337,10 +344,10 @@ CLASSES = [
 
         {"spec": "Shared", "groups": [
             G(DPS, [
-                M("Judgement", dps("Judgement")),
-                M("Hammer of Wrath", dps("Hammer of Wrath")),
-                M("Exorcism", dps("Exorcism")),
-                M("Hammer of Justice", dps("Hammer of Justice")),
+                M("Judgement", dpsHarm("Judgement")),
+                M("Hammer of Wrath", dpsHarm("Hammer of Wrath")),
+                M("Exorcism", dpsHarm("Exorcism")),
+                M("Hammer of Justice", dpsHarm("Hammer of Justice")),
                 M("Consecration", plain("Consecration")),
                 M("Holy Wrath", plain("Holy Wrath")),
             ]),
@@ -399,7 +406,7 @@ CLASSES = [
 
         {"spec": "Retribution", "groups": [
             G(DPS, [
-                M("Repentance", dps("Repentance")),
+                M("Repentance", dpsHarm("Repentance")),
             ]),
             G(BUFF, [
                 M("Sanctity Aura", plain("Sanctity Aura")),
@@ -443,21 +450,21 @@ CLASSES = [
 
         {"spec": "Shared", "groups": [
             G(DPS, [
-                M("Shadow Bolt", dps("Shadow Bolt")),
-                M("Corruption", dps("Corruption")),
-                M("Curse of Agony", dps("Curse of Agony")),
-                M("Immolate", dps("Immolate")),
-                M("Searing Pain", dps("Searing Pain")),
-                M("Soul Fire", dps("Soul Fire")),
-                M("Death Coil", dps("Death Coil")),
+                M("Shadow Bolt", dpsHarm("Shadow Bolt")),
+                M("Corruption", dpsHarm("Corruption")),
+                M("Curse of Agony", dpsHarm("Curse of Agony")),
+                M("Immolate", dpsHarm("Immolate")),
+                M("Searing Pain", dpsHarm("Searing Pain")),
+                M("Soul Fire", dpsHarm("Soul Fire")),
+                M("Death Coil", dpsHarm("Death Coil")),
                 M("Drain Life (spam-safe)", chan("Drain Life")),
                 M("Drain Soul (spam-safe)", chan("Drain Soul")),
                 M("Drain Mana (spam-safe)", chan("Drain Mana")),
-                M("Curse of the Elements", dps("Curse of the Elements")),
-                M("Curse of Shadow", dps("Curse of Shadow")),
-                M("Curse of Recklessness", dps("Curse of Recklessness")),
-                M("Curse of Weakness", dps("Curse of Weakness")),
-                M("Curse of Tongues", dps("Curse of Tongues")),
+                M("Curse of the Elements", dpsHarm("Curse of the Elements")),
+                M("Curse of Shadow", dpsHarm("Curse of Shadow")),
+                M("Curse of Recklessness", dpsHarm("Curse of Recklessness")),
+                M("Curse of Weakness", dpsHarm("Curse of Weakness")),
+                M("Curse of Tongues", dpsHarm("Curse of Tongues")),
                 M("Hellfire", plain("Hellfire")),
                 M("Rain of Fire", plain("Rain of Fire")),
             ]),
@@ -482,7 +489,7 @@ CLASSES = [
             G(PANIC, [
                 M("Healthstone", "/use Major Healthstone", "Swap item name to your healthstone rank."),
                 M("Howl of Terror", plain("Howl of Terror")),
-                M("Fear", dps("Fear")),
+                M("Fear", dpsHarm("Fear")),
                 M("Sacrifice (Voidwalker)", plain("Sacrifice")),
                 M("Life Tap", plain("Life Tap")),
             ]),
@@ -491,8 +498,8 @@ CLASSES = [
                 M("Pet follow", "/petfollow"),
                 M("Pet passive", "/petpassive"),
                 M("Pet defensive", "/petdefensive"),
-                M("Spell Lock (Felhunter)", dps("Spell Lock")),
-                M("Torment (Voidwalker taunt)", dps("Torment")),
+                M("Spell Lock (Felhunter)", dpsHarm("Spell Lock")),
+                M("Torment (Voidwalker taunt)", dpsHarm("Torment")),
                 M("Summon Felhunter", plain("Summon Felhunter")),
                 M("Summon Voidwalker", plain("Summon Voidwalker")),
                 M("Summon Succubus", plain("Summon Succubus")),
@@ -509,13 +516,13 @@ CLASSES = [
 
         {"spec": "Affliction", "groups": [
             G(DPS, [
-                M("Siphon Life", dps("Siphon Life")),
-                M("Curse of Exhaustion", dps("Curse of Exhaustion")),
+                M("Siphon Life", dpsHarm("Siphon Life")),
+                M("Curse of Exhaustion", dpsHarm("Curse of Exhaustion")),
                 M("Amplify Curse + Agony",
-                  "#showtooltip Curse of Agony\n/cast Amplify Curse\n/cast [@targettarget, harm, exists][harm] Curse of Agony"),
+                  "#showtooltip Curse of Agony\n/cast Amplify Curse\n/cast [harm] Curse of Agony"),
                 M("DoT sequence (press to roll dots)",
                   "#showtooltip Corruption\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=target Corruption, Curse of Agony, Siphon Life, Immolate"),
+                  "/castsequence [harm] reset=target Corruption, Curse of Agony, Siphon Life, Immolate"),
             ]),
             G(PANIC, [
                 M("Dark Pact", plain("Dark Pact")),
@@ -535,11 +542,11 @@ CLASSES = [
 
         {"spec": "Destruction", "groups": [
             G(DPS, [
-                M("Conflagrate", dps("Conflagrate")),
-                M("Shadowburn", dps("Shadowburn")),
+                M("Conflagrate", dpsHarm("Conflagrate")),
+                M("Shadowburn", dpsHarm("Shadowburn")),
                 M("Immolate > Conflagrate",
                   "#showtooltip Immolate\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=target/10 Immolate, Conflagrate"),
+                  "/castsequence [harm] reset=target/10 Immolate, Conflagrate"),
             ]),
         ]},
     ]},
@@ -551,19 +558,19 @@ CLASSES = [
 
         {"spec": "Shared", "groups": [
             G(DPS, [
-                M("Hunter's Mark", dps("Hunter's Mark")),
-                M("Serpent Sting", dps("Serpent Sting")),
-                M("Arcane Shot", dps("Arcane Shot")),
-                M("Multi-Shot", dps("Multi-Shot")),
-                M("Concussive Shot", dps("Concussive Shot")),
-                M("Viper Sting", dps("Viper Sting")),
-                M("Scorpid Sting", dps("Scorpid Sting")),
-                M("Raptor Strike", dps("Raptor Strike")),
-                M("Mongoose Bite", dps("Mongoose Bite")),
-                M("Wing Clip", dps("Wing Clip")),
-                M("Distracting Shot", dps("Distracting Shot")),
+                M("Hunter's Mark", dpsHarm("Hunter's Mark")),
+                M("Serpent Sting", dpsHarm("Serpent Sting")),
+                M("Arcane Shot", dpsHarm("Arcane Shot")),
+                M("Multi-Shot", dpsHarm("Multi-Shot")),
+                M("Concussive Shot", dpsHarm("Concussive Shot")),
+                M("Viper Sting", dpsHarm("Viper Sting")),
+                M("Scorpid Sting", dpsHarm("Scorpid Sting")),
+                M("Raptor Strike", dpsHarm("Raptor Strike")),
+                M("Mongoose Bite", dpsHarm("Mongoose Bite")),
+                M("Wing Clip", dpsHarm("Wing Clip")),
+                M("Distracting Shot", dpsHarm("Distracting Shot")),
                 M("Tranquilizing Shot (enrage dispel)",
-                  dps("Tranquilizing Shot"),
+                  dpsHarm("Tranquilizing Shot"),
                   "Hunter's only dispel: removes Frenzy from enemies."),
             ]),
             G(AUTO, [
@@ -582,7 +589,7 @@ CLASSES = [
             ]),
             G(PANIC, [
                 M("Feign Death", plain("Feign Death")),
-                M("Disengage", dps("Disengage")),
+                M("Disengage", dpsHarm("Disengage")),
                 M("Freezing Trap", plain("Freezing Trap")),
                 M("Frost Trap", plain("Frost Trap")),
                 M("Rapid Fire", plain("Rapid Fire")),
@@ -620,8 +627,8 @@ CLASSES = [
 
         {"spec": "Marksmanship", "groups": [
             G(DPS, [
-                M("Aimed Shot", dps("Aimed Shot")),
-                M("Scatter Shot", dps("Scatter Shot")),
+                M("Aimed Shot", dpsHarm("Aimed Shot")),
+                M("Scatter Shot", dpsHarm("Scatter Shot")),
             ]),
             G(BUFF, [
                 M("Trueshot Aura", plain("Trueshot Aura")),
@@ -633,8 +640,8 @@ CLASSES = [
 
         {"spec": "Survival", "groups": [
             G(DPS, [
-                M("Counterattack", dps("Counterattack")),
-                M("Wyvern Sting", dps("Wyvern Sting")),
+                M("Counterattack", dpsHarm("Counterattack")),
+                M("Wyvern Sting", dpsHarm("Wyvern Sting")),
             ]),
             G(PANIC, [
                 M("Deterrence", plain("Deterrence")),
@@ -652,12 +659,12 @@ CLASSES = [
 
         {"spec": "Shared", "groups": [
             G(DPS, [
-                M("Heroic Strike", dps("Heroic Strike")),
-                M("Cleave", dps("Cleave")),
-                M("Rend", dps("Rend")),
-                M("Hamstring", dps("Hamstring")),
-                M("Sunder Armor", dps("Sunder Armor")),
-                M("Execute", dps("Execute")),
+                M("Heroic Strike", dpsHarm("Heroic Strike")),
+                M("Cleave", dpsHarm("Cleave")),
+                M("Rend", dpsHarm("Rend")),
+                M("Hamstring", dpsHarm("Hamstring")),
+                M("Sunder Armor", dpsHarm("Sunder Armor")),
+                M("Execute", dpsHarm("Execute")),
                 M("Overpower (to Battle)", stance(1, "Battle Stance", "Overpower")),
                 M("Demoralizing Shout", plain("Demoralizing Shout")),
                 M("Thunder Clap (to Battle)", stance(1, "Battle Stance", "Thunder Clap", tt=False)),
@@ -673,7 +680,7 @@ CLASSES = [
             G(PANIC, [
                 M("Shield Wall (to Defensive)", stance(2, "Defensive Stance", "Shield Wall", tt=False)),
                 M("Retaliation (to Battle)", stance(1, "Battle Stance", "Retaliation", tt=False)),
-                M("Intimidating Shout", dps("Intimidating Shout")),
+                M("Intimidating Shout", dpsHarm("Intimidating Shout")),
                 M("Disarm (to Defensive)", stance(2, "Defensive Stance", "Disarm")),
             ]),
             G(QOL, [
@@ -703,10 +710,10 @@ CLASSES = [
 
         {"spec": "Fury", "groups": [
             G(DPS, [
-                M("Bloodthirst", dps("Bloodthirst")),
+                M("Bloodthirst", dpsHarm("Bloodthirst")),
                 M("Whirlwind (to Berserker)", stance(3, "Berserker Stance", "Whirlwind", tt=False)),
                 M("Pummel (to Berserker)", stance(3, "Berserker Stance", "Pummel")),
-                M("Slam", dps("Slam")),
+                M("Slam", dpsHarm("Slam")),
                 M("Piercing Howl", plain("Piercing Howl")),
             ]),
             G(BUFF, [
@@ -717,14 +724,90 @@ CLASSES = [
 
         {"spec": "Protection", "groups": [
             G(DPS, [
-                M("Shield Slam", dps("Shield Slam")),
-                M("Revenge", dps("Revenge")),
-                M("Shield Bash", dps("Shield Bash")),
-                M("Concussion Blow", dps("Concussion Blow")),
+                M("Shield Slam", dpsHarm("Shield Slam")),
+                M("Revenge", dpsHarm("Revenge")),
+                M("Shield Bash", dpsHarm("Shield Bash")),
+                M("Concussion Blow", dpsHarm("Concussion Blow")),
             ]),
             G(PANIC, [
                 M("Shield Block", plain("Shield Block")),
                 M("Last Stand", plain("Last Stand")),
+            ]),
+        ]},
+    ]},
+
+    # -------------------------------------------------------------------- #
+    # ROGUE
+    # -------------------------------------------------------------------- #
+    {"name": "Rogue", "color": "#FFF569", "sections": [
+
+        {"spec": "Shared", "groups": [
+            G(DPS, [
+                M("Sinister Strike", dpsHarm("Sinister Strike")),
+                M("Backstab", dpsHarm("Backstab")),
+                M("Eviscerate", dpsHarm("Eviscerate")),
+                M("Gouge", dpsHarm("Gouge")),
+                M("Kidney Shot", dpsHarm("Kidney Shot")),
+                M("Rupture", dpsHarm("Rupture")),
+                M("Garrote", dpsHarm("Garrote"), "Requires stealth."),
+                M("Ambush", dpsHarm("Ambush"), "Requires stealth."),
+                M("Expose Armor", dpsHarm("Expose Armor")),
+                M("Sap", dpsHarm("Sap"), "Only works on an out-of-combat target."),
+                M("Kick (interrupt)", dpsHarm("Kick")),
+            ]),
+            G(AUTO, [
+                M("Auto-attack (spam-safe)", MELEE),
+            ]),
+            G(BUFF, [
+                M("Slice and Dice", plain("Slice and Dice")),
+            ]),
+            G(PANIC, [
+                M("Evasion", plain("Evasion")),
+                M("Vanish", plain("Vanish")),
+                M("Sprint", plain("Sprint")),
+                M("Blind", dpsHarm("Blind")),
+            ]),
+            G(QOL, [
+                M("Stealth (no cancel)", "#showtooltip Stealth\n/cast [nostealth] Stealth", "Won't drop you out of stealth if pressed again."),
+                M("Pick Lock", plain("Pick Lock")),
+                M("Pick Pocket", dpsHarm("Pick Pocket")),
+                M("Apply poison to main hand", "/use Instant Poison\n/use Main Hand Weapon", "Swap the item name to the poison you carry."),
+                M("Apply poison to off hand", "/use Deadly Poison\n/use Off Hand Weapon", "Swap the item name to the poison you carry."),
+                M("Distract", dpsHarm("Distract")),
+                M("Feint", dpsHarm("Feint")),
+            ]),
+            G(CLEAN, [
+                M("No dispel", "", "Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind."),
+            ]),
+            G(FOCUS, [
+                M("Kick focus", foc("Kick")),
+                M("Kidney Shot focus", foc("Kidney Shot")),
+                M("Blind focus", foc("Blind")),
+            ]),
+        ]},
+
+        {"spec": "Assassination", "groups": [
+            G(DPS, [
+                M("Envenom", dpsHarm("Envenom")),
+                M("Mutilate", dpsHarm("Mutilate")),
+                M("Cold Blood + Ambush", "#showtooltip Ambush\n/cast Cold Blood\n/cast [harm] Ambush", "Requires stealth."),
+            ]),
+        ]},
+
+        {"spec": "Combat", "groups": [
+            G(DPS, [
+                M("Blade Flurry", plain("Blade Flurry")),
+                M("Adrenaline Rush", plain("Adrenaline Rush")),
+            ]),
+        ]},
+
+        {"spec": "Subtlety", "groups": [
+            G(DPS, [
+                M("Hemorrhage", dpsHarm("Hemorrhage")),
+                M("Premeditation", plain("Premeditation"), "Requires stealth."),
+            ]),
+            G(PANIC, [
+                M("Cloak of Shadows", plain("Cloak of Shadows")),
             ]),
         ]},
     ]},

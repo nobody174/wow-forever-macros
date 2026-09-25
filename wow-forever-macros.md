@@ -440,37 +440,37 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Lightning Bolt**
 ```
 #showtooltip Lightning Bolt
-/cast [@targettarget, harm, exists][harm] Lightning Bolt
+/cast [harm] Lightning Bolt
 ```
 
 **Chain Lightning**
 ```
 #showtooltip Chain Lightning
-/cast [@targettarget, harm, exists][harm] Chain Lightning
+/cast [harm] Chain Lightning
 ```
 
 **Earth Shock**
 ```
 #showtooltip Earth Shock
-/cast [@targettarget, harm, exists][harm] Earth Shock
+/cast [harm] Earth Shock
 ```
 
 **Flame Shock**
 ```
 #showtooltip Flame Shock
-/cast [@targettarget, harm, exists][harm] Flame Shock
+/cast [harm] Flame Shock
 ```
 
 **Frost Shock**
 ```
 #showtooltip Frost Shock
-/cast [@targettarget, harm, exists][harm] Frost Shock
+/cast [harm] Frost Shock
 ```
 
 **Purge (offensive dispel)**
 ```
 #showtooltip Purge
-/cast [@targettarget, harm, exists][harm] Purge
+/cast [harm] Purge
 ```
 
 #### Mouseover healing / utility
@@ -662,14 +662,14 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 ```
 #showtooltip Chain Lightning
 /cast Elemental Mastery
-/cast [@targettarget, harm, exists][harm] Chain Lightning
+/cast [harm] Chain Lightning
 ```
 
 **Elemental Mastery + Lightning Bolt**
 ```
 #showtooltip Lightning Bolt
 /cast Elemental Mastery
-/cast [@targettarget, harm, exists][harm] Lightning Bolt
+/cast [harm] Lightning Bolt
 ```
 
 ### Shaman — Enhancement
@@ -679,7 +679,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Stormstrike** — Also starts auto-attack.
 ```
 #showtooltip Stormstrike
-/cast [@targettarget, harm, exists][harm] Stormstrike
+/cast [harm] Stormstrike
 ```
 
 #### Buffs
@@ -699,25 +699,25 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Judgement**
 ```
 #showtooltip Judgement
-/cast [@targettarget, harm, exists][harm] Judgement
+/cast [harm] Judgement
 ```
 
 **Hammer of Wrath**
 ```
 #showtooltip Hammer of Wrath
-/cast [@targettarget, harm, exists][harm] Hammer of Wrath
+/cast [harm] Hammer of Wrath
 ```
 
 **Exorcism**
 ```
 #showtooltip Exorcism
-/cast [@targettarget, harm, exists][harm] Exorcism
+/cast [harm] Exorcism
 ```
 
 **Hammer of Justice**
 ```
 #showtooltip Hammer of Justice
-/cast [@targettarget, harm, exists][harm] Hammer of Justice
+/cast [harm] Hammer of Justice
 ```
 
 **Consecration**
@@ -944,7 +944,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Repentance**
 ```
 #showtooltip Repentance
-/cast [@targettarget, harm, exists][harm] Repentance
+/cast [harm] Repentance
 ```
 
 #### Buffs
@@ -1030,43 +1030,43 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Shadow Bolt**
 ```
 #showtooltip Shadow Bolt
-/cast [@targettarget, harm, exists][harm] Shadow Bolt
+/cast [harm] Shadow Bolt
 ```
 
 **Corruption**
 ```
 #showtooltip Corruption
-/cast [@targettarget, harm, exists][harm] Corruption
+/cast [harm] Corruption
 ```
 
 **Curse of Agony**
 ```
 #showtooltip Curse of Agony
-/cast [@targettarget, harm, exists][harm] Curse of Agony
+/cast [harm] Curse of Agony
 ```
 
 **Immolate**
 ```
 #showtooltip Immolate
-/cast [@targettarget, harm, exists][harm] Immolate
+/cast [harm] Immolate
 ```
 
 **Searing Pain**
 ```
 #showtooltip Searing Pain
-/cast [@targettarget, harm, exists][harm] Searing Pain
+/cast [harm] Searing Pain
 ```
 
 **Soul Fire**
 ```
 #showtooltip Soul Fire
-/cast [@targettarget, harm, exists][harm] Soul Fire
+/cast [harm] Soul Fire
 ```
 
 **Death Coil**
 ```
 #showtooltip Death Coil
-/cast [@targettarget, harm, exists][harm] Death Coil
+/cast [harm] Death Coil
 ```
 
 **Drain Life (spam-safe)**
@@ -1090,31 +1090,31 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Curse of the Elements**
 ```
 #showtooltip Curse of the Elements
-/cast [@targettarget, harm, exists][harm] Curse of the Elements
+/cast [harm] Curse of the Elements
 ```
 
 **Curse of Shadow**
 ```
 #showtooltip Curse of Shadow
-/cast [@targettarget, harm, exists][harm] Curse of Shadow
+/cast [harm] Curse of Shadow
 ```
 
 **Curse of Recklessness**
 ```
 #showtooltip Curse of Recklessness
-/cast [@targettarget, harm, exists][harm] Curse of Recklessness
+/cast [harm] Curse of Recklessness
 ```
 
 **Curse of Weakness**
 ```
 #showtooltip Curse of Weakness
-/cast [@targettarget, harm, exists][harm] Curse of Weakness
+/cast [harm] Curse of Weakness
 ```
 
 **Curse of Tongues**
 ```
 #showtooltip Curse of Tongues
-/cast [@targettarget, harm, exists][harm] Curse of Tongues
+/cast [harm] Curse of Tongues
 ```
 
 **Hellfire**
@@ -1201,7 +1201,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Fear**
 ```
 #showtooltip Fear
-/cast [@targettarget, harm, exists][harm] Fear
+/cast [harm] Fear
 ```
 
 **Sacrifice (Voidwalker)**
@@ -1241,13 +1241,13 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Spell Lock (Felhunter)**
 ```
 #showtooltip Spell Lock
-/cast [@targettarget, harm, exists][harm] Spell Lock
+/cast [harm] Spell Lock
 ```
 
 **Torment (Voidwalker taunt)**
 ```
 #showtooltip Torment
-/cast [@targettarget, harm, exists][harm] Torment
+/cast [harm] Torment
 ```
 
 **Summon Felhunter**
@@ -1313,26 +1313,26 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Siphon Life**
 ```
 #showtooltip Siphon Life
-/cast [@targettarget, harm, exists][harm] Siphon Life
+/cast [harm] Siphon Life
 ```
 
 **Curse of Exhaustion**
 ```
 #showtooltip Curse of Exhaustion
-/cast [@targettarget, harm, exists][harm] Curse of Exhaustion
+/cast [harm] Curse of Exhaustion
 ```
 
 **Amplify Curse + Agony**
 ```
 #showtooltip Curse of Agony
 /cast Amplify Curse
-/cast [@targettarget, harm, exists][harm] Curse of Agony
+/cast [harm] Curse of Agony
 ```
 
 **DoT sequence (press to roll dots)**
 ```
 #showtooltip Corruption
-/castsequence [@targettarget, harm, exists][harm] reset=target Corruption, Curse of Agony, Siphon Life, Immolate
+/castsequence [harm] reset=target Corruption, Curse of Agony, Siphon Life, Immolate
 ```
 
 #### Panic / defensive
@@ -1380,19 +1380,19 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Conflagrate**
 ```
 #showtooltip Conflagrate
-/cast [@targettarget, harm, exists][harm] Conflagrate
+/cast [harm] Conflagrate
 ```
 
 **Shadowburn**
 ```
 #showtooltip Shadowburn
-/cast [@targettarget, harm, exists][harm] Shadowburn
+/cast [harm] Shadowburn
 ```
 
 **Immolate > Conflagrate**
 ```
 #showtooltip Immolate
-/castsequence [@targettarget, harm, exists][harm] reset=target/10 Immolate, Conflagrate
+/castsequence [harm] reset=target/10 Immolate, Conflagrate
 ```
 
 ## Hunter
@@ -1404,73 +1404,73 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Hunter's Mark**
 ```
 #showtooltip Hunter's Mark
-/cast [@targettarget, harm, exists][harm] Hunter's Mark
+/cast [harm] Hunter's Mark
 ```
 
 **Serpent Sting**
 ```
 #showtooltip Serpent Sting
-/cast [@targettarget, harm, exists][harm] Serpent Sting
+/cast [harm] Serpent Sting
 ```
 
 **Arcane Shot**
 ```
 #showtooltip Arcane Shot
-/cast [@targettarget, harm, exists][harm] Arcane Shot
+/cast [harm] Arcane Shot
 ```
 
 **Multi-Shot**
 ```
 #showtooltip Multi-Shot
-/cast [@targettarget, harm, exists][harm] Multi-Shot
+/cast [harm] Multi-Shot
 ```
 
 **Concussive Shot**
 ```
 #showtooltip Concussive Shot
-/cast [@targettarget, harm, exists][harm] Concussive Shot
+/cast [harm] Concussive Shot
 ```
 
 **Viper Sting**
 ```
 #showtooltip Viper Sting
-/cast [@targettarget, harm, exists][harm] Viper Sting
+/cast [harm] Viper Sting
 ```
 
 **Scorpid Sting**
 ```
 #showtooltip Scorpid Sting
-/cast [@targettarget, harm, exists][harm] Scorpid Sting
+/cast [harm] Scorpid Sting
 ```
 
 **Raptor Strike**
 ```
 #showtooltip Raptor Strike
-/cast [@targettarget, harm, exists][harm] Raptor Strike
+/cast [harm] Raptor Strike
 ```
 
 **Mongoose Bite**
 ```
 #showtooltip Mongoose Bite
-/cast [@targettarget, harm, exists][harm] Mongoose Bite
+/cast [harm] Mongoose Bite
 ```
 
 **Wing Clip**
 ```
 #showtooltip Wing Clip
-/cast [@targettarget, harm, exists][harm] Wing Clip
+/cast [harm] Wing Clip
 ```
 
 **Distracting Shot**
 ```
 #showtooltip Distracting Shot
-/cast [@targettarget, harm, exists][harm] Distracting Shot
+/cast [harm] Distracting Shot
 ```
 
 **Tranquilizing Shot (enrage dispel)** — Hunter's only dispel: removes Frenzy from enemies.
 ```
 #showtooltip Tranquilizing Shot
-/cast [@targettarget, harm, exists][harm] Tranquilizing Shot
+/cast [harm] Tranquilizing Shot
 ```
 
 #### Cleanse / dispel
@@ -1533,7 +1533,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Disengage**
 ```
 #showtooltip Disengage
-/cast [@targettarget, harm, exists][harm] Disengage
+/cast [harm] Disengage
 ```
 
 **Freezing Trap**
@@ -1640,13 +1640,13 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Aimed Shot**
 ```
 #showtooltip Aimed Shot
-/cast [@targettarget, harm, exists][harm] Aimed Shot
+/cast [harm] Aimed Shot
 ```
 
 **Scatter Shot**
 ```
 #showtooltip Scatter Shot
-/cast [@targettarget, harm, exists][harm] Scatter Shot
+/cast [harm] Scatter Shot
 ```
 
 #### Buffs
@@ -1672,13 +1672,13 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Counterattack**
 ```
 #showtooltip Counterattack
-/cast [@targettarget, harm, exists][harm] Counterattack
+/cast [harm] Counterattack
 ```
 
 **Wyvern Sting**
 ```
 #showtooltip Wyvern Sting
-/cast [@targettarget, harm, exists][harm] Wyvern Sting
+/cast [harm] Wyvern Sting
 ```
 
 #### Panic / defensive
@@ -1706,37 +1706,37 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Heroic Strike**
 ```
 #showtooltip Heroic Strike
-/cast [@targettarget, harm, exists][harm] Heroic Strike
+/cast [harm] Heroic Strike
 ```
 
 **Cleave**
 ```
 #showtooltip Cleave
-/cast [@targettarget, harm, exists][harm] Cleave
+/cast [harm] Cleave
 ```
 
 **Rend**
 ```
 #showtooltip Rend
-/cast [@targettarget, harm, exists][harm] Rend
+/cast [harm] Rend
 ```
 
 **Hamstring**
 ```
 #showtooltip Hamstring
-/cast [@targettarget, harm, exists][harm] Hamstring
+/cast [harm] Hamstring
 ```
 
 **Sunder Armor**
 ```
 #showtooltip Sunder Armor
-/cast [@targettarget, harm, exists][harm] Sunder Armor
+/cast [harm] Sunder Armor
 ```
 
 **Execute**
 ```
 #showtooltip Execute
-/cast [@targettarget, harm, exists][harm] Execute
+/cast [harm] Execute
 ```
 
 **Overpower (to Battle)**
@@ -1805,7 +1805,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Intimidating Shout**
 ```
 #showtooltip Intimidating Shout
-/cast [@targettarget, harm, exists][harm] Intimidating Shout
+/cast [harm] Intimidating Shout
 ```
 
 **Disarm (to Defensive)**
@@ -1885,7 +1885,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Bloodthirst**
 ```
 #showtooltip Bloodthirst
-/cast [@targettarget, harm, exists][harm] Bloodthirst
+/cast [harm] Bloodthirst
 ```
 
 **Whirlwind (to Berserker)**
@@ -1903,7 +1903,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Slam**
 ```
 #showtooltip Slam
-/cast [@targettarget, harm, exists][harm] Slam
+/cast [harm] Slam
 ```
 
 **Piercing Howl**
@@ -1933,25 +1933,25 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 **Shield Slam**
 ```
 #showtooltip Shield Slam
-/cast [@targettarget, harm, exists][harm] Shield Slam
+/cast [harm] Shield Slam
 ```
 
 **Revenge**
 ```
 #showtooltip Revenge
-/cast [@targettarget, harm, exists][harm] Revenge
+/cast [harm] Revenge
 ```
 
 **Shield Bash**
 ```
 #showtooltip Shield Bash
-/cast [@targettarget, harm, exists][harm] Shield Bash
+/cast [harm] Shield Bash
 ```
 
 **Concussion Blow**
 ```
 #showtooltip Concussion Blow
-/cast [@targettarget, harm, exists][harm] Concussion Blow
+/cast [harm] Concussion Blow
 ```
 
 #### Panic / defensive
@@ -1966,4 +1966,248 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 ```
 #showtooltip Last Stand
 /cast Last Stand
+```
+
+## Rogue
+
+### Rogue — Shared (all specs)
+
+#### TT-aware DPS
+
+**Sinister Strike**
+```
+#showtooltip Sinister Strike
+/cast [harm] Sinister Strike
+```
+
+**Backstab**
+```
+#showtooltip Backstab
+/cast [harm] Backstab
+```
+
+**Eviscerate**
+```
+#showtooltip Eviscerate
+/cast [harm] Eviscerate
+```
+
+**Gouge**
+```
+#showtooltip Gouge
+/cast [harm] Gouge
+```
+
+**Kidney Shot**
+```
+#showtooltip Kidney Shot
+/cast [harm] Kidney Shot
+```
+
+**Rupture**
+```
+#showtooltip Rupture
+/cast [harm] Rupture
+```
+
+**Garrote** — Requires stealth.
+```
+#showtooltip Garrote
+/cast [harm] Garrote
+```
+
+**Ambush** — Requires stealth.
+```
+#showtooltip Ambush
+/cast [harm] Ambush
+```
+
+**Expose Armor**
+```
+#showtooltip Expose Armor
+/cast [harm] Expose Armor
+```
+
+**Sap** — Only works on an out-of-combat target.
+```
+#showtooltip Sap
+/cast [harm] Sap
+```
+
+**Kick (interrupt)**
+```
+#showtooltip Kick
+/cast [harm] Kick
+```
+
+#### Cleanse / dispel
+
+*Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind.*
+
+#### Wand / auto-attack
+
+**Auto-attack (spam-safe)**
+```
+/startattack [@targettarget, harm, exists][harm]
+```
+
+#### Buffs
+
+**Slice and Dice**
+```
+#showtooltip Slice and Dice
+/cast Slice and Dice
+```
+
+#### Panic / defensive
+
+**Evasion**
+```
+#showtooltip Evasion
+/cast Evasion
+```
+
+**Vanish**
+```
+#showtooltip Vanish
+/cast Vanish
+```
+
+**Sprint**
+```
+#showtooltip Sprint
+/cast Sprint
+```
+
+**Blind**
+```
+#showtooltip Blind
+/cast [harm] Blind
+```
+
+#### Class QoL
+
+**Stealth (no cancel)** — Won't drop you out of stealth if pressed again.
+```
+#showtooltip Stealth
+/cast [nostealth] Stealth
+```
+
+**Pick Lock**
+```
+#showtooltip Pick Lock
+/cast Pick Lock
+```
+
+**Pick Pocket**
+```
+#showtooltip Pick Pocket
+/cast [harm] Pick Pocket
+```
+
+**Apply poison to main hand** — Swap the item name to the poison you carry.
+```
+/use Instant Poison
+/use Main Hand Weapon
+```
+
+**Apply poison to off hand** — Swap the item name to the poison you carry.
+```
+/use Deadly Poison
+/use Off Hand Weapon
+```
+
+**Distract**
+```
+#showtooltip Distract
+/cast [harm] Distract
+```
+
+**Feint**
+```
+#showtooltip Feint
+/cast [harm] Feint
+```
+
+#### Focus
+
+**Kick focus**
+```
+#showtooltip Kick
+/cast [@focus, harm, exists][harm] Kick
+```
+
+**Kidney Shot focus**
+```
+#showtooltip Kidney Shot
+/cast [@focus, harm, exists][harm] Kidney Shot
+```
+
+**Blind focus**
+```
+#showtooltip Blind
+/cast [@focus, harm, exists][harm] Blind
+```
+
+### Rogue — Assassination
+
+#### TT-aware DPS
+
+**Envenom**
+```
+#showtooltip Envenom
+/cast [harm] Envenom
+```
+
+**Mutilate**
+```
+#showtooltip Mutilate
+/cast [harm] Mutilate
+```
+
+**Cold Blood + Ambush** — Requires stealth.
+```
+#showtooltip Ambush
+/cast Cold Blood
+/cast [harm] Ambush
+```
+
+### Rogue — Combat
+
+#### TT-aware DPS
+
+**Blade Flurry**
+```
+#showtooltip Blade Flurry
+/cast Blade Flurry
+```
+
+**Adrenaline Rush**
+```
+#showtooltip Adrenaline Rush
+/cast Adrenaline Rush
+```
+
+### Rogue — Subtlety
+
+#### TT-aware DPS
+
+**Hemorrhage**
+```
+#showtooltip Hemorrhage
+/cast [harm] Hemorrhage
+```
+
+**Premeditation** — Requires stealth.
+```
+#showtooltip Premeditation
+/cast Premeditation
+```
+
+#### Panic / defensive
+
+**Cloak of Shadows**
+```
+#showtooltip Cloak of Shadows
+/cast Cloak of Shadows
 ```

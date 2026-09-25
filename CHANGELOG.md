@@ -4,6 +4,15 @@ Authoritative history of what's actually shipped on wow-forever-macro. Working
 history for whoever builds this next (including a future Claude session) — not
 user-facing release notes.
 
+## 2026-09-25
+
+- Added a full Rogue class to the macro cheatsheet (Shared + Assassination/Combat/
+  Subtlety), same class-icon treatment as the other 6 classes.
+- Split the dps() helper: Priest keeps target-of-target-aware DPS macros
+  (`[@targettarget, harm, exists][harm] SPELL`); every other class (Shaman,
+  Paladin, Warlock, Hunter, Warrior, Rogue) now uses plain `[harm] SPELL` via a
+  new dpsHarm() helper, since only Priest actually needs TT awareness.
+
 ## 2026-09-24
 
 - Added Leatrix Plus to the Addons page (modular UI quality-of-life addon).

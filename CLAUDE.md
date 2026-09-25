@@ -56,11 +56,14 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
 
 ## Macro style rules (strict)
 - Short, one-liners whenever possible. No bloated conditions.
-- DPS: `/cast [@targettarget, harm, exists][harm] SPELL`
+- DPS, Priest only (needs target-of-target): `/cast [@targettarget, harm, exists][harm] SPELL`
+- DPS, every other class (Shaman/Paladin/Warlock/Hunter/Warrior/Rogue — no TT needed):
+  `/cast [harm] SPELL`
 - Heal/utility (friendly only): `/cast [@mouseover, help, exists][help] SPELL`
 - Friend-or-foe spells (e.g. Dispel Magic): `/cast [@mouseover, exists][exists] SPELL`
 - Buffs: `/cast [@mouseover, help, exists][help][@player] SPELL`
-- Spam-safe channels: `/cast [@targettarget, harm, exists, nochanneling][harm, nochanneling] SPELL`
+- Spam-safe channels (Warlock): `/cast [@targettarget, harm, exists, nochanneling][harm, nochanneling] SPELL`
+  — chan() keeps TT; only the dps() helper was split by class, chan()/stance() were not.
 - Focus: `/cast [@focus, harm, exists][harm] SPELL`
 - Wand (must stay exactly two lines, never use !Shoot):
   ```
@@ -78,7 +81,10 @@ TT-aware DPS, Mouseover healing / utility, Cleanse / dispel, Wand / auto-attack,
 Buffs, Panic / defensive, Targeting helpers, Class QoL, Focus, Misc / UI.
 Misc / UI lives only in the UNIVERSAL block (camera/UI console commands, target
 marking, gear-swap macros — not spell-specific, so not part of any class section).
-Use helpers: dps(), heal(), util(), buff(), chan(), foc(), plain(), me(), stance().
-Every helper prepends #showtooltip; hand-written multi-line /cast or /castsequence
-macros must add #showtooltip as their own first line. Pure utility commands
-(/console, /tm, /target, /focus, /petattack, /use item) do not get #showtooltip.
+Classes: Priest, Shaman, Paladin, Warlock, Hunter, Warrior, Rogue.
+Use helpers: dps() (Priest only — target-of-target-aware), dpsHarm() (every other
+class — plain [harm] targeting, no TT), heal(), util(), buff(), chan(), foc(),
+plain(), me(), stance(). Every helper prepends #showtooltip; hand-written
+multi-line /cast or /castsequence macros must add #showtooltip as their own
+first line. Pure utility commands (/console, /tm, /target, /focus, /petattack,
+/use item) do not get #showtooltip.
