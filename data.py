@@ -87,7 +87,7 @@ def G(kind, macros):
 
 # Macro type labels — the 8 original categories plus Misc / UI.
 DPS, HEAL, CLEAN, AUTO, BUFF, PANIC, TARGET, QOL, FOCUS, MISC = (
-    "TT-aware DPS",
+    "Damage / offensive",
     "Mouseover healing / utility",
     "Cleanse / dispel",
     "Wand / auto-attack",
@@ -609,7 +609,7 @@ CLASSES = [
             ]),
             G(CLEAN, [
                 M("No friendly dispel", "",
-                  "Hunters have no friendly cleanse. Use Tranquilizing Shot (TT-aware DPS) instead."),
+                  "Hunters have no friendly cleanse. Use Tranquilizing Shot (Damage / offensive) instead."),
             ]),
             G(FOCUS, [
                 M("Hunter's Mark focus", foc("Hunter's Mark")),

@@ -77,7 +77,7 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
 
 ## Structure in data.py
 Each class has a "Shared" section (all specs) plus spec sections. Macro types:
-TT-aware DPS, Mouseover healing / utility, Cleanse / dispel, Wand / auto-attack,
+Damage / offensive, Mouseover healing / utility, Cleanse / dispel, Wand / auto-attack,
 Buffs, Panic / defensive, Targeting helpers, Class QoL, Focus, Misc / UI.
 Misc / UI lives only in the UNIVERSAL block (camera/UI console commands, target
 marking, gear-swap macros — not spell-specific, so not part of any class section).

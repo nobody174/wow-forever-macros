@@ -4,10 +4,16 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ## Patterns
 
-**TT-aware DPS**
+**Damage (Priest — target-of-target aware)**
 ```
 #showtooltip SPELL
 /cast [@targettarget, harm, exists][harm] SPELL
+```
+
+**Damage (every other class)**
+```
+#showtooltip SPELL
+/cast [harm] SPELL
 ```
 
 **Mouseover heal / utility**
@@ -150,7 +156,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Priest — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Shadow Word: Pain**
 ```
@@ -341,7 +347,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Priest — Shadow
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Mind Flay (spam-safe)** — Won't clip an active channel.
 ```
@@ -435,7 +441,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Shaman — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Lightning Bolt**
 ```
@@ -656,7 +662,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Shaman — Elemental
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Elemental Mastery + Chain Lightning**
 ```
@@ -674,7 +680,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Shaman — Enhancement
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Stormstrike** — Also starts auto-attack.
 ```
@@ -694,7 +700,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Paladin — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Judgement**
 ```
@@ -939,7 +945,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Paladin — Retribution
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Repentance**
 ```
@@ -985,7 +991,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Paladin — Protection
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Holy Shield**
 ```
@@ -1025,7 +1031,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Warlock — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Shadow Bolt**
 ```
@@ -1308,7 +1314,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Warlock — Affliction
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Siphon Life**
 ```
@@ -1375,7 +1381,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Warlock — Destruction
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Conflagrate**
 ```
@@ -1399,7 +1405,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Hunter — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Hunter's Mark**
 ```
@@ -1475,7 +1481,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 #### Cleanse / dispel
 
-*Hunters have no friendly cleanse. Use Tranquilizing Shot (TT-aware DPS) instead.*
+*Hunters have no friendly cleanse. Use Tranquilizing Shot (Damage / offensive) instead.*
 
 #### Wand / auto-attack
 
@@ -1618,7 +1624,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Hunter — Beast Mastery
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Bestial Wrath + Rapid Fire burst**
 ```
@@ -1635,7 +1641,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Hunter — Marksmanship
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Aimed Shot**
 ```
@@ -1667,7 +1673,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Hunter — Survival
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Counterattack**
 ```
@@ -1701,7 +1707,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Warrior — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Heroic Strike**
 ```
@@ -1880,7 +1886,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Warrior — Fury
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Bloodthirst**
 ```
@@ -1928,7 +1934,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Warrior — Protection
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Shield Slam**
 ```
@@ -1972,7 +1978,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Rogue — Shared (all specs)
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Sinister Strike**
 ```
@@ -2151,7 +2157,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Rogue — Assassination
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Envenom**
 ```
@@ -2174,7 +2180,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Rogue — Combat
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Blade Flurry**
 ```
@@ -2190,7 +2196,7 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 ### Rogue — Subtlety
 
-#### TT-aware DPS
+#### Damage / offensive
 
 **Hemorrhage**
 ```

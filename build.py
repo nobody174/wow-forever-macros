@@ -12,7 +12,8 @@ def sort_groups(groups):
 
 # Example patterns shown at the top of the markdown cheatsheet, one per macro style.
 INTRO_RULES = [
-    ("TT-aware DPS", dps("SPELL")),
+    ("Damage (Priest — target-of-target aware)", dps("SPELL")),
+    ("Damage (every other class)", dpsHarm("SPELL")),
     ("Mouseover heal / utility", heal("SPELL")),
     ("Friend-or-foe (Dispel Magic)", util("SPELL")),
     ("Buffs (adds self fallback)", buff("SPELL")),
