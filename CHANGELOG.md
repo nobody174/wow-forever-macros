@@ -6,6 +6,19 @@ user-facing release notes.
 
 ## 2026-09-25
 
+- Added a full Mage class to the macro cheatsheet (Shared + Arcane/Fire/Frost), same
+  class-icon treatment as the other classes, plus a Mage level-20 talent build card
+  on the Builds page (Elemental Precision → Ice Shards → Frostbite → Ice Lance).
+- Reordered the class roster on both the Macros page and the Builds page by armor
+  type (Cloth → Leather → Mail → Plate): Priest, Warlock, Mage, Rogue, Shaman,
+  Hunter, Paladin, Warrior. Rogue has no talent build yet, so it's skipped on the
+  Builds page for now.
+- Renamed the stale "TT-aware DPS" group label (left over from the dps()/dpsHarm()
+  split below) to "Damage / offensive" everywhere it appears, since only Priest
+  actually needs target-of-target awareness.
+- Added talent build cards to the Builds page for Paladin (hybrid Prot/Ret), Priest,
+  Shaman, Warlock, and both Warrior specs (Tank, Fury) — same icon+arrow+tooltip
+  pattern established with the Hunter build.
 - Added a full Rogue class to the macro cheatsheet (Shared + Assassination/Combat/
   Subtlety), same class-icon treatment as the other 6 classes.
 - Split the dps() helper: Priest keeps target-of-target-aware DPS macros

@@ -166,6 +166,7 @@ UNIVERSAL = [
 # =============================================================================
 CLASSES = [
 
+
     # -------------------------------------------------------------------- #
     # PRIEST
     # -------------------------------------------------------------------- #
@@ -251,194 +252,6 @@ CLASSES = [
             ]),
             G(BUFF, [
                 M("Divine Spirit", buff("Divine Spirit")),
-            ]),
-        ]},
-    ]},
-
-    # -------------------------------------------------------------------- #
-    # SHAMAN
-    # -------------------------------------------------------------------- #
-    {"name": "Shaman", "color": "#0070DE", "sections": [
-
-        {"spec": "Shared", "groups": [
-            G(DPS, [
-                M("Lightning Bolt", dpsHarm("Lightning Bolt")),
-                M("Chain Lightning", dpsHarm("Chain Lightning")),
-                M("Earth Shock", dpsHarm("Earth Shock")),
-                M("Flame Shock", dpsHarm("Flame Shock")),
-                M("Frost Shock", dpsHarm("Frost Shock")),
-                M("Purge (offensive dispel)", dpsHarm("Purge")),
-            ]),
-            G(AUTO, [
-                M("Auto-attack (spam-safe)", MELEE),
-            ]),
-            G(HEAL, [
-                M("Healing Wave", heal("Healing Wave")),
-                M("Lesser Healing Wave", heal("Lesser Healing Wave")),
-                M("Chain Heal", heal("Chain Heal")),
-                M("Ancestral Spirit", heal("Ancestral Spirit")),
-            ]),
-            G(CLEAN, [
-                M("Cure Poison", heal("Cure Poison")),
-                M("Cure Disease", heal("Cure Disease")),
-            ]),
-            G(BUFF, [
-                M("Lightning Shield", plain("Lightning Shield")),
-                M("Rockbiter Weapon", plain("Rockbiter Weapon")),
-                M("Flametongue Weapon", plain("Flametongue Weapon")),
-                M("Frostbrand Weapon", plain("Frostbrand Weapon")),
-                M("Water Walking", buff("Water Walking")),
-                M("Water Breathing", buff("Water Breathing")),
-            ]),
-            G(PANIC, [
-                M("Self Lesser Healing Wave", me("Lesser Healing Wave")),
-                M("Stoneclaw Totem", plain("Stoneclaw Totem")),
-                M("Grounding Totem", plain("Grounding Totem")),
-                M("Ghost Wolf (no cancel)", "#showtooltip Ghost Wolf\n/cast [noform] Ghost Wolf"),
-            ]),
-            G(QOL, [
-                M("Totems: melee group (press 4x)",
-                  "#showtooltip Strength of Earth Totem\n"
-                  "/castsequence reset=combat Strength of Earth Totem, Windfury Totem, Searing Totem, Mana Spring Totem"),
-                M("Totems: caster group (press 4x)",
-                  "#showtooltip Stoneskin Totem\n"
-                  "/castsequence reset=combat Stoneskin Totem, Grace of Air Totem, Searing Totem, Mana Spring Totem",
-                  "Swap Grace of Air for Tranquil Air if you prefer."),
-                M("Tremor Totem", plain("Tremor Totem")),
-                M("Poison Cleansing Totem", plain("Poison Cleansing Totem")),
-                M("Disease Cleansing Totem", plain("Disease Cleansing Totem")),
-                M("Earthbind Totem", plain("Earthbind Totem")),
-                M("Magma Totem", plain("Magma Totem")),
-                M("Fire Nova Totem", plain("Fire Nova Totem")),
-                M("Healing Stream Totem", plain("Healing Stream Totem")),
-            ]),
-            G(FOCUS, [
-                M("Earth Shock interrupt on focus", foc("Earth Shock")),
-                M("Purge focus", foc("Purge")),
-            ]),
-        ]},
-
-        {"spec": "Elemental", "groups": [
-            G(DPS, [
-                M("Elemental Mastery + Chain Lightning",
-                  "#showtooltip Chain Lightning\n/cast Elemental Mastery\n/cast [harm] Chain Lightning"),
-                M("Elemental Mastery + Lightning Bolt",
-                  "#showtooltip Lightning Bolt\n/cast Elemental Mastery\n/cast [harm] Lightning Bolt"),
-            ]),
-        ]},
-
-        {"spec": "Enhancement", "groups": [
-            G(DPS, [
-                M("Stormstrike", dpsHarm("Stormstrike"), "Also starts auto-attack."),
-            ]),
-            G(BUFF, [
-                M("Windfury Weapon", plain("Windfury Weapon")),
-            ]),
-        ]},
-    ]},
-
-    # -------------------------------------------------------------------- #
-    # PALADIN
-    # -------------------------------------------------------------------- #
-    {"name": "Paladin", "color": "#F58CBA", "sections": [
-
-        {"spec": "Shared", "groups": [
-            G(DPS, [
-                M("Judgement", dpsHarm("Judgement")),
-                M("Hammer of Wrath", dpsHarm("Hammer of Wrath")),
-                M("Exorcism", dpsHarm("Exorcism")),
-                M("Hammer of Justice", dpsHarm("Hammer of Justice")),
-                M("Consecration", plain("Consecration")),
-                M("Holy Wrath", plain("Holy Wrath")),
-            ]),
-            G(AUTO, [
-                M("Auto-attack (spam-safe)", MELEE),
-            ]),
-            G(HEAL, [
-                M("Holy Light", heal("Holy Light")),
-                M("Flash of Light", heal("Flash of Light")),
-                M("Lay on Hands", heal("Lay on Hands")),
-                M("Blessing of Protection", heal("Blessing of Protection")),
-                M("Blessing of Freedom", heal("Blessing of Freedom")),
-                M("Redemption", heal("Redemption")),
-            ]),
-            G(CLEAN, [
-                M("Cleanse", heal("Cleanse")),
-                M("Purify", heal("Purify")),
-            ]),
-            G(BUFF, [
-                M("Blessing of Might", buff("Blessing of Might")),
-                M("Blessing of Wisdom", buff("Blessing of Wisdom")),
-                M("Blessing of Salvation", buff("Blessing of Salvation")),
-                M("Blessing of Light", buff("Blessing of Light")),
-                M("Greater Blessing of Might", buff("Greater Blessing of Might")),
-                M("Greater Blessing of Wisdom", buff("Greater Blessing of Wisdom")),
-                M("Devotion Aura", plain("Devotion Aura")),
-                M("Retribution Aura", plain("Retribution Aura")),
-                M("Concentration Aura", plain("Concentration Aura")),
-            ]),
-            G(PANIC, [
-                M("Divine Shield", plain("Divine Shield")),
-                M("Divine Protection", plain("Divine Protection")),
-                M("Lay on Hands self", me("Lay on Hands")),
-                M("Blessing of Protection self", me("Blessing of Protection")),
-            ]),
-            G(QOL, [
-                M("Seal of Righteousness", plain("Seal of Righteousness")),
-                M("Seal of the Crusader", plain("Seal of the Crusader")),
-                M("Seal of Wisdom", plain("Seal of Wisdom")),
-                M("Seal of Light", plain("Seal of Light")),
-                M("Seal of Justice", plain("Seal of Justice")),
-                M("Judge + reseal Righteousness loop",
-                  "#showtooltip Seal of Righteousness\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Righteousness, Judgement",
-                  "Press: seal, judge, seal, judge..."),
-                M("Crusader opener, then Righteousness",
-                  "#showtooltip Seal of the Crusader\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Righteousness"),
-                M("Divine Intervention", heal("Divine Intervention")),
-            ]),
-            G(FOCUS, [
-                M("Hammer of Justice focus", foc("Hammer of Justice")),
-                M("Turn Undead focus", foc("Turn Undead")),
-            ]),
-        ]},
-
-        {"spec": "Retribution", "groups": [
-            G(DPS, [
-                M("Repentance", dpsHarm("Repentance")),
-            ]),
-            G(BUFF, [
-                M("Sanctity Aura", plain("Sanctity Aura")),
-                M("Seal of Command", plain("Seal of Command")),
-            ]),
-            G(QOL, [
-                M("Crusader opener, then Command",
-                  "#showtooltip Seal of the Crusader\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Command"),
-                M("Judge + reseal Command loop",
-                  "#showtooltip Seal of Command\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Command, Judgement"),
-            ]),
-            G(FOCUS, [
-                M("Repentance focus", foc("Repentance")),
-            ]),
-        ]},
-
-        {"spec": "Protection", "groups": [
-            G(DPS, [
-                M("Holy Shield", plain("Holy Shield")),
-            ]),
-            G(BUFF, [
-                M("Righteous Fury", plain("Righteous Fury")),
-                M("Blessing of Kings", buff("Blessing of Kings")),
-                M("Blessing of Sanctuary", buff("Blessing of Sanctuary")),
-            ]),
-            G(QOL, [
-                M("Judge + reseal Wisdom loop",
-                  "#showtooltip Seal of Wisdom\n"
-                  "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Wisdom, Judgement",
-                  "Mana-sustain tanking."),
             ]),
         ]},
     ]},
@@ -552,6 +365,235 @@ CLASSES = [
     ]},
 
     # -------------------------------------------------------------------- #
+    # MAGE
+    # -------------------------------------------------------------------- #
+    {"name": "Mage", "color": "#69CCF0", "sections": [
+
+        {"spec": "Shared", "groups": [
+            G(DPS, [
+                M("Frostbolt", dpsHarm("Frostbolt")),
+                M("Fireball", dpsHarm("Fireball")),
+                M("Arcane Missiles (spam-safe)", chan("Arcane Missiles")),
+                M("Arcane Explosion", plain("Arcane Explosion")),
+                M("Fire Blast", dpsHarm("Fire Blast")),
+                M("Frost Nova", dpsHarm("Frost Nova")),
+                M("Cone of Cold", plain("Cone of Cold")),
+                M("Scorch", dpsHarm("Scorch")),
+                M("Counterspell (interrupt)", dpsHarm("Counterspell")),
+                M("Polymorph", dpsHarm("Polymorph")),
+            ]),
+            G(HEAL, [
+                M("Mana Shield", plain("Mana Shield")),
+            ]),
+            G(BUFF, [
+                M("Arcane Intellect", buff("Arcane Intellect")),
+                M("Frost Armor", plain("Frost Armor")),
+                M("Ice Armor", plain("Ice Armor")),
+                M("Molten Armor", plain("Molten Armor")),
+                M("Dampen Magic", buff("Dampen Magic")),
+                M("Amplify Magic", buff("Amplify Magic")),
+            ]),
+            G(PANIC, [
+                M("Ice Block", plain("Ice Block")),
+                M("Blink", plain("Blink")),
+                M("Evocation", plain("Evocation")),
+            ]),
+            G(QOL, [
+                M("Conjure Food", plain("Conjure Food")),
+                M("Conjure Water", plain("Conjure Water")),
+                M("Summon Water Elemental", plain("Summon Water Elemental")),
+                M("Remove Curse", heal("Remove Curse")),
+            ]),
+            G(CLEAN, [
+                M("Remove Curse (friend or foe)", util("Remove Curse")),
+            ]),
+            G(FOCUS, [
+                M("Counterspell focus", foc("Counterspell")),
+                M("Polymorph focus", foc("Polymorph")),
+            ]),
+        ]},
+
+        {"spec": "Arcane", "groups": [
+            G(DPS, [
+                M("Arcane Power + Arcane Missiles", "#showtooltip Arcane Missiles\n/cast Arcane Power\n/cast [harm] Arcane Missiles"),
+                M("Presence of Mind + Frostbolt", "#showtooltip Frostbolt\n/cast Presence of Mind\n/cast [harm] Frostbolt", "Instant-cast next spell."),
+            ]),
+        ]},
+
+        {"spec": "Fire", "groups": [
+            G(DPS, [
+                M("Combustion", plain("Combustion")),
+                M("Pyroblast", dpsHarm("Pyroblast")),
+            ]),
+        ]},
+
+        {"spec": "Frost", "groups": [
+            G(DPS, [
+                M("Ice Lance", dpsHarm("Ice Lance")),
+                M("Cold Snap", plain("Cold Snap")),
+            ]),
+        ]},
+    ]},
+
+    # -------------------------------------------------------------------- #
+    # ROGUE
+    # -------------------------------------------------------------------- #
+    {"name": "Rogue", "color": "#FFF569", "sections": [
+
+        {"spec": "Shared", "groups": [
+            G(DPS, [
+                M("Sinister Strike", dpsHarm("Sinister Strike")),
+                M("Backstab", dpsHarm("Backstab")),
+                M("Eviscerate", dpsHarm("Eviscerate")),
+                M("Gouge", dpsHarm("Gouge")),
+                M("Kidney Shot", dpsHarm("Kidney Shot")),
+                M("Rupture", dpsHarm("Rupture")),
+                M("Garrote", dpsHarm("Garrote"), "Requires stealth."),
+                M("Ambush", dpsHarm("Ambush"), "Requires stealth."),
+                M("Expose Armor", dpsHarm("Expose Armor")),
+                M("Sap", dpsHarm("Sap"), "Only works on an out-of-combat target."),
+                M("Kick (interrupt)", dpsHarm("Kick")),
+            ]),
+            G(AUTO, [
+                M("Auto-attack (spam-safe)", MELEE),
+            ]),
+            G(BUFF, [
+                M("Slice and Dice", plain("Slice and Dice")),
+            ]),
+            G(PANIC, [
+                M("Evasion", plain("Evasion")),
+                M("Vanish", plain("Vanish")),
+                M("Sprint", plain("Sprint")),
+                M("Blind", dpsHarm("Blind")),
+            ]),
+            G(QOL, [
+                M("Stealth (no cancel)", "#showtooltip Stealth\n/cast [nostealth] Stealth", "Won't drop you out of stealth if pressed again."),
+                M("Pick Lock", plain("Pick Lock")),
+                M("Pick Pocket", dpsHarm("Pick Pocket")),
+                M("Apply poison to main hand", "/use Instant Poison\n/use Main Hand Weapon", "Swap the item name to the poison you carry."),
+                M("Apply poison to off hand", "/use Deadly Poison\n/use Off Hand Weapon", "Swap the item name to the poison you carry."),
+                M("Distract", dpsHarm("Distract")),
+                M("Feint", dpsHarm("Feint")),
+            ]),
+            G(CLEAN, [
+                M("No dispel", "", "Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind."),
+            ]),
+            G(FOCUS, [
+                M("Kick focus", foc("Kick")),
+                M("Kidney Shot focus", foc("Kidney Shot")),
+                M("Blind focus", foc("Blind")),
+            ]),
+        ]},
+
+        {"spec": "Assassination", "groups": [
+            G(DPS, [
+                M("Envenom", dpsHarm("Envenom")),
+                M("Mutilate", dpsHarm("Mutilate")),
+                M("Cold Blood + Ambush", "#showtooltip Ambush\n/cast Cold Blood\n/cast [harm] Ambush", "Requires stealth."),
+            ]),
+        ]},
+
+        {"spec": "Combat", "groups": [
+            G(DPS, [
+                M("Blade Flurry", plain("Blade Flurry")),
+                M("Adrenaline Rush", plain("Adrenaline Rush")),
+            ]),
+        ]},
+
+        {"spec": "Subtlety", "groups": [
+            G(DPS, [
+                M("Hemorrhage", dpsHarm("Hemorrhage")),
+                M("Premeditation", plain("Premeditation"), "Requires stealth."),
+            ]),
+            G(PANIC, [
+                M("Cloak of Shadows", plain("Cloak of Shadows")),
+            ]),
+        ]},
+    ]},
+
+    # -------------------------------------------------------------------- #
+    # SHAMAN
+    # -------------------------------------------------------------------- #
+    {"name": "Shaman", "color": "#0070DE", "sections": [
+
+        {"spec": "Shared", "groups": [
+            G(DPS, [
+                M("Lightning Bolt", dpsHarm("Lightning Bolt")),
+                M("Chain Lightning", dpsHarm("Chain Lightning")),
+                M("Earth Shock", dpsHarm("Earth Shock")),
+                M("Flame Shock", dpsHarm("Flame Shock")),
+                M("Frost Shock", dpsHarm("Frost Shock")),
+                M("Purge (offensive dispel)", dpsHarm("Purge")),
+            ]),
+            G(AUTO, [
+                M("Auto-attack (spam-safe)", MELEE),
+            ]),
+            G(HEAL, [
+                M("Healing Wave", heal("Healing Wave")),
+                M("Lesser Healing Wave", heal("Lesser Healing Wave")),
+                M("Chain Heal", heal("Chain Heal")),
+                M("Ancestral Spirit", heal("Ancestral Spirit")),
+            ]),
+            G(CLEAN, [
+                M("Cure Poison", heal("Cure Poison")),
+                M("Cure Disease", heal("Cure Disease")),
+            ]),
+            G(BUFF, [
+                M("Lightning Shield", plain("Lightning Shield")),
+                M("Rockbiter Weapon", plain("Rockbiter Weapon")),
+                M("Flametongue Weapon", plain("Flametongue Weapon")),
+                M("Frostbrand Weapon", plain("Frostbrand Weapon")),
+                M("Water Walking", buff("Water Walking")),
+                M("Water Breathing", buff("Water Breathing")),
+            ]),
+            G(PANIC, [
+                M("Self Lesser Healing Wave", me("Lesser Healing Wave")),
+                M("Stoneclaw Totem", plain("Stoneclaw Totem")),
+                M("Grounding Totem", plain("Grounding Totem")),
+                M("Ghost Wolf (no cancel)", "#showtooltip Ghost Wolf\n/cast [noform] Ghost Wolf"),
+            ]),
+            G(QOL, [
+                M("Totems: melee group (press 4x)",
+                  "#showtooltip Strength of Earth Totem\n"
+                  "/castsequence reset=combat Strength of Earth Totem, Windfury Totem, Searing Totem, Mana Spring Totem"),
+                M("Totems: caster group (press 4x)",
+                  "#showtooltip Stoneskin Totem\n"
+                  "/castsequence reset=combat Stoneskin Totem, Grace of Air Totem, Searing Totem, Mana Spring Totem",
+                  "Swap Grace of Air for Tranquil Air if you prefer."),
+                M("Tremor Totem", plain("Tremor Totem")),
+                M("Poison Cleansing Totem", plain("Poison Cleansing Totem")),
+                M("Disease Cleansing Totem", plain("Disease Cleansing Totem")),
+                M("Earthbind Totem", plain("Earthbind Totem")),
+                M("Magma Totem", plain("Magma Totem")),
+                M("Fire Nova Totem", plain("Fire Nova Totem")),
+                M("Healing Stream Totem", plain("Healing Stream Totem")),
+            ]),
+            G(FOCUS, [
+                M("Earth Shock interrupt on focus", foc("Earth Shock")),
+                M("Purge focus", foc("Purge")),
+            ]),
+        ]},
+
+        {"spec": "Elemental", "groups": [
+            G(DPS, [
+                M("Elemental Mastery + Chain Lightning",
+                  "#showtooltip Chain Lightning\n/cast Elemental Mastery\n/cast [harm] Chain Lightning"),
+                M("Elemental Mastery + Lightning Bolt",
+                  "#showtooltip Lightning Bolt\n/cast Elemental Mastery\n/cast [harm] Lightning Bolt"),
+            ]),
+        ]},
+
+        {"spec": "Enhancement", "groups": [
+            G(DPS, [
+                M("Stormstrike", dpsHarm("Stormstrike"), "Also starts auto-attack."),
+            ]),
+            G(BUFF, [
+                M("Windfury Weapon", plain("Windfury Weapon")),
+            ]),
+        ]},
+    ]},
+
+    # -------------------------------------------------------------------- #
     # HUNTER
     # -------------------------------------------------------------------- #
     {"name": "Hunter", "color": "#ABD473", "sections": [
@@ -653,6 +695,112 @@ CLASSES = [
     ]},
 
     # -------------------------------------------------------------------- #
+    # PALADIN
+    # -------------------------------------------------------------------- #
+    {"name": "Paladin", "color": "#F58CBA", "sections": [
+
+        {"spec": "Shared", "groups": [
+            G(DPS, [
+                M("Judgement", dpsHarm("Judgement")),
+                M("Hammer of Wrath", dpsHarm("Hammer of Wrath")),
+                M("Exorcism", dpsHarm("Exorcism")),
+                M("Hammer of Justice", dpsHarm("Hammer of Justice")),
+                M("Consecration", plain("Consecration")),
+                M("Holy Wrath", plain("Holy Wrath")),
+            ]),
+            G(AUTO, [
+                M("Auto-attack (spam-safe)", MELEE),
+            ]),
+            G(HEAL, [
+                M("Holy Light", heal("Holy Light")),
+                M("Flash of Light", heal("Flash of Light")),
+                M("Lay on Hands", heal("Lay on Hands")),
+                M("Blessing of Protection", heal("Blessing of Protection")),
+                M("Blessing of Freedom", heal("Blessing of Freedom")),
+                M("Redemption", heal("Redemption")),
+            ]),
+            G(CLEAN, [
+                M("Cleanse", heal("Cleanse")),
+                M("Purify", heal("Purify")),
+            ]),
+            G(BUFF, [
+                M("Blessing of Might", buff("Blessing of Might")),
+                M("Blessing of Wisdom", buff("Blessing of Wisdom")),
+                M("Blessing of Salvation", buff("Blessing of Salvation")),
+                M("Blessing of Light", buff("Blessing of Light")),
+                M("Greater Blessing of Might", buff("Greater Blessing of Might")),
+                M("Greater Blessing of Wisdom", buff("Greater Blessing of Wisdom")),
+                M("Devotion Aura", plain("Devotion Aura")),
+                M("Retribution Aura", plain("Retribution Aura")),
+                M("Concentration Aura", plain("Concentration Aura")),
+            ]),
+            G(PANIC, [
+                M("Divine Shield", plain("Divine Shield")),
+                M("Divine Protection", plain("Divine Protection")),
+                M("Lay on Hands self", me("Lay on Hands")),
+                M("Blessing of Protection self", me("Blessing of Protection")),
+            ]),
+            G(QOL, [
+                M("Seal of Righteousness", plain("Seal of Righteousness")),
+                M("Seal of the Crusader", plain("Seal of the Crusader")),
+                M("Seal of Wisdom", plain("Seal of Wisdom")),
+                M("Seal of Light", plain("Seal of Light")),
+                M("Seal of Justice", plain("Seal of Justice")),
+                M("Judge + reseal Righteousness loop",
+                  "#showtooltip Seal of Righteousness\n"
+                  "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Righteousness, Judgement",
+                  "Press: seal, judge, seal, judge..."),
+                M("Crusader opener, then Righteousness",
+                  "#showtooltip Seal of the Crusader\n"
+                  "/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Righteousness"),
+                M("Divine Intervention", heal("Divine Intervention")),
+            ]),
+            G(FOCUS, [
+                M("Hammer of Justice focus", foc("Hammer of Justice")),
+                M("Turn Undead focus", foc("Turn Undead")),
+            ]),
+        ]},
+
+        {"spec": "Retribution", "groups": [
+            G(DPS, [
+                M("Repentance", dpsHarm("Repentance")),
+            ]),
+            G(BUFF, [
+                M("Sanctity Aura", plain("Sanctity Aura")),
+                M("Seal of Command", plain("Seal of Command")),
+            ]),
+            G(QOL, [
+                M("Crusader opener, then Command",
+                  "#showtooltip Seal of the Crusader\n"
+                  "/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Command"),
+                M("Judge + reseal Command loop",
+                  "#showtooltip Seal of Command\n"
+                  "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Command, Judgement"),
+            ]),
+            G(FOCUS, [
+                M("Repentance focus", foc("Repentance")),
+            ]),
+        ]},
+
+        {"spec": "Protection", "groups": [
+            G(DPS, [
+                M("Holy Shield", plain("Holy Shield")),
+            ]),
+            G(BUFF, [
+                M("Righteous Fury", plain("Righteous Fury")),
+                M("Blessing of Kings", buff("Blessing of Kings")),
+                M("Blessing of Sanctuary", buff("Blessing of Sanctuary")),
+            ]),
+            G(QOL, [
+                M("Judge + reseal Wisdom loop",
+                  "#showtooltip Seal of Wisdom\n"
+                  "/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Wisdom, Judgement",
+                  "Mana-sustain tanking."),
+            ]),
+        ]},
+    ]},
+
+    # -------------------------------------------------------------------- #
     # WARRIOR
     # -------------------------------------------------------------------- #
     {"name": "Warrior", "color": "#C79C6E", "sections": [
@@ -732,82 +880,6 @@ CLASSES = [
             G(PANIC, [
                 M("Shield Block", plain("Shield Block")),
                 M("Last Stand", plain("Last Stand")),
-            ]),
-        ]},
-    ]},
-
-    # -------------------------------------------------------------------- #
-    # ROGUE
-    # -------------------------------------------------------------------- #
-    {"name": "Rogue", "color": "#FFF569", "sections": [
-
-        {"spec": "Shared", "groups": [
-            G(DPS, [
-                M("Sinister Strike", dpsHarm("Sinister Strike")),
-                M("Backstab", dpsHarm("Backstab")),
-                M("Eviscerate", dpsHarm("Eviscerate")),
-                M("Gouge", dpsHarm("Gouge")),
-                M("Kidney Shot", dpsHarm("Kidney Shot")),
-                M("Rupture", dpsHarm("Rupture")),
-                M("Garrote", dpsHarm("Garrote"), "Requires stealth."),
-                M("Ambush", dpsHarm("Ambush"), "Requires stealth."),
-                M("Expose Armor", dpsHarm("Expose Armor")),
-                M("Sap", dpsHarm("Sap"), "Only works on an out-of-combat target."),
-                M("Kick (interrupt)", dpsHarm("Kick")),
-            ]),
-            G(AUTO, [
-                M("Auto-attack (spam-safe)", MELEE),
-            ]),
-            G(BUFF, [
-                M("Slice and Dice", plain("Slice and Dice")),
-            ]),
-            G(PANIC, [
-                M("Evasion", plain("Evasion")),
-                M("Vanish", plain("Vanish")),
-                M("Sprint", plain("Sprint")),
-                M("Blind", dpsHarm("Blind")),
-            ]),
-            G(QOL, [
-                M("Stealth (no cancel)", "#showtooltip Stealth\n/cast [nostealth] Stealth", "Won't drop you out of stealth if pressed again."),
-                M("Pick Lock", plain("Pick Lock")),
-                M("Pick Pocket", dpsHarm("Pick Pocket")),
-                M("Apply poison to main hand", "/use Instant Poison\n/use Main Hand Weapon", "Swap the item name to the poison you carry."),
-                M("Apply poison to off hand", "/use Deadly Poison\n/use Off Hand Weapon", "Swap the item name to the poison you carry."),
-                M("Distract", dpsHarm("Distract")),
-                M("Feint", dpsHarm("Feint")),
-            ]),
-            G(CLEAN, [
-                M("No dispel", "", "Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind."),
-            ]),
-            G(FOCUS, [
-                M("Kick focus", foc("Kick")),
-                M("Kidney Shot focus", foc("Kidney Shot")),
-                M("Blind focus", foc("Blind")),
-            ]),
-        ]},
-
-        {"spec": "Assassination", "groups": [
-            G(DPS, [
-                M("Envenom", dpsHarm("Envenom")),
-                M("Mutilate", dpsHarm("Mutilate")),
-                M("Cold Blood + Ambush", "#showtooltip Ambush\n/cast Cold Blood\n/cast [harm] Ambush", "Requires stealth."),
-            ]),
-        ]},
-
-        {"spec": "Combat", "groups": [
-            G(DPS, [
-                M("Blade Flurry", plain("Blade Flurry")),
-                M("Adrenaline Rush", plain("Adrenaline Rush")),
-            ]),
-        ]},
-
-        {"spec": "Subtlety", "groups": [
-            G(DPS, [
-                M("Hemorrhage", dpsHarm("Hemorrhage")),
-                M("Premeditation", plain("Premeditation"), "Requires stealth."),
-            ]),
-            G(PANIC, [
-                M("Cloak of Shadows", plain("Cloak of Shadows")),
             ]),
         ]},
     ]},

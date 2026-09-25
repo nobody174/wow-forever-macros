@@ -4,9 +4,13 @@ Macro cheatsheet for World of Warcraft: Forever (Classic+ on the Classic client,
 Live site: GitHub Pages from `main` / root → https://nobody174.github.io/wow-forever-macros/
 
 Small multi-page site: `index.html` is the countdown/landing page ("Venom & Trollmann's
-Road to Forever"), `macros.html` is the macro cheatsheet, `builds.html` and
-`addons.html` are coming-soon placeholders. All four share a top bar (site title,
+Road to Forever"), `macros.html` is the macro cheatsheet, `builds.html` lists talent
+builds per class, `addons.html` lists addons. All four share a top bar (site title,
 Macros / Builds / Addons / Talent Calc links, current page highlighted).
+
+Class roster order on both `macros.html` and `builds.html` follows armor type,
+Cloth → Leather → Mail → Plate: Priest, Warlock, Mage, Rogue, Shaman, Hunter,
+Paladin, Warrior. Keep new classes inserted in this order on both pages.
 
 ## Files
 - `data.py` — single source of truth for every macro. Edit macros HERE only.
@@ -23,7 +27,9 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
   (`.side-links`) has three link "plaques": Zockify, a Cozy Sleeping Bag plaque
   (icon + description + a sub-link to the quest-chain guide), and Dungeon Loot Tables.
   Hand-edit directly.
-- `builds.html` — hand-written "coming soon" placeholder page. Hand-edit directly.
+- `builds.html` — hand-written page with one talent-build card per class (icons +
+  hover tooltips, arrows between picks — see `builds_page_pattern` project memory
+  for the exact pattern). Hand-edit directly.
 - `addons.html` — hand-written page listing the addons Venom & Trollmann actually run
   (ForeverPlus, Platynator, Leatrix Maps, Forever Bag Mover — all CurseForge links,
   verified working) plus a link to wow4ever.quest's addon compatibility tracker.
@@ -37,9 +43,9 @@ Macros / Builds / Addons / Talent Calc links, current page highlighted).
   with Pillow (resize, exported as WebP).
 - `assets/universal-icon.webp` — roster icon for the "Universal" tab on `macros.html`
   (dwarf+bear emblem, self-hosted from wow4ever.quest's own logo, converted to WebP).
-  Class roster icons (Priest/Shaman/Paladin/Warlock/Hunter/Warrior) are NOT local
-  assets — they're hotlinked from Wowhead's icon CDN (`wow.zamimg.com`) directly in
-  `template.html`'s `CLASS_ICONS` map.
+  Class roster icons (Priest/Shaman/Paladin/Warlock/Hunter/Warrior/Rogue/Mage) are
+  NOT local assets — they're hotlinked from Wowhead's icon CDN (`wow.zamimg.com`)
+  directly in `template.html`'s `CLASS_ICONS` map.
 - `assets/drafts/` — gitignored scratch folder for image-generation drafts/
   intermediates (hero and icon art both land here). Not part of the deployed site.
 
@@ -81,7 +87,7 @@ Damage / offensive, Mouseover healing / utility, Cleanse / dispel, Wand / auto-a
 Buffs, Panic / defensive, Targeting helpers, Class QoL, Focus, Misc / UI.
 Misc / UI lives only in the UNIVERSAL block (camera/UI console commands, target
 marking, gear-swap macros — not spell-specific, so not part of any class section).
-Classes: Priest, Shaman, Paladin, Warlock, Hunter, Warrior, Rogue.
+Classes: Priest, Shaman, Paladin, Warlock, Hunter, Warrior, Rogue, Mage.
 Use helpers: dps() (Priest only — target-of-target-aware), dpsHarm() (every other
 class — plain [harm] targeting, no TT), heal(), util(), buff(), chan(), foc(),
 plain(), me(), stance(). Every helper prepends #showtooltip; hand-written

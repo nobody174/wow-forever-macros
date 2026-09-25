@@ -437,596 +437,6 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [@mouseover, help, exists][help][@player] Divine Spirit
 ```
 
-## Shaman
-
-### Shaman — Shared (all specs)
-
-#### Damage / offensive
-
-**Lightning Bolt**
-```
-#showtooltip Lightning Bolt
-/cast [harm] Lightning Bolt
-```
-
-**Chain Lightning**
-```
-#showtooltip Chain Lightning
-/cast [harm] Chain Lightning
-```
-
-**Earth Shock**
-```
-#showtooltip Earth Shock
-/cast [harm] Earth Shock
-```
-
-**Flame Shock**
-```
-#showtooltip Flame Shock
-/cast [harm] Flame Shock
-```
-
-**Frost Shock**
-```
-#showtooltip Frost Shock
-/cast [harm] Frost Shock
-```
-
-**Purge (offensive dispel)**
-```
-#showtooltip Purge
-/cast [harm] Purge
-```
-
-#### Mouseover healing / utility
-
-**Healing Wave**
-```
-#showtooltip Healing Wave
-/cast [@mouseover, help, exists][help] Healing Wave
-```
-
-**Lesser Healing Wave**
-```
-#showtooltip Lesser Healing Wave
-/cast [@mouseover, help, exists][help] Lesser Healing Wave
-```
-
-**Chain Heal**
-```
-#showtooltip Chain Heal
-/cast [@mouseover, help, exists][help] Chain Heal
-```
-
-**Ancestral Spirit**
-```
-#showtooltip Ancestral Spirit
-/cast [@mouseover, help, exists][help] Ancestral Spirit
-```
-
-#### Cleanse / dispel
-
-**Cure Poison**
-```
-#showtooltip Cure Poison
-/cast [@mouseover, help, exists][help] Cure Poison
-```
-
-**Cure Disease**
-```
-#showtooltip Cure Disease
-/cast [@mouseover, help, exists][help] Cure Disease
-```
-
-#### Wand / auto-attack
-
-**Auto-attack (spam-safe)**
-```
-/startattack [@targettarget, harm, exists][harm]
-```
-
-#### Buffs
-
-**Lightning Shield**
-```
-#showtooltip Lightning Shield
-/cast Lightning Shield
-```
-
-**Rockbiter Weapon**
-```
-#showtooltip Rockbiter Weapon
-/cast Rockbiter Weapon
-```
-
-**Flametongue Weapon**
-```
-#showtooltip Flametongue Weapon
-/cast Flametongue Weapon
-```
-
-**Frostbrand Weapon**
-```
-#showtooltip Frostbrand Weapon
-/cast Frostbrand Weapon
-```
-
-**Water Walking**
-```
-#showtooltip Water Walking
-/cast [@mouseover, help, exists][help][@player] Water Walking
-```
-
-**Water Breathing**
-```
-#showtooltip Water Breathing
-/cast [@mouseover, help, exists][help][@player] Water Breathing
-```
-
-#### Panic / defensive
-
-**Self Lesser Healing Wave**
-```
-#showtooltip Lesser Healing Wave
-/cast [@player] Lesser Healing Wave
-```
-
-**Stoneclaw Totem**
-```
-#showtooltip Stoneclaw Totem
-/cast Stoneclaw Totem
-```
-
-**Grounding Totem**
-```
-#showtooltip Grounding Totem
-/cast Grounding Totem
-```
-
-**Ghost Wolf (no cancel)**
-```
-#showtooltip Ghost Wolf
-/cast [noform] Ghost Wolf
-```
-
-#### Class QoL
-
-**Totems: melee group (press 4x)**
-```
-#showtooltip Strength of Earth Totem
-/castsequence reset=combat Strength of Earth Totem, Windfury Totem, Searing Totem, Mana Spring Totem
-```
-
-**Totems: caster group (press 4x)** — Swap Grace of Air for Tranquil Air if you prefer.
-```
-#showtooltip Stoneskin Totem
-/castsequence reset=combat Stoneskin Totem, Grace of Air Totem, Searing Totem, Mana Spring Totem
-```
-
-**Tremor Totem**
-```
-#showtooltip Tremor Totem
-/cast Tremor Totem
-```
-
-**Poison Cleansing Totem**
-```
-#showtooltip Poison Cleansing Totem
-/cast Poison Cleansing Totem
-```
-
-**Disease Cleansing Totem**
-```
-#showtooltip Disease Cleansing Totem
-/cast Disease Cleansing Totem
-```
-
-**Earthbind Totem**
-```
-#showtooltip Earthbind Totem
-/cast Earthbind Totem
-```
-
-**Magma Totem**
-```
-#showtooltip Magma Totem
-/cast Magma Totem
-```
-
-**Fire Nova Totem**
-```
-#showtooltip Fire Nova Totem
-/cast Fire Nova Totem
-```
-
-**Healing Stream Totem**
-```
-#showtooltip Healing Stream Totem
-/cast Healing Stream Totem
-```
-
-#### Focus
-
-**Earth Shock interrupt on focus**
-```
-#showtooltip Earth Shock
-/cast [@focus, harm, exists][harm] Earth Shock
-```
-
-**Purge focus**
-```
-#showtooltip Purge
-/cast [@focus, harm, exists][harm] Purge
-```
-
-### Shaman — Elemental
-
-#### Damage / offensive
-
-**Elemental Mastery + Chain Lightning**
-```
-#showtooltip Chain Lightning
-/cast Elemental Mastery
-/cast [harm] Chain Lightning
-```
-
-**Elemental Mastery + Lightning Bolt**
-```
-#showtooltip Lightning Bolt
-/cast Elemental Mastery
-/cast [harm] Lightning Bolt
-```
-
-### Shaman — Enhancement
-
-#### Damage / offensive
-
-**Stormstrike** — Also starts auto-attack.
-```
-#showtooltip Stormstrike
-/cast [harm] Stormstrike
-```
-
-#### Buffs
-
-**Windfury Weapon**
-```
-#showtooltip Windfury Weapon
-/cast Windfury Weapon
-```
-
-## Paladin
-
-### Paladin — Shared (all specs)
-
-#### Damage / offensive
-
-**Judgement**
-```
-#showtooltip Judgement
-/cast [harm] Judgement
-```
-
-**Hammer of Wrath**
-```
-#showtooltip Hammer of Wrath
-/cast [harm] Hammer of Wrath
-```
-
-**Exorcism**
-```
-#showtooltip Exorcism
-/cast [harm] Exorcism
-```
-
-**Hammer of Justice**
-```
-#showtooltip Hammer of Justice
-/cast [harm] Hammer of Justice
-```
-
-**Consecration**
-```
-#showtooltip Consecration
-/cast Consecration
-```
-
-**Holy Wrath**
-```
-#showtooltip Holy Wrath
-/cast Holy Wrath
-```
-
-#### Mouseover healing / utility
-
-**Holy Light**
-```
-#showtooltip Holy Light
-/cast [@mouseover, help, exists][help] Holy Light
-```
-
-**Flash of Light**
-```
-#showtooltip Flash of Light
-/cast [@mouseover, help, exists][help] Flash of Light
-```
-
-**Lay on Hands**
-```
-#showtooltip Lay on Hands
-/cast [@mouseover, help, exists][help] Lay on Hands
-```
-
-**Blessing of Protection**
-```
-#showtooltip Blessing of Protection
-/cast [@mouseover, help, exists][help] Blessing of Protection
-```
-
-**Blessing of Freedom**
-```
-#showtooltip Blessing of Freedom
-/cast [@mouseover, help, exists][help] Blessing of Freedom
-```
-
-**Redemption**
-```
-#showtooltip Redemption
-/cast [@mouseover, help, exists][help] Redemption
-```
-
-#### Cleanse / dispel
-
-**Cleanse**
-```
-#showtooltip Cleanse
-/cast [@mouseover, help, exists][help] Cleanse
-```
-
-**Purify**
-```
-#showtooltip Purify
-/cast [@mouseover, help, exists][help] Purify
-```
-
-#### Wand / auto-attack
-
-**Auto-attack (spam-safe)**
-```
-/startattack [@targettarget, harm, exists][harm]
-```
-
-#### Buffs
-
-**Blessing of Might**
-```
-#showtooltip Blessing of Might
-/cast [@mouseover, help, exists][help][@player] Blessing of Might
-```
-
-**Blessing of Wisdom**
-```
-#showtooltip Blessing of Wisdom
-/cast [@mouseover, help, exists][help][@player] Blessing of Wisdom
-```
-
-**Blessing of Salvation**
-```
-#showtooltip Blessing of Salvation
-/cast [@mouseover, help, exists][help][@player] Blessing of Salvation
-```
-
-**Blessing of Light**
-```
-#showtooltip Blessing of Light
-/cast [@mouseover, help, exists][help][@player] Blessing of Light
-```
-
-**Greater Blessing of Might**
-```
-#showtooltip Greater Blessing of Might
-/cast [@mouseover, help, exists][help][@player] Greater Blessing of Might
-```
-
-**Greater Blessing of Wisdom**
-```
-#showtooltip Greater Blessing of Wisdom
-/cast [@mouseover, help, exists][help][@player] Greater Blessing of Wisdom
-```
-
-**Devotion Aura**
-```
-#showtooltip Devotion Aura
-/cast Devotion Aura
-```
-
-**Retribution Aura**
-```
-#showtooltip Retribution Aura
-/cast Retribution Aura
-```
-
-**Concentration Aura**
-```
-#showtooltip Concentration Aura
-/cast Concentration Aura
-```
-
-#### Panic / defensive
-
-**Divine Shield**
-```
-#showtooltip Divine Shield
-/cast Divine Shield
-```
-
-**Divine Protection**
-```
-#showtooltip Divine Protection
-/cast Divine Protection
-```
-
-**Lay on Hands self**
-```
-#showtooltip Lay on Hands
-/cast [@player] Lay on Hands
-```
-
-**Blessing of Protection self**
-```
-#showtooltip Blessing of Protection
-/cast [@player] Blessing of Protection
-```
-
-#### Class QoL
-
-**Seal of Righteousness**
-```
-#showtooltip Seal of Righteousness
-/cast Seal of Righteousness
-```
-
-**Seal of the Crusader**
-```
-#showtooltip Seal of the Crusader
-/cast Seal of the Crusader
-```
-
-**Seal of Wisdom**
-```
-#showtooltip Seal of Wisdom
-/cast Seal of Wisdom
-```
-
-**Seal of Light**
-```
-#showtooltip Seal of Light
-/cast Seal of Light
-```
-
-**Seal of Justice**
-```
-#showtooltip Seal of Justice
-/cast Seal of Justice
-```
-
-**Judge + reseal Righteousness loop** — Press: seal, judge, seal, judge...
-```
-#showtooltip Seal of Righteousness
-/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Righteousness, Judgement
-```
-
-**Crusader opener, then Righteousness**
-```
-#showtooltip Seal of the Crusader
-/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Righteousness
-```
-
-**Divine Intervention**
-```
-#showtooltip Divine Intervention
-/cast [@mouseover, help, exists][help] Divine Intervention
-```
-
-#### Focus
-
-**Hammer of Justice focus**
-```
-#showtooltip Hammer of Justice
-/cast [@focus, harm, exists][harm] Hammer of Justice
-```
-
-**Turn Undead focus**
-```
-#showtooltip Turn Undead
-/cast [@focus, harm, exists][harm] Turn Undead
-```
-
-### Paladin — Retribution
-
-#### Damage / offensive
-
-**Repentance**
-```
-#showtooltip Repentance
-/cast [harm] Repentance
-```
-
-#### Buffs
-
-**Sanctity Aura**
-```
-#showtooltip Sanctity Aura
-/cast Sanctity Aura
-```
-
-**Seal of Command**
-```
-#showtooltip Seal of Command
-/cast Seal of Command
-```
-
-#### Class QoL
-
-**Crusader opener, then Command**
-```
-#showtooltip Seal of the Crusader
-/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Command
-```
-
-**Judge + reseal Command loop**
-```
-#showtooltip Seal of Command
-/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Command, Judgement
-```
-
-#### Focus
-
-**Repentance focus**
-```
-#showtooltip Repentance
-/cast [@focus, harm, exists][harm] Repentance
-```
-
-### Paladin — Protection
-
-#### Damage / offensive
-
-**Holy Shield**
-```
-#showtooltip Holy Shield
-/cast Holy Shield
-```
-
-#### Buffs
-
-**Righteous Fury**
-```
-#showtooltip Righteous Fury
-/cast Righteous Fury
-```
-
-**Blessing of Kings**
-```
-#showtooltip Blessing of Kings
-/cast [@mouseover, help, exists][help][@player] Blessing of Kings
-```
-
-**Blessing of Sanctuary**
-```
-#showtooltip Blessing of Sanctuary
-/cast [@mouseover, help, exists][help][@player] Blessing of Sanctuary
-```
-
-#### Class QoL
-
-**Judge + reseal Wisdom loop** — Mana-sustain tanking.
-```
-#showtooltip Seal of Wisdom
-/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Wisdom, Judgement
-```
-
 ## Warlock
 
 ### Warlock — Shared (all specs)
@@ -1401,6 +811,739 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /castsequence [harm] reset=target/10 Immolate, Conflagrate
 ```
 
+## Mage
+
+### Mage — Shared (all specs)
+
+#### Damage / offensive
+
+**Frostbolt**
+```
+#showtooltip Frostbolt
+/cast [harm] Frostbolt
+```
+
+**Fireball**
+```
+#showtooltip Fireball
+/cast [harm] Fireball
+```
+
+**Arcane Missiles (spam-safe)**
+```
+#showtooltip Arcane Missiles
+/cast [@targettarget, harm, exists, nochanneling][harm, nochanneling] Arcane Missiles
+```
+
+**Arcane Explosion**
+```
+#showtooltip Arcane Explosion
+/cast Arcane Explosion
+```
+
+**Fire Blast**
+```
+#showtooltip Fire Blast
+/cast [harm] Fire Blast
+```
+
+**Frost Nova**
+```
+#showtooltip Frost Nova
+/cast [harm] Frost Nova
+```
+
+**Cone of Cold**
+```
+#showtooltip Cone of Cold
+/cast Cone of Cold
+```
+
+**Scorch**
+```
+#showtooltip Scorch
+/cast [harm] Scorch
+```
+
+**Counterspell (interrupt)**
+```
+#showtooltip Counterspell
+/cast [harm] Counterspell
+```
+
+**Polymorph**
+```
+#showtooltip Polymorph
+/cast [harm] Polymorph
+```
+
+#### Mouseover healing / utility
+
+**Mana Shield**
+```
+#showtooltip Mana Shield
+/cast Mana Shield
+```
+
+#### Cleanse / dispel
+
+**Remove Curse (friend or foe)**
+```
+#showtooltip Remove Curse
+/cast [@mouseover, exists][exists] Remove Curse
+```
+
+#### Buffs
+
+**Arcane Intellect**
+```
+#showtooltip Arcane Intellect
+/cast [@mouseover, help, exists][help][@player] Arcane Intellect
+```
+
+**Frost Armor**
+```
+#showtooltip Frost Armor
+/cast Frost Armor
+```
+
+**Ice Armor**
+```
+#showtooltip Ice Armor
+/cast Ice Armor
+```
+
+**Molten Armor**
+```
+#showtooltip Molten Armor
+/cast Molten Armor
+```
+
+**Dampen Magic**
+```
+#showtooltip Dampen Magic
+/cast [@mouseover, help, exists][help][@player] Dampen Magic
+```
+
+**Amplify Magic**
+```
+#showtooltip Amplify Magic
+/cast [@mouseover, help, exists][help][@player] Amplify Magic
+```
+
+#### Panic / defensive
+
+**Ice Block**
+```
+#showtooltip Ice Block
+/cast Ice Block
+```
+
+**Blink**
+```
+#showtooltip Blink
+/cast Blink
+```
+
+**Evocation**
+```
+#showtooltip Evocation
+/cast Evocation
+```
+
+#### Class QoL
+
+**Conjure Food**
+```
+#showtooltip Conjure Food
+/cast Conjure Food
+```
+
+**Conjure Water**
+```
+#showtooltip Conjure Water
+/cast Conjure Water
+```
+
+**Summon Water Elemental**
+```
+#showtooltip Summon Water Elemental
+/cast Summon Water Elemental
+```
+
+**Remove Curse**
+```
+#showtooltip Remove Curse
+/cast [@mouseover, help, exists][help] Remove Curse
+```
+
+#### Focus
+
+**Counterspell focus**
+```
+#showtooltip Counterspell
+/cast [@focus, harm, exists][harm] Counterspell
+```
+
+**Polymorph focus**
+```
+#showtooltip Polymorph
+/cast [@focus, harm, exists][harm] Polymorph
+```
+
+### Mage — Arcane
+
+#### Damage / offensive
+
+**Arcane Power + Arcane Missiles**
+```
+#showtooltip Arcane Missiles
+/cast Arcane Power
+/cast [harm] Arcane Missiles
+```
+
+**Presence of Mind + Frostbolt** — Instant-cast next spell.
+```
+#showtooltip Frostbolt
+/cast Presence of Mind
+/cast [harm] Frostbolt
+```
+
+### Mage — Fire
+
+#### Damage / offensive
+
+**Combustion**
+```
+#showtooltip Combustion
+/cast Combustion
+```
+
+**Pyroblast**
+```
+#showtooltip Pyroblast
+/cast [harm] Pyroblast
+```
+
+### Mage — Frost
+
+#### Damage / offensive
+
+**Ice Lance**
+```
+#showtooltip Ice Lance
+/cast [harm] Ice Lance
+```
+
+**Cold Snap**
+```
+#showtooltip Cold Snap
+/cast Cold Snap
+```
+
+## Rogue
+
+### Rogue — Shared (all specs)
+
+#### Damage / offensive
+
+**Sinister Strike**
+```
+#showtooltip Sinister Strike
+/cast [harm] Sinister Strike
+```
+
+**Backstab**
+```
+#showtooltip Backstab
+/cast [harm] Backstab
+```
+
+**Eviscerate**
+```
+#showtooltip Eviscerate
+/cast [harm] Eviscerate
+```
+
+**Gouge**
+```
+#showtooltip Gouge
+/cast [harm] Gouge
+```
+
+**Kidney Shot**
+```
+#showtooltip Kidney Shot
+/cast [harm] Kidney Shot
+```
+
+**Rupture**
+```
+#showtooltip Rupture
+/cast [harm] Rupture
+```
+
+**Garrote** — Requires stealth.
+```
+#showtooltip Garrote
+/cast [harm] Garrote
+```
+
+**Ambush** — Requires stealth.
+```
+#showtooltip Ambush
+/cast [harm] Ambush
+```
+
+**Expose Armor**
+```
+#showtooltip Expose Armor
+/cast [harm] Expose Armor
+```
+
+**Sap** — Only works on an out-of-combat target.
+```
+#showtooltip Sap
+/cast [harm] Sap
+```
+
+**Kick (interrupt)**
+```
+#showtooltip Kick
+/cast [harm] Kick
+```
+
+#### Cleanse / dispel
+
+*Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind.*
+
+#### Wand / auto-attack
+
+**Auto-attack (spam-safe)**
+```
+/startattack [@targettarget, harm, exists][harm]
+```
+
+#### Buffs
+
+**Slice and Dice**
+```
+#showtooltip Slice and Dice
+/cast Slice and Dice
+```
+
+#### Panic / defensive
+
+**Evasion**
+```
+#showtooltip Evasion
+/cast Evasion
+```
+
+**Vanish**
+```
+#showtooltip Vanish
+/cast Vanish
+```
+
+**Sprint**
+```
+#showtooltip Sprint
+/cast Sprint
+```
+
+**Blind**
+```
+#showtooltip Blind
+/cast [harm] Blind
+```
+
+#### Class QoL
+
+**Stealth (no cancel)** — Won't drop you out of stealth if pressed again.
+```
+#showtooltip Stealth
+/cast [nostealth] Stealth
+```
+
+**Pick Lock**
+```
+#showtooltip Pick Lock
+/cast Pick Lock
+```
+
+**Pick Pocket**
+```
+#showtooltip Pick Pocket
+/cast [harm] Pick Pocket
+```
+
+**Apply poison to main hand** — Swap the item name to the poison you carry.
+```
+/use Instant Poison
+/use Main Hand Weapon
+```
+
+**Apply poison to off hand** — Swap the item name to the poison you carry.
+```
+/use Deadly Poison
+/use Off Hand Weapon
+```
+
+**Distract**
+```
+#showtooltip Distract
+/cast [harm] Distract
+```
+
+**Feint**
+```
+#showtooltip Feint
+/cast [harm] Feint
+```
+
+#### Focus
+
+**Kick focus**
+```
+#showtooltip Kick
+/cast [@focus, harm, exists][harm] Kick
+```
+
+**Kidney Shot focus**
+```
+#showtooltip Kidney Shot
+/cast [@focus, harm, exists][harm] Kidney Shot
+```
+
+**Blind focus**
+```
+#showtooltip Blind
+/cast [@focus, harm, exists][harm] Blind
+```
+
+### Rogue — Assassination
+
+#### Damage / offensive
+
+**Envenom**
+```
+#showtooltip Envenom
+/cast [harm] Envenom
+```
+
+**Mutilate**
+```
+#showtooltip Mutilate
+/cast [harm] Mutilate
+```
+
+**Cold Blood + Ambush** — Requires stealth.
+```
+#showtooltip Ambush
+/cast Cold Blood
+/cast [harm] Ambush
+```
+
+### Rogue — Combat
+
+#### Damage / offensive
+
+**Blade Flurry**
+```
+#showtooltip Blade Flurry
+/cast Blade Flurry
+```
+
+**Adrenaline Rush**
+```
+#showtooltip Adrenaline Rush
+/cast Adrenaline Rush
+```
+
+### Rogue — Subtlety
+
+#### Damage / offensive
+
+**Hemorrhage**
+```
+#showtooltip Hemorrhage
+/cast [harm] Hemorrhage
+```
+
+**Premeditation** — Requires stealth.
+```
+#showtooltip Premeditation
+/cast Premeditation
+```
+
+#### Panic / defensive
+
+**Cloak of Shadows**
+```
+#showtooltip Cloak of Shadows
+/cast Cloak of Shadows
+```
+
+## Shaman
+
+### Shaman — Shared (all specs)
+
+#### Damage / offensive
+
+**Lightning Bolt**
+```
+#showtooltip Lightning Bolt
+/cast [harm] Lightning Bolt
+```
+
+**Chain Lightning**
+```
+#showtooltip Chain Lightning
+/cast [harm] Chain Lightning
+```
+
+**Earth Shock**
+```
+#showtooltip Earth Shock
+/cast [harm] Earth Shock
+```
+
+**Flame Shock**
+```
+#showtooltip Flame Shock
+/cast [harm] Flame Shock
+```
+
+**Frost Shock**
+```
+#showtooltip Frost Shock
+/cast [harm] Frost Shock
+```
+
+**Purge (offensive dispel)**
+```
+#showtooltip Purge
+/cast [harm] Purge
+```
+
+#### Mouseover healing / utility
+
+**Healing Wave**
+```
+#showtooltip Healing Wave
+/cast [@mouseover, help, exists][help] Healing Wave
+```
+
+**Lesser Healing Wave**
+```
+#showtooltip Lesser Healing Wave
+/cast [@mouseover, help, exists][help] Lesser Healing Wave
+```
+
+**Chain Heal**
+```
+#showtooltip Chain Heal
+/cast [@mouseover, help, exists][help] Chain Heal
+```
+
+**Ancestral Spirit**
+```
+#showtooltip Ancestral Spirit
+/cast [@mouseover, help, exists][help] Ancestral Spirit
+```
+
+#### Cleanse / dispel
+
+**Cure Poison**
+```
+#showtooltip Cure Poison
+/cast [@mouseover, help, exists][help] Cure Poison
+```
+
+**Cure Disease**
+```
+#showtooltip Cure Disease
+/cast [@mouseover, help, exists][help] Cure Disease
+```
+
+#### Wand / auto-attack
+
+**Auto-attack (spam-safe)**
+```
+/startattack [@targettarget, harm, exists][harm]
+```
+
+#### Buffs
+
+**Lightning Shield**
+```
+#showtooltip Lightning Shield
+/cast Lightning Shield
+```
+
+**Rockbiter Weapon**
+```
+#showtooltip Rockbiter Weapon
+/cast Rockbiter Weapon
+```
+
+**Flametongue Weapon**
+```
+#showtooltip Flametongue Weapon
+/cast Flametongue Weapon
+```
+
+**Frostbrand Weapon**
+```
+#showtooltip Frostbrand Weapon
+/cast Frostbrand Weapon
+```
+
+**Water Walking**
+```
+#showtooltip Water Walking
+/cast [@mouseover, help, exists][help][@player] Water Walking
+```
+
+**Water Breathing**
+```
+#showtooltip Water Breathing
+/cast [@mouseover, help, exists][help][@player] Water Breathing
+```
+
+#### Panic / defensive
+
+**Self Lesser Healing Wave**
+```
+#showtooltip Lesser Healing Wave
+/cast [@player] Lesser Healing Wave
+```
+
+**Stoneclaw Totem**
+```
+#showtooltip Stoneclaw Totem
+/cast Stoneclaw Totem
+```
+
+**Grounding Totem**
+```
+#showtooltip Grounding Totem
+/cast Grounding Totem
+```
+
+**Ghost Wolf (no cancel)**
+```
+#showtooltip Ghost Wolf
+/cast [noform] Ghost Wolf
+```
+
+#### Class QoL
+
+**Totems: melee group (press 4x)**
+```
+#showtooltip Strength of Earth Totem
+/castsequence reset=combat Strength of Earth Totem, Windfury Totem, Searing Totem, Mana Spring Totem
+```
+
+**Totems: caster group (press 4x)** — Swap Grace of Air for Tranquil Air if you prefer.
+```
+#showtooltip Stoneskin Totem
+/castsequence reset=combat Stoneskin Totem, Grace of Air Totem, Searing Totem, Mana Spring Totem
+```
+
+**Tremor Totem**
+```
+#showtooltip Tremor Totem
+/cast Tremor Totem
+```
+
+**Poison Cleansing Totem**
+```
+#showtooltip Poison Cleansing Totem
+/cast Poison Cleansing Totem
+```
+
+**Disease Cleansing Totem**
+```
+#showtooltip Disease Cleansing Totem
+/cast Disease Cleansing Totem
+```
+
+**Earthbind Totem**
+```
+#showtooltip Earthbind Totem
+/cast Earthbind Totem
+```
+
+**Magma Totem**
+```
+#showtooltip Magma Totem
+/cast Magma Totem
+```
+
+**Fire Nova Totem**
+```
+#showtooltip Fire Nova Totem
+/cast Fire Nova Totem
+```
+
+**Healing Stream Totem**
+```
+#showtooltip Healing Stream Totem
+/cast Healing Stream Totem
+```
+
+#### Focus
+
+**Earth Shock interrupt on focus**
+```
+#showtooltip Earth Shock
+/cast [@focus, harm, exists][harm] Earth Shock
+```
+
+**Purge focus**
+```
+#showtooltip Purge
+/cast [@focus, harm, exists][harm] Purge
+```
+
+### Shaman — Elemental
+
+#### Damage / offensive
+
+**Elemental Mastery + Chain Lightning**
+```
+#showtooltip Chain Lightning
+/cast Elemental Mastery
+/cast [harm] Chain Lightning
+```
+
+**Elemental Mastery + Lightning Bolt**
+```
+#showtooltip Lightning Bolt
+/cast Elemental Mastery
+/cast [harm] Lightning Bolt
+```
+
+### Shaman — Enhancement
+
+#### Damage / offensive
+
+**Stormstrike** — Also starts auto-attack.
+```
+#showtooltip Stormstrike
+/cast [harm] Stormstrike
+```
+
+#### Buffs
+
+**Windfury Weapon**
+```
+#showtooltip Windfury Weapon
+/cast Windfury Weapon
+```
+
 ## Hunter
 
 ### Hunter — Shared (all specs)
@@ -1703,6 +1846,337 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [@focus, harm, exists][harm] Wyvern Sting
 ```
 
+## Paladin
+
+### Paladin — Shared (all specs)
+
+#### Damage / offensive
+
+**Judgement**
+```
+#showtooltip Judgement
+/cast [harm] Judgement
+```
+
+**Hammer of Wrath**
+```
+#showtooltip Hammer of Wrath
+/cast [harm] Hammer of Wrath
+```
+
+**Exorcism**
+```
+#showtooltip Exorcism
+/cast [harm] Exorcism
+```
+
+**Hammer of Justice**
+```
+#showtooltip Hammer of Justice
+/cast [harm] Hammer of Justice
+```
+
+**Consecration**
+```
+#showtooltip Consecration
+/cast Consecration
+```
+
+**Holy Wrath**
+```
+#showtooltip Holy Wrath
+/cast Holy Wrath
+```
+
+#### Mouseover healing / utility
+
+**Holy Light**
+```
+#showtooltip Holy Light
+/cast [@mouseover, help, exists][help] Holy Light
+```
+
+**Flash of Light**
+```
+#showtooltip Flash of Light
+/cast [@mouseover, help, exists][help] Flash of Light
+```
+
+**Lay on Hands**
+```
+#showtooltip Lay on Hands
+/cast [@mouseover, help, exists][help] Lay on Hands
+```
+
+**Blessing of Protection**
+```
+#showtooltip Blessing of Protection
+/cast [@mouseover, help, exists][help] Blessing of Protection
+```
+
+**Blessing of Freedom**
+```
+#showtooltip Blessing of Freedom
+/cast [@mouseover, help, exists][help] Blessing of Freedom
+```
+
+**Redemption**
+```
+#showtooltip Redemption
+/cast [@mouseover, help, exists][help] Redemption
+```
+
+#### Cleanse / dispel
+
+**Cleanse**
+```
+#showtooltip Cleanse
+/cast [@mouseover, help, exists][help] Cleanse
+```
+
+**Purify**
+```
+#showtooltip Purify
+/cast [@mouseover, help, exists][help] Purify
+```
+
+#### Wand / auto-attack
+
+**Auto-attack (spam-safe)**
+```
+/startattack [@targettarget, harm, exists][harm]
+```
+
+#### Buffs
+
+**Blessing of Might**
+```
+#showtooltip Blessing of Might
+/cast [@mouseover, help, exists][help][@player] Blessing of Might
+```
+
+**Blessing of Wisdom**
+```
+#showtooltip Blessing of Wisdom
+/cast [@mouseover, help, exists][help][@player] Blessing of Wisdom
+```
+
+**Blessing of Salvation**
+```
+#showtooltip Blessing of Salvation
+/cast [@mouseover, help, exists][help][@player] Blessing of Salvation
+```
+
+**Blessing of Light**
+```
+#showtooltip Blessing of Light
+/cast [@mouseover, help, exists][help][@player] Blessing of Light
+```
+
+**Greater Blessing of Might**
+```
+#showtooltip Greater Blessing of Might
+/cast [@mouseover, help, exists][help][@player] Greater Blessing of Might
+```
+
+**Greater Blessing of Wisdom**
+```
+#showtooltip Greater Blessing of Wisdom
+/cast [@mouseover, help, exists][help][@player] Greater Blessing of Wisdom
+```
+
+**Devotion Aura**
+```
+#showtooltip Devotion Aura
+/cast Devotion Aura
+```
+
+**Retribution Aura**
+```
+#showtooltip Retribution Aura
+/cast Retribution Aura
+```
+
+**Concentration Aura**
+```
+#showtooltip Concentration Aura
+/cast Concentration Aura
+```
+
+#### Panic / defensive
+
+**Divine Shield**
+```
+#showtooltip Divine Shield
+/cast Divine Shield
+```
+
+**Divine Protection**
+```
+#showtooltip Divine Protection
+/cast Divine Protection
+```
+
+**Lay on Hands self**
+```
+#showtooltip Lay on Hands
+/cast [@player] Lay on Hands
+```
+
+**Blessing of Protection self**
+```
+#showtooltip Blessing of Protection
+/cast [@player] Blessing of Protection
+```
+
+#### Class QoL
+
+**Seal of Righteousness**
+```
+#showtooltip Seal of Righteousness
+/cast Seal of Righteousness
+```
+
+**Seal of the Crusader**
+```
+#showtooltip Seal of the Crusader
+/cast Seal of the Crusader
+```
+
+**Seal of Wisdom**
+```
+#showtooltip Seal of Wisdom
+/cast Seal of Wisdom
+```
+
+**Seal of Light**
+```
+#showtooltip Seal of Light
+/cast Seal of Light
+```
+
+**Seal of Justice**
+```
+#showtooltip Seal of Justice
+/cast Seal of Justice
+```
+
+**Judge + reseal Righteousness loop** — Press: seal, judge, seal, judge...
+```
+#showtooltip Seal of Righteousness
+/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Righteousness, Judgement
+```
+
+**Crusader opener, then Righteousness**
+```
+#showtooltip Seal of the Crusader
+/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Righteousness
+```
+
+**Divine Intervention**
+```
+#showtooltip Divine Intervention
+/cast [@mouseover, help, exists][help] Divine Intervention
+```
+
+#### Focus
+
+**Hammer of Justice focus**
+```
+#showtooltip Hammer of Justice
+/cast [@focus, harm, exists][harm] Hammer of Justice
+```
+
+**Turn Undead focus**
+```
+#showtooltip Turn Undead
+/cast [@focus, harm, exists][harm] Turn Undead
+```
+
+### Paladin — Retribution
+
+#### Damage / offensive
+
+**Repentance**
+```
+#showtooltip Repentance
+/cast [harm] Repentance
+```
+
+#### Buffs
+
+**Sanctity Aura**
+```
+#showtooltip Sanctity Aura
+/cast Sanctity Aura
+```
+
+**Seal of Command**
+```
+#showtooltip Seal of Command
+/cast Seal of Command
+```
+
+#### Class QoL
+
+**Crusader opener, then Command**
+```
+#showtooltip Seal of the Crusader
+/castsequence [@targettarget, harm, exists][harm] reset=target Seal of the Crusader, Judgement, Seal of Command
+```
+
+**Judge + reseal Command loop**
+```
+#showtooltip Seal of Command
+/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Command, Judgement
+```
+
+#### Focus
+
+**Repentance focus**
+```
+#showtooltip Repentance
+/cast [@focus, harm, exists][harm] Repentance
+```
+
+### Paladin — Protection
+
+#### Damage / offensive
+
+**Holy Shield**
+```
+#showtooltip Holy Shield
+/cast Holy Shield
+```
+
+#### Buffs
+
+**Righteous Fury**
+```
+#showtooltip Righteous Fury
+/cast Righteous Fury
+```
+
+**Blessing of Kings**
+```
+#showtooltip Blessing of Kings
+/cast [@mouseover, help, exists][help][@player] Blessing of Kings
+```
+
+**Blessing of Sanctuary**
+```
+#showtooltip Blessing of Sanctuary
+/cast [@mouseover, help, exists][help][@player] Blessing of Sanctuary
+```
+
+#### Class QoL
+
+**Judge + reseal Wisdom loop** — Mana-sustain tanking.
+```
+#showtooltip Seal of Wisdom
+/castsequence [@targettarget, harm, exists][harm] reset=combat Seal of Wisdom, Judgement
+```
+
 ## Warrior
 
 ### Warrior — Shared (all specs)
@@ -1972,248 +2446,4 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 ```
 #showtooltip Last Stand
 /cast Last Stand
-```
-
-## Rogue
-
-### Rogue — Shared (all specs)
-
-#### Damage / offensive
-
-**Sinister Strike**
-```
-#showtooltip Sinister Strike
-/cast [harm] Sinister Strike
-```
-
-**Backstab**
-```
-#showtooltip Backstab
-/cast [harm] Backstab
-```
-
-**Eviscerate**
-```
-#showtooltip Eviscerate
-/cast [harm] Eviscerate
-```
-
-**Gouge**
-```
-#showtooltip Gouge
-/cast [harm] Gouge
-```
-
-**Kidney Shot**
-```
-#showtooltip Kidney Shot
-/cast [harm] Kidney Shot
-```
-
-**Rupture**
-```
-#showtooltip Rupture
-/cast [harm] Rupture
-```
-
-**Garrote** — Requires stealth.
-```
-#showtooltip Garrote
-/cast [harm] Garrote
-```
-
-**Ambush** — Requires stealth.
-```
-#showtooltip Ambush
-/cast [harm] Ambush
-```
-
-**Expose Armor**
-```
-#showtooltip Expose Armor
-/cast [harm] Expose Armor
-```
-
-**Sap** — Only works on an out-of-combat target.
-```
-#showtooltip Sap
-/cast [harm] Sap
-```
-
-**Kick (interrupt)**
-```
-#showtooltip Kick
-/cast [harm] Kick
-```
-
-#### Cleanse / dispel
-
-*Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind.*
-
-#### Wand / auto-attack
-
-**Auto-attack (spam-safe)**
-```
-/startattack [@targettarget, harm, exists][harm]
-```
-
-#### Buffs
-
-**Slice and Dice**
-```
-#showtooltip Slice and Dice
-/cast Slice and Dice
-```
-
-#### Panic / defensive
-
-**Evasion**
-```
-#showtooltip Evasion
-/cast Evasion
-```
-
-**Vanish**
-```
-#showtooltip Vanish
-/cast Vanish
-```
-
-**Sprint**
-```
-#showtooltip Sprint
-/cast Sprint
-```
-
-**Blind**
-```
-#showtooltip Blind
-/cast [harm] Blind
-```
-
-#### Class QoL
-
-**Stealth (no cancel)** — Won't drop you out of stealth if pressed again.
-```
-#showtooltip Stealth
-/cast [nostealth] Stealth
-```
-
-**Pick Lock**
-```
-#showtooltip Pick Lock
-/cast Pick Lock
-```
-
-**Pick Pocket**
-```
-#showtooltip Pick Pocket
-/cast [harm] Pick Pocket
-```
-
-**Apply poison to main hand** — Swap the item name to the poison you carry.
-```
-/use Instant Poison
-/use Main Hand Weapon
-```
-
-**Apply poison to off hand** — Swap the item name to the poison you carry.
-```
-/use Deadly Poison
-/use Off Hand Weapon
-```
-
-**Distract**
-```
-#showtooltip Distract
-/cast [harm] Distract
-```
-
-**Feint**
-```
-#showtooltip Feint
-/cast [harm] Feint
-```
-
-#### Focus
-
-**Kick focus**
-```
-#showtooltip Kick
-/cast [@focus, harm, exists][harm] Kick
-```
-
-**Kidney Shot focus**
-```
-#showtooltip Kidney Shot
-/cast [@focus, harm, exists][harm] Kidney Shot
-```
-
-**Blind focus**
-```
-#showtooltip Blind
-/cast [@focus, harm, exists][harm] Blind
-```
-
-### Rogue — Assassination
-
-#### Damage / offensive
-
-**Envenom**
-```
-#showtooltip Envenom
-/cast [harm] Envenom
-```
-
-**Mutilate**
-```
-#showtooltip Mutilate
-/cast [harm] Mutilate
-```
-
-**Cold Blood + Ambush** — Requires stealth.
-```
-#showtooltip Ambush
-/cast Cold Blood
-/cast [harm] Ambush
-```
-
-### Rogue — Combat
-
-#### Damage / offensive
-
-**Blade Flurry**
-```
-#showtooltip Blade Flurry
-/cast Blade Flurry
-```
-
-**Adrenaline Rush**
-```
-#showtooltip Adrenaline Rush
-/cast Adrenaline Rush
-```
-
-### Rogue — Subtlety
-
-#### Damage / offensive
-
-**Hemorrhage**
-```
-#showtooltip Hemorrhage
-/cast [harm] Hemorrhage
-```
-
-**Premeditation** — Requires stealth.
-```
-#showtooltip Premeditation
-/cast Premeditation
-```
-
-#### Panic / defensive
-
-**Cloak of Shadows**
-```
-#showtooltip Cloak of Shadows
-/cast Cloak of Shadows
 ```
