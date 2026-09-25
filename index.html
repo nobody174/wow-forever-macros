@@ -137,10 +137,14 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   z-index:1;
   left:20px;
   top:12vh;
+  bottom:20px;
   display:flex;
   flex-direction:column;
   gap:14px;
   width:min(240px, 26vw);
+  overflow-y:auto;
+  padding-right:6px;
+  scrollbar-width:thin;
 }
 .side-links .plaque{
   display:block;
@@ -204,7 +208,7 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   .countdown .tile{padding:10px 12px;min-width:64px}
 }
 @media (max-width:760px){
-  .side-links{position:static;width:100%;max-width:420px;margin:0 auto 28px;padding:0 4px}
+  .side-links{position:static;width:100%;max-width:420px;margin:0 auto 28px;padding:0 4px;bottom:auto;overflow-y:visible;max-height:none}
   .hero{padding-top:20px}
 }
 </style>
@@ -246,6 +250,34 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
     <a class="plaque" href="https://wowtbc.gg/warcraftforever/loot-tables/dungeons/" target="_blank" rel="noopener">
       <div class="plaque-title">Dungeon Loot Tables</div>
       <p class="plaque-desc">Full drop lists for every WoW Forever dungeon, low-level through Blackrock Spire — handy for planning what to farm before you outlevel it.</p>
+    </a>
+    <a class="plaque" href="https://www.icy-veins.com/wow-forever/" target="_blank" rel="noopener">
+      <div class="plaque-title">
+        <span class="icon"><img src="https://www.google.com/s2/favicons?domain=icy-veins.com&sz=64" alt="" loading="lazy"></span>
+        Icy Veins
+      </div>
+      <p class="plaque-desc">Class guides, talent builds, and general strategy write-ups for WoW Forever.</p>
+    </a>
+    <a class="plaque" href="https://www.wowhead.com/forever" target="_blank" rel="noopener">
+      <div class="plaque-title">
+        <span class="icon"><img src="https://www.google.com/s2/favicons?domain=wowhead.com&sz=64" alt="" loading="lazy"></span>
+        Wowhead
+      </div>
+      <p class="plaque-desc">The community database — items, quests, NPCs, guides, and comments for everything WoW Forever.</p>
+    </a>
+    <a class="plaque" href="https://www.warcrafttavern.com/forever/" target="_blank" rel="noopener">
+      <div class="plaque-title">
+        <span class="icon"><img src="https://www.google.com/s2/favicons?domain=warcrafttavern.com&sz=64" alt="" loading="lazy"></span>
+        Warcraft Tavern
+      </div>
+      <p class="plaque-desc">News, guides, and community write-ups covering WoW Forever.</p>
+    </a>
+    <a class="plaque" href="https://mobalytics.gg/wow-forever" target="_blank" rel="noopener">
+      <div class="plaque-title">
+        <span class="icon"><img src="https://www.google.com/s2/favicons?domain=mobalytics.gg&sz=64" alt="" loading="lazy"></span>
+        Mobalytics
+      </div>
+      <p class="plaque-desc">Build and stat-tracking tools for WoW Forever.</p>
     </a>
   </div>
   <div class="hero-content">
