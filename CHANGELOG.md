@@ -4,6 +4,20 @@ Authoritative history of what's actually shipped on wow-forever-macro. Working
 history for whoever builds this next (including a future Claude session) — not
 user-facing release notes.
 
+## 2026-09-26
+
+- Redesigned the macro cheatsheet's group display: each macro-type group (Damage/
+  offensive, Wand, etc.) now shows a row of pill buttons (one per macro) plus a
+  single code panel below that swaps when a pill is clicked, instead of listing
+  every macro's own card. Modeled after warcrafttavern.com/forever's Hunter macro
+  guide. Applies to every class and Universal; search results still use the old
+  always-expanded list since search spans multiple groups/classes at once.
+- Hunter: added an experimental "Raptor Strike + Mongoose Bite + Wing Clip" test
+  macro (separate from the existing Raptor Strike + Wing Clip combo) to check
+  whether WoW Forever's client fires more than one ability per GCD when chained.
+- Hunter: combined Raptor Strike and Wing Clip into one macro (casts Wing Clip
+  right after Raptor Strike).
+
 ## 2026-09-25
 
 - Added a ForeverChanges (foreverchanges.pro) link plaque to the landing page's

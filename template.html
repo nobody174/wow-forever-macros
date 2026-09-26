@@ -80,6 +80,25 @@ pre{margin:8px 0 0;padding:8px 10px;background:#0A0F1F;border-radius:4px;overflo
 .empty{color:var(--muted);padding:20px 0}
 .patterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:10px;margin-bottom:10px}
 .patterns pre{white-space:pre-wrap;word-break:break-word;overflow-x:visible}
+.tabgroup{margin:22px 0 10px}
+.tabgroup .tabgroup-head{font:600 15px var(--sans);color:var(--gold);margin:0 0 10px}
+.tabgroup .picker{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tabgroup .picker button{
+  font:500 14px var(--sans);color:var(--muted);background:var(--panel);
+  border:1px solid var(--edge);border-radius:999px;padding:8px 16px;cursor:pointer;
+  transition:border-color .12s ease,color .12s ease,box-shadow .12s ease;
+}
+.tabgroup .picker button:hover{border-color:var(--accent);color:var(--text)}
+.tabgroup .picker button[aria-pressed="true"]{
+  color:#0E1428;background:linear-gradient(180deg,#FFE566 0%,var(--gold) 55%,#C79C00 100%);
+  border-color:#FFE566;box-shadow:0 0 10px rgba(255,209,0,.35);font-weight:600;
+}
+.tabgroup .panel{
+  background:var(--panel);border:1px solid var(--edge);border-left:3px solid var(--accent);
+  border-radius:6px;padding:14px 16px;
+}
+.tabgroup .panel .note{color:var(--muted);font-size:14px;margin:0 0 8px}
+.tabgroup .panel pre{margin:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -107,6 +126,7 @@ pre{margin:8px 0 0;padding:8px 10px;background:#0A0F1F;border-radius:4px;overflo
 const D = __DATA__;
 const ALL = [D.universal, ...D.classes];
 let cls = D.classes[0].name, spec = "All";
+let tabGroups = []; // per-render lookup: tabGroups[groupIndex] = that group's macro list, for the tabbed picker
 
 function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 const byOrder = gs => [...gs].sort((a,b)=>D.order.indexOf(a.type)-D.order.indexOf(b.type));
@@ -119,6 +139,24 @@ function macroHTML(m){
 
 function groupHTML(g){
   return `<details class="section"><summary><span class="toggle" aria-hidden="true"></span>${esc(g.type)}</summary><div class="section-body">${g.macros.map(macroHTML).join("")}</div></details>`;
+}
+
+// Tabbed picker: one pill per macro in the group, click swaps the code panel below.
+// Used for classes flagged {"tabbed": true} in data.py (Warcraft Tavern-style layout).
+function tabGroupHTML(g, gi){
+  const named = g.macros.filter(m=>m.code);
+  if(!named.length) return groupHTML(g); // fall back for note-only groups
+  const active = 0;
+  const pills = named.map((m,i)=>`<button aria-pressed="${i===active}" data-gi="${gi}" data-mi="${i}">${esc(m.name)}</button>`).join("");
+  return `<div class="tabgroup" data-gi="${gi}">
+    <div class="tabgroup-head">${esc(g.type)}</div>
+    <div class="picker">${pills}</div>
+    <div class="panel">${tabPanelInner(named[active])}</div>
+  </div>`;
+}
+function tabPanelInner(m){
+  return `<div class="top"><div>${m.note?`<div class="note">${esc(m.note)}</div>`:""}</div>
+  <button class="copy" data-code="${esc(m.code)}">Copy</button></div><pre>${esc(m.code)}</pre>`;
 }
 
 const CLASS_ICONS = {
@@ -164,10 +202,12 @@ function render(){
   if(c.name==="Universal"){
     html += `<h2>Style patterns</h2><div class="patterns">`+D.patterns.map(p=>macroHTML({name:p.name,code:p.code,note:""})).join("")+`</div>`;
   }
+  let gi = 0;
+  tabGroups = [];
   for(const s of c.sections){
     if(spec!=="All" && s.spec!==spec) continue;
     html += `<h2>${esc(c.name==="Universal"?"All classes":s.spec==="Shared"?c.name+" — shared by every spec":c.name+" — "+s.spec)}</h2>`;
-    for(const g of byOrder(s.groups)) html += groupHTML(g);
+    for(const g of byOrder(s.groups)){ html += tabGroupHTML(g, gi); tabGroups[gi] = g.macros.filter(m=>m.code); gi++; }
   }
   out.innerHTML = html;
 }
@@ -175,6 +215,14 @@ roster.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)ret
 specs.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;spec=b.dataset.s;render();});
 document.getElementById("q").addEventListener("input",render);
 out.addEventListener("click",async e=>{
+  const pill=e.target.closest(".tabgroup .picker button");
+  if(pill){
+    const gi=+pill.dataset.gi, mi=+pill.dataset.mi;
+    const wrap=pill.closest(".tabgroup");
+    wrap.querySelectorAll(".picker button").forEach(x=>x.setAttribute("aria-pressed", x===pill?"true":"false"));
+    wrap.querySelector(".panel").innerHTML = tabPanelInner(tabGroups[gi][mi]);
+    return;
+  }
   const b=e.target.closest(".copy"); if(!b) return;
   try{await navigator.clipboard.writeText(b.dataset.code);}
   catch{const t=document.createElement("textarea");t.value=b.dataset.code;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();}

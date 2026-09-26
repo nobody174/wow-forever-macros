@@ -17,6 +17,11 @@ Paladin, Warrior. Keep new classes inserted in this order on both pages.
 - `template.html` — HTML/CSS/JS shell (shared top bar + macro cheatsheet UI);
   `__DATA__` is replaced with the macro JSON at build time, `__PAGE_MACROS__` /
   `__PAGE_BUILDS__` / `__PAGE_ADDONS__` are replaced with `aria-current="page"` markers.
+  Each macro-type group (Damage/offensive, Wand, etc.) renders as a "tabbed picker":
+  a row of pill buttons (one per macro in that group) plus a single code panel below
+  that swaps when a pill is clicked, styled after warcrafttavern.com/forever's macro
+  guide layout. Search results still use the old always-expanded list style
+  (`groupHTML`/`details.section`), since search spans multiple classes/groups at once.
 - `build.py` — generates `macros.html` and `wow-forever-macros.md` from `data.py` +
   `template.html`.
 - `macros.html`, `wow-forever-macros.md` — generated output. Never hand-edit; run
