@@ -187,18 +187,6 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
   margin:0;
   text-decoration:none;
 }
-.side-links .plaque.plaque-group:hover{transform:none;border-color:var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 4px 14px rgba(0,0,0,.45)}
-.side-links .plaque-group .plaque-title:hover,
-.side-links .plaque-group .plaque-desc:hover{color:var(--text)}
-.side-links .plaque .sub-link{
-  display:block;
-  margin-top:8px;
-  font:500 12.5px var(--sans);
-  color:var(--gold);
-  text-decoration:underline;
-}
-.side-links .plaque .sub-link:hover{color:#FFE566}
-
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:480px){
   .countdown{gap:8px}
@@ -236,14 +224,13 @@ body{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
       <div class="plaque-title">Zockify</div>
       <p class="plaque-desc">The WoW Forever resource hub — talent calculators, gear planners, class guides, and everything on the Legacy System, camping, professions, and launch-day FAQs.</p>
     </a>
-    <div class="plaque plaque-group">
-      <a class="plaque-title" href="https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards" target="_blank" rel="noopener">
+    <a class="plaque" href="https://foreverchanges.pro/cozy-sleeping-bag" target="_blank" rel="noopener">
+      <div class="plaque-title">
         <span class="icon"><img src="assets/sleepingbag.webp" alt="" loading="lazy"></span>
         Cozy Sleeping Bag
-      </a>
-      <a class="plaque-desc" href="https://www.wowhead.com/forever/guide/cozy-sleeping-bag-locations-rewards" target="_blank" rel="noopener">A stackable rested-XP buff you earn from a short quest chain — lay in it outside an inn for up to +3% XP for 2 hours. Guide covers where to get it and what it does.</a>
-      <a class="sub-link" href="https://www.wowhead.com/classic/quest=79192/stepping-stones#comments" target="_blank" rel="noopener">Quest chain route &rarr;</a>
-    </div>
+      </div>
+      <p class="plaque-desc">A stackable rested-XP buff you earn from a short quest chain — lay in it outside an inn for up to +3% XP for 2 hours. Guide covers where to get it, what it does, and every quest step.</p>
+    </a>
     <a class="plaque" href="https://wowtbc.gg/warcraftforever/loot-tables/dungeons/" target="_blank" rel="noopener">
       <div class="plaque-title">Dungeon Loot Tables</div>
       <p class="plaque-desc">Full drop lists for every WoW Forever dungeon, low-level through Blackrock Spire — handy for planning what to farm before you outlevel it.</p>

@@ -6,6 +6,11 @@ user-facing release notes.
 
 ## 2026-09-26
 
+- Repointed the Cozy Sleeping Bag plaque on the landing page to
+  foreverchanges.pro/cozy-sleeping-bag (covers both the buff explanation and the
+  full quest-chain steps in one place). Simplified the plaque to the standard
+  single-link pattern, dropping the old Wowhead title/description + separate
+  "Quest chain route" sub-link structure and its now-unused CSS.
 - Added community-recommended macros after a research pass across Reddit/Wowhead/
   Icy Veins/Warcraft Tavern: Mage Counterspell and Frost Nova now `/stopcasting`
   first so the interrupt/root fires instantly instead of queuing behind your
