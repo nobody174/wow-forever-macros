@@ -4,6 +4,15 @@ Authoritative history of what's actually shipped on wow-forever-macro. Working
 history for whoever builds this next (including a future Claude session) — not
 user-facing release notes.
 
+## 2026-09-26 (later)
+
+- Added the Rogue level-20 talent build card to builds.html (Improved Sinister
+  Strike 2/2 → Improved Eviscerate 3/3 → Precision 3/3 → Malice 3/5), closing the
+  last remaining gap in the armor-order build lineup (Priest, Warlock, Mage,
+  Rogue, Shaman, Hunter, Paladin, Warrior — all 8 classes now have a build).
+  Verified talent existence/ranks/icons against foreverchanges.pro's WoW Forever
+  talent calculator.
+
 ## 2026-09-26
 
 - Repointed the Cozy Sleeping Bag plaque on the landing page to
