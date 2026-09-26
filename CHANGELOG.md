@@ -6,6 +6,17 @@ user-facing release notes.
 
 ## 2026-09-26
 
+- Added community-recommended macros after a research pass across Reddit/Wowhead/
+  Icy Veins/Warcraft Tavern: Mage Counterspell and Frost Nova now `/stopcasting`
+  first so the interrupt/root fires instantly instead of queuing behind your
+  current cast (same fix applied to the Counterspell focus variant); Rogue Kick
+  gets the same `/stopcasting` treatment, and Rogue gained a missing Cheap Shot
+  stealth-opener entry; Shaman gained a Windfury Weapon + Lightning Shield
+  `castsequence` refresh macro; Warrior gained a Charge + Rend opener and a
+  Battle/Defensive/Berserker stance-dance macro.
+- Ran a full shortening audit across every class's macros — found nothing further
+  to trim; the helper-function pattern already keeps every macro at its minimum
+  legal form.
 - Redesigned the macro cheatsheet's group display: each macro-type group (Damage/
   offensive, Wand, etc.) now shows a row of pill buttons (one per macro) plus a
   single code panel below that swaps when a pill is clicked, instead of listing

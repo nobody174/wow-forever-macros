@@ -376,10 +376,12 @@ CLASSES = [
                 M("Arcane Missiles (spam-safe)", chan("Arcane Missiles")),
                 M("Arcane Explosion", plain("Arcane Explosion")),
                 M("Fire Blast", dpsHarm("Fire Blast")),
-                M("Frost Nova", dpsHarm("Frost Nova")),
+                M("Frost Nova", "#showtooltip Frost Nova\n/stopcasting\n/cast [harm] Frost Nova",
+                  "Clears your current cast first so the root fires instantly."),
                 M("Cone of Cold", plain("Cone of Cold")),
                 M("Scorch", dpsHarm("Scorch")),
-                M("Counterspell (interrupt)", dpsHarm("Counterspell")),
+                M("Counterspell (interrupt)", "#showtooltip Counterspell\n/stopcasting\n/cast [harm] Counterspell",
+                  "Clears your current cast first so the interrupt fires instantly."),
                 M("Polymorph", dpsHarm("Polymorph")),
             ]),
             G(HEAL, [
@@ -408,7 +410,8 @@ CLASSES = [
                 M("Remove Curse (friend or foe)", util("Remove Curse")),
             ]),
             G(FOCUS, [
-                M("Counterspell focus", foc("Counterspell")),
+                M("Counterspell focus", "#showtooltip Counterspell\n/stopcasting\n/cast [@focus, harm, exists][harm] Counterspell",
+                  "Clears your current cast first so the interrupt fires instantly."),
                 M("Polymorph focus", foc("Polymorph")),
             ]),
         ]},
@@ -450,9 +453,11 @@ CLASSES = [
                 M("Rupture", dpsHarm("Rupture")),
                 M("Garrote", dpsHarm("Garrote"), "Requires stealth."),
                 M("Ambush", dpsHarm("Ambush"), "Requires stealth."),
+                M("Cheap Shot", dpsHarm("Cheap Shot"), "Requires stealth. Classic stunlock opener."),
                 M("Expose Armor", dpsHarm("Expose Armor")),
                 M("Sap", dpsHarm("Sap"), "Only works on an out-of-combat target."),
-                M("Kick (interrupt)", dpsHarm("Kick")),
+                M("Kick (interrupt)", "#showtooltip Kick\n/stopcasting\n/cast [harm] Kick",
+                  "Clears your current cast first so the interrupt fires instantly."),
             ]),
             G(AUTO, [
                 M("Auto-attack (spam-safe)", MELEE),
@@ -479,7 +484,8 @@ CLASSES = [
                 M("No dispel", "", "Rogues have no dispel. Interrupt instead with Kick, or silence with Gouge/Kidney Shot/Blind."),
             ]),
             G(FOCUS, [
-                M("Kick focus", foc("Kick")),
+                M("Kick focus", "#showtooltip Kick\n/stopcasting\n/cast [@focus, harm, exists][harm] Kick",
+                  "Clears your current cast first so the interrupt fires instantly."),
                 M("Kidney Shot focus", foc("Kidney Shot")),
                 M("Blind focus", foc("Blind")),
             ]),
@@ -589,6 +595,9 @@ CLASSES = [
             ]),
             G(BUFF, [
                 M("Windfury Weapon", plain("Windfury Weapon")),
+                M("Windfury Weapon + Lightning Shield refresh",
+                  "#showtooltip Lightning Shield\n/castsequence reset=2 Lightning Shield, Windfury Weapon",
+                  "Press twice to reapply both buffs; resets after 2 sec so it doesn't get stuck mid-sequence."),
             ]),
         ]},
     ]},
@@ -849,6 +858,16 @@ CLASSES = [
                 M("Taunt (to Defensive)", stance(2, "Defensive Stance", "Taunt"), "Target the friend being hit: TT is the mob."),
                 M("Mocking Blow (to Battle)", stance(1, "Battle Stance", "Mocking Blow")),
                 M("Challenging Shout", plain("Challenging Shout")),
+                M("Charge + Rend (opener)",
+                  "#showtooltip Charge\n"
+                  "/cast [nocombat, nostance:1] Battle Stance\n"
+                  "/cast [nocombat, harm] Charge\n"
+                  "/cast [harm] Rend",
+                  "Charges in (out of combat only) then immediately opens with Rend."),
+                M("Stance dance (Battle -> Defensive -> Berserker)",
+                  "#showtooltip Battle Stance\n"
+                  "/cast [stance:1] Defensive Stance; [stance:2] Berserker Stance; [stance:3] Battle Stance",
+                  "One button cycles Battle -> Defensive -> Berserker -> Battle."),
             ]),
             G(CLEAN, [
                 M("No dispel", "", "Warriors have no dispel. Interrupt instead with Pummel or Shield Bash."),

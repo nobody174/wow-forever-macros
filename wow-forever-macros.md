@@ -847,9 +847,10 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [harm] Fire Blast
 ```
 
-**Frost Nova**
+**Frost Nova** — Clears your current cast first so the root fires instantly.
 ```
 #showtooltip Frost Nova
+/stopcasting
 /cast [harm] Frost Nova
 ```
 
@@ -865,9 +866,10 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [harm] Scorch
 ```
 
-**Counterspell (interrupt)**
+**Counterspell (interrupt)** — Clears your current cast first so the interrupt fires instantly.
 ```
 #showtooltip Counterspell
+/stopcasting
 /cast [harm] Counterspell
 ```
 
@@ -979,9 +981,10 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 #### Focus
 
-**Counterspell focus**
+**Counterspell focus** — Clears your current cast first so the interrupt fires instantly.
 ```
 #showtooltip Counterspell
+/stopcasting
 /cast [@focus, harm, exists][harm] Counterspell
 ```
 
@@ -1095,6 +1098,12 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [harm] Ambush
 ```
 
+**Cheap Shot** — Requires stealth. Classic stunlock opener.
+```
+#showtooltip Cheap Shot
+/cast [harm] Cheap Shot
+```
+
 **Expose Armor**
 ```
 #showtooltip Expose Armor
@@ -1107,9 +1116,10 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 /cast [harm] Sap
 ```
 
-**Kick (interrupt)**
+**Kick (interrupt)** — Clears your current cast first so the interrupt fires instantly.
 ```
 #showtooltip Kick
+/stopcasting
 /cast [harm] Kick
 ```
 
@@ -1204,9 +1214,10 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 
 #### Focus
 
-**Kick focus**
+**Kick focus** — Clears your current cast first so the interrupt fires instantly.
 ```
 #showtooltip Kick
+/stopcasting
 /cast [@focus, harm, exists][harm] Kick
 ```
 
@@ -1542,6 +1553,12 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 ```
 #showtooltip Windfury Weapon
 /cast Windfury Weapon
+```
+
+**Windfury Weapon + Lightning Shield refresh** — Press twice to reapply both buffs; resets after 2 sec so it doesn't get stuck mid-sequence.
+```
+#showtooltip Lightning Shield
+/castsequence reset=2 Lightning Shield, Windfury Weapon
 ```
 
 ## Hunter
@@ -2345,6 +2362,20 @@ Copy/paste macros for Priest, Shaman, Paladin, Warlock, Hunter and Warrior. Each
 ```
 #showtooltip Challenging Shout
 /cast Challenging Shout
+```
+
+**Charge + Rend (opener)** — Charges in (out of combat only) then immediately opens with Rend.
+```
+#showtooltip Charge
+/cast [nocombat, nostance:1] Battle Stance
+/cast [nocombat, harm] Charge
+/cast [harm] Rend
+```
+
+**Stance dance (Battle -> Defensive -> Berserker)** — One button cycles Battle -> Defensive -> Berserker -> Battle.
+```
+#showtooltip Battle Stance
+/cast [stance:1] Defensive Stance; [stance:2] Berserker Stance; [stance:3] Battle Stance
 ```
 
 #### Focus
